@@ -42,10 +42,7 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin({ filename: styleName }),
-        new HtmlWebpackPlugin({
-            title: 'Insta-preview',
-            template: 'src/index.html'
-        }),
+        new HtmlWebpackPlugin({ template: 'src/index.html' }),
         new CleanWebpackPlugin(
             'build',
             { root: basePath }
