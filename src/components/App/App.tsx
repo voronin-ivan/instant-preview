@@ -1,7 +1,9 @@
 import React from 'react';
 
+import './App.scss';
+
 const text: string = 'Hello World!';
 
 export default () => (
-    <div>{text}</div>
+    <h1>{text}</h1>
 );
