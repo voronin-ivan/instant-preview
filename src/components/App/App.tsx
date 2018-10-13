@@ -1,5 +1,6 @@
 import React from 'react';
 import { PreviewContainer } from '../Preview/PreviewContainer';
+import { LangContainer } from '../Lang/LangContainer';
 import { FormContainer } from '../Form/FormContainer';
 
 import './App.scss';
@@ -10,6 +11,7 @@ export default () => (
             <PreviewContainer />
         </section>
         <section className="app__right">
+            <LangContainer />
             <FormContainer />
         </section>
     </React.Fragment>
