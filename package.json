@@ -21,11 +21,17 @@
   "homepage": "https://github.com/voronin-ivan/insta-preview#readme",
   "dependencies": {
     "react": "16.5.2",
-    "react-dom": "16.5.2"
+    "react-dom": "16.5.2",
+    "react-redux": "5.0.7",
+    "redux": "4.0.1",
+    "redux-form": "7.4.2",
+    "typesafe-actions": "2.0.4"
   },
   "devDependencies": {
     "@types/react": "16.4.15",
     "@types/react-dom": "16.0.8",
+    "@types/react-redux": "6.0.9",
+    "@types/redux-form": "7.4.9",
     "autoprefixer": "9.1.5",
     "clean-webpack-plugin": "0.1.19",
     "css-loader": "1.0.0",

@@ -4,13 +4,17 @@
         "browser": true
     },
     "parser": "typescript-eslint-parser",
-    "plugins": [
-        "typescript"
-    ],
     "rules": {
-        "indent": ["error", 4],
+        "no-unused-vars": "off",
+        "no-undef": "off",
+        "no-restricted-globals": "off",
+        "indent": ["error", 4, {"SwitchCase": 1}],
         "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
         "react/jsx-filename-extension": [1, {"extensions": [".tsx"] }],
-        "import/no-unresolved": "off"
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+        "jsx-a11y/label-has-for": "off",
+        "jsx-a11y/label-has-associated-control": "off"
     }
 }

@@ -1,9 +1,16 @@
 import React from 'react';
+import { PreviewContainer } from '../Preview/PreviewContainer';
+import { FormContainer } from '../Form/FormContainer';
 
 import './App.scss';
 
-const text: string = 'Hello World!';
-
 export default () => (
-    <h1>{text}</h1>
+    <React.Fragment>
+        <section className="app__left">
+            <PreviewContainer />
+        </section>
+        <section className="app__right">
+            <FormContainer />
+        </section>
+    </React.Fragment>
 );

@@ -2,7 +2,9 @@
     "compilerOptions": {
         "module": "esnext",
         "target": "es5",
+        "moduleResolution": "node",
         "noImplicitAny": true,
+        "noUnusedLocals": true,
         "removeComments": true,
         "preserveConstEnums": true,
         "allowSyntheticDefaultImports": true,

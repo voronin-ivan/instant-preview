@@ -1,3 +1,15 @@
-h1 {
-    text-align: center;
+$margin: 40px;
+
+.app {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    &__left {
+        margin-right: $margin;
+    }
+
+    &__right {
+        margin-left: $margin;
+    }
 }
