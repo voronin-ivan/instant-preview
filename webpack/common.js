@@ -9,7 +9,7 @@ const bundleName = `bundle${isProduction ? '[contenthash]' : ''}.js`;
 const styleName = `style${isProduction ? '[contenthash:hex:20]' : ''}.css`;
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: './src/index.tsx',
     output: {
         filename: bundleName,
         path: `${basePath}/build`
