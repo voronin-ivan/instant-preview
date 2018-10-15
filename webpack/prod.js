@@ -13,8 +13,12 @@ module.exports = merge(common, {
             new OptimeCssAssetsPlugin(),
             new UglifyJsPlugin({
                 uglifyOptions: {
+                    parse: {
+                        ecma: 7
+                    },
                     output: {
-                        comments: false
+                        ecma: 5,
+                        comments: false,
                     },
                     parallel: true,
                     cache: true
