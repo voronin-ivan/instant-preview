@@ -8,6 +8,7 @@
         "no-unused-vars": "off",
         "no-undef": "off",
         "no-restricted-globals": "off",
+        "no-underscore-dangle": "off",
         "indent": ["error", 4, {"SwitchCase": 1}],
         "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4],

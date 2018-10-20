@@ -11,8 +11,13 @@ const reducer = combineReducers({
     preview: previewReducer,
 });
 
-export default (initialState: RootState) => createStore(
+const initialState: RootState = window.__INIT__;
+delete window.__INIT__;
+
+const store = createStore(
     reducer,
     initialState,
     composeWithDevTools(),
 );
+
+export default store;
