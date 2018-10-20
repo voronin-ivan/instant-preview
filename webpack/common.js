@@ -5,25 +5,28 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const basePath = path.resolve(__dirname, '..');
 const isProduction = process.env.NODE_ENV === 'production';
-const bundleName = `bundle${isProduction ? '[contenthash]' : ''}.js`;
-const styleName = `style${isProduction ? '[contenthash:hex:20]' : ''}.css`;
+const scriptName = `[name]${isProduction ? '-[contenthash]' : ''}.js`;
+const styleName = `style${isProduction ? '-[contenthash:hex:20]' : ''}.css`;
 
 module.exports = {
-    entry: './src/index.tsx',
+    entry: {
+        init: './src/init.ts',
+        bundle: './src/index.tsx',
+    },
     output: {
-        filename: bundleName,
-        path: `${basePath}/build`
+        filename: scriptName,
+        path: `${basePath}/build`,
     },
     resolve: {
         modules: ['node_modules'],
-        extensions: ['.ts', '.tsx', '.js']
+        extensions: ['.ts', '.tsx', '.js'],
     },
     module: {
         rules: [
             {
                 test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
-                use: 'ts-loader'
+                use: 'ts-loader',
             },
             {
                 test: /\.scss$/,
@@ -31,21 +34,28 @@ module.exports = {
                     use: [
                         {
                             loader: 'css-loader',
-                            options: { sourceMap: true }
+                            options: { sourceMap: true },
                         },
                         'postcss-loader',
-                        'sass-loader'
-                    ]
-                })
+                        'sass-loader',
+                    ],
+                }),
             },
-        ]
+        ],
     },
     plugins: [
         new ExtractTextPlugin({ filename: styleName }),
-        new HtmlWebpackPlugin({ template: 'src/index.html' }),
+        new HtmlWebpackPlugin({
+            inject: false,
+            template: 'src/index.ejs',
+            files: {
+                css: 'style.css',
+                js: ['init.js', 'bundle.js'],
+            },
+        }),
         new CleanWebpackPlugin(
             'build',
-            { root: basePath }
-        )
-    ]
+            { root: basePath },
+        ),
+    ],
 };

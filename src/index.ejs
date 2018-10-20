@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Insta-Preview</title>
+        <link href="<%= htmlWebpackPlugin.files.css %>" rel="stylesheet" />
     </head>
     <body>
         <noscript>
@@ -13,5 +14,7 @@
         <main id="app" class="app">
             <div class="app__spinner">Пожалуйста, подождите...</div>
         </main>
+        <script type="text/javascript" src="<%= htmlWebpackPlugin.files.js[0] %>" async></script>
+        <script type="text/javascript" id="bundle" data-src="<%= htmlWebpackPlugin.files.js[1] %>"></script>
     </body>
 </html>

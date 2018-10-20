@@ -2,6 +2,8 @@
   "name": "insta-preview",
   "version": "0.1.0",
   "description": "SPA for previewing instagram profile",
+  "author": "Ivan Voronin",
+  "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack/dev.js",
     "build": "NODE_ENV=production webpack --config webpack/prod.js",
@@ -13,12 +15,6 @@
     "type": "git",
     "url": "git+https://github.com/voronin-ivan/insta-preview.git"
   },
-  "author": "Ivan Voronin",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/voronin-ivan/insta-preview/issues"
-  },
-  "homepage": "https://github.com/voronin-ivan/insta-preview#readme",
   "dependencies": {
     "idb-keyval": "3.1.0",
     "react": "16.5.2",

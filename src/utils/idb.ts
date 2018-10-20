@@ -1,9 +1,9 @@
-import { Store as Bla, set, get } from 'idb-keyval';
+import { Store, set, get } from 'idb-keyval';
 import { PreviewState } from '../models/preview';
 import { LangState } from '../models/lang';
 import { RootState } from '../models/root';
 
-const store = new Bla('insta-preview');
+const store = new Store('insta-preview');
 
 export const setData = (
     key: string,
