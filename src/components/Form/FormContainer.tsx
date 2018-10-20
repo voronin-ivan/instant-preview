@@ -8,6 +8,7 @@ import { RootState } from '../../models/root';
 import { PreviewState } from '../../models/preview';
 
 const mapStateToProps = (state: RootState) => ({
+    lang: state.lang,
     initialValues: state.preview,
 });
 

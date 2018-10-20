@@ -1,12 +1,15 @@
 import React from 'react';
 import { Field, InjectedFormProps } from 'redux-form';
 import { reset as actionReset } from '../../redux/actions/preview';
+import i18n from '../../utils/i18n';
 
 interface FormProps extends InjectedFormProps {
     resetPreview: typeof actionReset;
 }
 
 export const Form = ({ reset, resetPreview }: FormProps) => {
+    const login = i18n('login');
+    const name = i18n('name');
     const onClick = () => {
         reset();
         resetPreview();
@@ -15,27 +18,27 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
     return (
         <form>
             <div>
-                <label htmlFor="login">Логин</label>
+                <label htmlFor="login">{login}</label>
                 <Field
                     name="login"
                     id="login"
                     component="input"
                     type="text"
-                    placeholder="Логин"
+                    placeholder={login}
                 />
             </div>
             <div>
-                <label htmlFor="name">Имя</label>
+                <label htmlFor="name">{name}</label>
                 <Field
                     name="name"
                     id="name"
                     component="input"
                     type="text"
-                    placeholder="Имя"
+                    placeholder={name}
                 />
             </div>
             <div>
-                <label htmlFor="hasActiveStory">Есть активная история</label>
+                <label htmlFor="hasActiveStory">{i18n('hasActiveStory')}</label>
                 <Field
                     name="hasActiveStory"
                     id="hasActiveStory"
@@ -44,7 +47,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 />
             </div>
             <div>
-                <label htmlFor="description">Описание</label>
+                <label htmlFor="description">{i18n('description')}</label>
                 <Field
                     name="description"
                     id="description"
@@ -52,7 +55,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 />
             </div>
             <button type="button" onClick={onClick}>
-                Очистить значения
+                {i18n('clearValues')}
             </button>
         </form>
     );

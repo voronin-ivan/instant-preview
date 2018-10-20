@@ -5,7 +5,7 @@ import { FormContainer } from '../Form/FormContainer';
 
 import './App.scss';
 
-export default () => (
+export const App = () => (
     <React.Fragment>
         <section className="app__left">
             <PreviewContainer />

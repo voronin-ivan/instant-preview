@@ -1,6 +1,7 @@
 import React from 'react';
 import { LangState } from '../../models/lang';
 import { change } from '../../redux/actions/lang';
+import i18n from '../../utils/i18n';
 
 export interface LangProps {
     lang: LangState,
@@ -13,7 +14,7 @@ const ENG = 'eng';
 export const Lang = ({ lang, changeLang }: LangProps) => (
     <div>
         <div>
-            <span>Current lang:</span>
+            <span>{i18n('currentLang')}:</span>
             <span>{lang}</span>
         </div>
         <div>
