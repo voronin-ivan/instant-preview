@@ -5,19 +5,19 @@ import i18n from '../../utils/i18n';
 
 import './Input.scss';
 
-export interface InputProps {
-    input?: InputState;
+interface InputTextState extends InputState {
+    value: string;
 }
 
-export const Input = ({ input }: InputProps) => {
-    const { value, onChange, name } = input;
+interface InputProps {
+    input?: InputTextState;
+}
 
-    return (
-        <ToolboxInput
-            type="text"
-            label={i18n(name)}
-            onChange={onChange}
-            value={value}
-        />
-    );
-};
+export const Input = ({ input: { value, onChange, name } }: InputProps) => (
+    <ToolboxInput
+        type="text"
+        label={i18n(name)}
+        onChange={onChange}
+        value={value}
+    />
+);

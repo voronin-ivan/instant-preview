@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, InjectedFormProps } from 'redux-form';
 import { Input } from '../Input/Input';
+import { Checkbox } from '../Checkbox/Checkbox';
 import { reset as actionReset } from '../../redux/actions/preview';
 import i18n from '../../utils/i18n';
 
@@ -31,12 +32,10 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 />
             </div>
             <div>
-                <label htmlFor="hasActiveStory">{i18n('hasActiveStory')}</label>
                 <Field
                     name="hasActiveStory"
-                    id="hasActiveStory"
-                    component="input"
-                    type="checkbox"
+                    component={Checkbox}
+                    placeholder={i18n('hasActiveStory')}
                 />
             </div>
             <div>
