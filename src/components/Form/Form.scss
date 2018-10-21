@@ -1,0 +1,14 @@
+.form {
+    margin-top: 15px;
+
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    &__checkbox {
+        width: 50%;
+        margin-top: 20px;
+    }
+}
