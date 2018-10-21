@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, InjectedFormProps } from 'redux-form';
+import { Input } from '../Input/Input';
 import { reset as actionReset } from '../../redux/actions/preview';
 import i18n from '../../utils/i18n';
 
@@ -8,8 +9,6 @@ interface FormProps extends InjectedFormProps {
 }
 
 export const Form = ({ reset, resetPreview }: FormProps) => {
-    const login = i18n('login');
-    const name = i18n('name');
     const onClick = () => {
         reset();
         resetPreview();
@@ -18,23 +17,17 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
     return (
         <form>
             <div>
-                <label htmlFor="login">{login}</label>
                 <Field
                     name="login"
-                    id="login"
-                    component="input"
-                    type="text"
-                    placeholder={login}
+                    component={Input}
+                    placeholder={i18n('login')}
                 />
             </div>
             <div>
-                <label htmlFor="name">{name}</label>
                 <Field
                     name="name"
-                    id="name"
-                    component="input"
-                    type="text"
-                    placeholder={name}
+                    component={Input}
+                    placeholder={i18n('name')}
                 />
             </div>
             <div>

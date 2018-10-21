@@ -41,6 +41,22 @@ module.exports = {
                     ],
                 }),
             },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                                importLoaders: 1,
+                                localIdentName: '[local]',
+                            },
+                        },
+                        'postcss-loader',
+                    ],
+                }),
+            },
         ],
     },
     plugins: [
