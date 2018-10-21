@@ -1,4 +1,4 @@
-$margin: 40px;
+$margin: 20px;
 
 .app {
     display: flex;
@@ -6,10 +6,12 @@ $margin: 40px;
     justify-content: center;
 
     &__left {
+        width: 400px;
         margin-right: $margin;
     }
 
     &__right {
+        width: 400px;
         margin-left: $margin;
     }
 }

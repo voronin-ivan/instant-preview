@@ -13,7 +13,6 @@ export const Preview = (props: PreviewProps) => {
         login,
         name,
         hasActiveStory,
-        description,
     } = props.preview;
 
     return (
@@ -27,12 +26,8 @@ export const Preview = (props: PreviewProps) => {
                 <span>{name}</span>
             </div>
             <div>
-                <span>{i18n('hasActiveStory')}:</span>
+                <span>{i18n('activeStory')}:</span>
                 <span>{hasActiveStory ? 'yep' : 'nope'}</span>
-            </div>
-            <div>
-                <span>{i18n('description')}:</span>
-                <span>{description}</span>
             </div>
         </div>
     );
