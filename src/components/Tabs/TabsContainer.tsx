@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { Lang, LangProps } from './Lang';
+import { Tabs, TabsProps } from './Tabs';
 import { change } from '../../redux/actions/lang';
 import { RootState } from '../../models/root';
 
-const mapStateToProps = (state: RootState): Partial<LangProps> => ({
+const mapStateToProps = (state: RootState): Partial<TabsProps> => ({
     lang: state.lang,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch): Partial<LangProps> => (
+const mapDispatchToProps = (dispatch: Dispatch): Partial<TabsProps> => (
     bindActionCreators({
         changeLang: change,
     }, dispatch)
 );
 
-export const LangContainer = connect(mapStateToProps, mapDispatchToProps)(Lang);
+export const TabsContainer = connect(mapStateToProps, mapDispatchToProps)(Tabs);

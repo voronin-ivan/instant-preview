@@ -1,0 +1,15 @@
+.tabs {
+    position: relative;
+    top: 2px;
+
+    [class] &__item {
+
+        &--active {
+            cursor: default;
+        }
+
+        * {
+            display: none; // disable fckg ripple
+        }
+    }
+}
