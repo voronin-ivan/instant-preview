@@ -1,0 +1,37 @@
+.preview {
+    position: fixed;
+    top: calc(50% - 255px);
+    width: 280px;
+    height: 561px;
+    padding: 16px 18px;
+    font-size: 11px;
+    letter-spacing: -0.4px;
+
+    &__phone {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("./phone.png");
+        background-size: 280px 561px;
+        background-repeat: no-repeat;
+        pointer-events: none;
+    }
+
+    &__header {
+        height: 50px;
+        padding-top: 28px;
+        background-color: #fafafa;
+        border-bottom: 1px solid #eaeaea;
+    }
+
+    &__header-text {
+        width: 65%;
+        margin: 0 auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: bold;
+        text-align: center;
+    }
+}

@@ -2,7 +2,7 @@ import { StringMap } from '../../models/lang';
 
 const ru: StringMap = {
     login: 'Имя пользователя',
-    photo: 'Ссылка на фото профиля',
+    photoLink: 'Ссылка на фото профиля',
     postsCount: 'Количество постов',
     followersCount: 'Количество подписчиков',
     followingCount: 'Количество подписок',
@@ -16,7 +16,6 @@ const ru: StringMap = {
     showEmail: 'Показать email',
     showPhone: 'Показать телефон',
     clearValues: 'Очистить значения',
-    currentLang: 'Выбранный язык',
 };
 
 export default ru;

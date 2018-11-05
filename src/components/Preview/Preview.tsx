@@ -1,7 +1,8 @@
 import React from 'react';
-import i18n from '../../utils/i18n';
 import { LangState } from '../../models/lang';
 import { PreviewState } from '../../models/preview';
+
+import './Preview.scss';
 
 export interface PreviewProps {
     lang: LangState;
@@ -11,24 +12,24 @@ export interface PreviewProps {
 export const Preview = (props: PreviewProps) => {
     const {
         login,
-        name,
-        hasActiveStory,
+        photoLink,
     } = props.preview;
 
     return (
-        <div>
-            <div>
-                <span>{i18n('login')}:</span>
-                <span>{login}</span>
+        <div className="preview">
+            <div className="preview__wrapper">
+                <div className="preview__header">
+                    <div className="preview__header-text">{login}</div>
+                </div>
+                <div className="preview__row">
+                    <img
+                        alt={login}
+                        src={photoLink}
+                        className="preview__photo"
+                    />
+                </div>
             </div>
-            <div>
-                <span>{i18n('name')}:</span>
-                <span>{name}</span>
-            </div>
-            <div>
-                <span>{i18n('activeStory')}:</span>
-                <span>{hasActiveStory ? 'yep' : 'nope'}</span>
-            </div>
+            <div className="preview__phone" />
         </div>
     );
 };

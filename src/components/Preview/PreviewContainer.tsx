@@ -10,9 +10,7 @@ const mapStateToProps = (state: RootState): PreviewProps => ({
     preview: selector(
         state,
         'login',
-        'name',
-        'hasActiveStory',
-        'description',
+        'photoLink',
     ),
 });
 
