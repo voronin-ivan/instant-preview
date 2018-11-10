@@ -1,4 +1,4 @@
-export interface PreviewState {
+export interface PreviewModel {
     login?: string;
     photoLink?: string;
     name?: string;

@@ -2,7 +2,7 @@ import { StringMap } from '../../models/lang';
 
 const ru: StringMap = {
     login: 'Имя пользователя',
-    photoLink: 'Ссылка на фото профиля',
+    photo: 'Фото профиля',
     postsCount: 'Количество постов',
     followersCount: 'Количество подписчиков',
     followingCount: 'Количество подписок',
@@ -16,6 +16,8 @@ const ru: StringMap = {
     showEmail: 'Показать email',
     showPhone: 'Показать телефон',
     clearValues: 'Очистить значения',
+    errorSize: 'Размер файла превышает лимит (6МБ)',
+    errorUnsupportedType: 'Поддерживаются только изображения (jpeg, png)',
 };
 
 export default ru;

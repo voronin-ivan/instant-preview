@@ -1,12 +1,12 @@
 import React from 'react';
-import { LangState } from '../../models/lang';
-import { PreviewState } from '../../models/preview';
+import { LangModel } from '../../models/lang';
+import { PreviewModel } from '../../models/preview';
 
 import './Preview.scss';
 
 export interface PreviewProps {
-    lang: LangState;
-    preview: PreviewState;
+    lang: LangModel;
+    preview: PreviewModel;
 }
 
 export const Preview = (props: PreviewProps) => {

@@ -3,13 +3,13 @@ import {
     Tabs as ToolboxTabs,
     Tab as ToolboxTab,
 } from 'react-toolbox/lib/tabs';
-import { LangState } from '../../models/lang';
+import { LangModel } from '../../models/lang';
 import { change } from '../../redux/actions/lang';
 
 import './Tabs.scss';
 
 export interface TabsProps {
-    lang: LangState,
+    lang: LangModel,
     changeLang: typeof change
 }
 

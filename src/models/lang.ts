@@ -1,4 +1,4 @@
-export type LangState = 'ru' | 'eng';
+export type LangModel = 'ru' | 'eng';
 
 export interface StringMap {
     [s: string]: string;

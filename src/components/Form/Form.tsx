@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, InjectedFormProps } from 'redux-form';
 import { Input } from '../Input/Input';
+import { Upload } from '../Upload/Upload';
 import { Checkbox } from '../Checkbox/Checkbox';
 import { reset as actionReset } from '../../redux/actions/preview';
 import i18n from '../../utils/i18n';
@@ -29,10 +30,9 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
             </div>
             <div className="form__row">
                 <Field
-                    name="photoLink"
-                    component={Input}
-                    type="text"
-                    placeholder={i18n('photoLink')}
+                    name="photo"
+                    component={Upload}
+                    placeholder={i18n('photo')}
                 />
             </div>
             <div className="form__row">

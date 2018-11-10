@@ -1,9 +1,9 @@
 import { FormStateMap } from 'redux-form';
-import { LangState } from '../models/lang';
-import { PreviewState } from '../models/preview';
+import { LangModel } from '../models/lang';
+import { PreviewModel } from '../models/preview';
 
-export interface RootState {
+export interface RootModel {
     form?: FormStateMap;
-    lang: LangState;
-    preview: PreviewState;
+    lang: LangModel;
+    preview: PreviewModel;
 }

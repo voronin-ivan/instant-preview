@@ -2,7 +2,7 @@ import { StringMap } from '../../models/lang';
 
 const eng: StringMap = {
     login: 'Login',
-    photoLink: 'Link to profile photo',
+    photo: 'Profile photo',
     postsCount: 'Posts count',
     followersCount: 'Followers count',
     followingCount: 'Following count',
@@ -16,6 +16,8 @@ const eng: StringMap = {
     showEmail: 'Show email',
     showPhone: 'Show phone',
     clearValues: 'Clear values',
+    errorSize: 'File size exceeds the limit (6MB)',
+    errorUnsupportedType: 'Only images are supported (jpeg, png)',
 };
 
 export default eng;
