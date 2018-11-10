@@ -21,6 +21,7 @@
 
     &__header {
         height: 50px;
+        margin-bottom: 8px;
         padding-top: 28px;
         background-color: #fafafa;
         border-bottom: 1px solid #eaeaea;
@@ -33,5 +34,17 @@
         text-overflow: ellipsis;
         font-weight: bold;
         text-align: center;
+    }
+
+    &__content {
+        padding: 0 8px;
+    }
+
+    &__photo {
+        display: block;
+        width: 57px;
+        height: 57px;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
     }
 }

@@ -1,6 +1,6 @@
 export interface PreviewModel {
     login?: string;
-    photoLink?: string;
+    photo?: File;
     name?: string;
     hasActiveStory?: boolean;
     description?: string;
