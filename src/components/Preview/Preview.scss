@@ -5,7 +5,6 @@
     height: 561px;
     padding: 16px 18px;
     font-size: 11px;
-    letter-spacing: -0.4px;
 
     &__phone {
         position: absolute;
@@ -34,17 +33,57 @@
         text-overflow: ellipsis;
         font-weight: bold;
         text-align: center;
+        letter-spacing: -0.4px;
     }
 
     &__content {
-        padding: 0 8px;
+        padding: 0 10px;
+    }
+
+    &__row {
+        display: flex;
     }
 
     &__photo {
         display: block;
+        flex-shrink: 0;
         width: 57px;
         height: 57px;
+        margin-right: 12px;
         border-radius: 50%;
         border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &__statistics {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-top: 5px;
+    }
+
+    &__statistics-item {
+        text-align: center;
+
+        &--posts {
+            width: 50px;
+        }
+
+        &--followers {
+            width: 56px;
+        }
+
+        &--following {
+            width: 40px;
+        }
+    }
+
+    &__item-count {
+        font-weight: bold;
+    }
+
+    &__item-title {
+        font-size: 8px;
+        color: #999;
+        text-transform: lowercase;
     }
 }

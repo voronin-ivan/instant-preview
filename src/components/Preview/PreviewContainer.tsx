@@ -11,6 +11,9 @@ const mapStateToProps = (state: RootModel): PreviewProps => ({
         state,
         'login',
         'photo',
+        'postsCount',
+        'followersCount',
+        'followingCount',
     ),
 });
 

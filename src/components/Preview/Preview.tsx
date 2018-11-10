@@ -1,7 +1,8 @@
 import React from 'react';
 import { LangModel } from '../../models/lang';
 import { PreviewModel } from '../../models/preview';
-import { fileToUrl } from '../../utils/helpers';
+import { fileToUrl, formatCount } from '../../utils/helpers';
+import i18n from '../../utils/i18n';
 
 import './photo.jpg';
 
@@ -16,6 +17,9 @@ export const Preview = (props: PreviewProps) => {
     const {
         login,
         photo,
+        postsCount,
+        followersCount,
+        followingCount,
     } = props.preview;
 
     const photoUrl = photo ? fileToUrl(photo) : './img/photo.jpg';
@@ -33,6 +37,32 @@ export const Preview = (props: PreviewProps) => {
                             className="preview__photo"
                             alt={login}
                         />
+                        <div className="preview__statistics">
+                            <div className="preview__statistics-item preview__statistics-item--posts">
+                                <div className="preview__item-count">
+                                    {formatCount(postsCount)}
+                                </div>
+                                <div className="preview__item-title">
+                                    {i18n('posts')}
+                                </div>
+                            </div>
+                            <div className="preview__statistics-item preview__statistics-item--followers">
+                                <div className="preview__item-count">
+                                    {formatCount(followersCount)}
+                                </div>
+                                <div className="preview__item-title">
+                                    {i18n('followers')}
+                                </div>
+                            </div>
+                            <div className="preview__statistics-item preview__statistics-item--following">
+                                <div className="preview__item-count">
+                                    {formatCount(followingCount)}
+                                </div>
+                                <div className="preview__item-title">
+                                    {i18n('following')}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
