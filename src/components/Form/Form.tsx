@@ -40,6 +40,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                     name="postsCount"
                     component={Input}
                     type="number"
+                    max="9999"
                     placeholder={i18n('postsCount')}
                 />
             </div>
@@ -48,6 +49,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                     name="followersCount"
                     component={Input}
                     type="number"
+                    max="999999999" // 999M
                     placeholder={i18n('followersCount')}
                 />
             </div>
@@ -56,6 +58,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                     name="followingCount"
                     component={Input}
                     type="number"
+                    max="9999"
                     placeholder={i18n('followingCount')}
                 />
             </div>
