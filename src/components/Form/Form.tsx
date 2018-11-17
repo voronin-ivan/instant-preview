@@ -5,6 +5,11 @@ import { Upload } from '../Upload/Upload';
 import { Checkbox } from '../Checkbox/Checkbox';
 import { reset as actionReset } from '../../redux/actions/preview';
 import i18n from '../../utils/i18n';
+import {
+    normalizeTextField,
+    normalizeNumberField,
+    normalizeMultilineField,
+} from '../../utils/normalizer';
 
 import './Form.scss';
 
@@ -13,7 +18,14 @@ interface FormProps extends InjectedFormProps {
 }
 
 export const Form = ({ reset, resetPreview }: FormProps) => {
-    const onClick = () => {
+    const maxLoginLength = 30;
+    const maxNameLength = 30;
+    const maxBioLength = 150;
+    const maxPostsCount = 9999;
+    const maxFollowingCount = 9999;
+    const maxFollowersCount = 999999999; // 999M
+
+    const clearValues = () => {
         reset();
         resetPreview();
     };
@@ -24,8 +36,8 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 <Field
                     name="login"
                     component={Input}
-                    type="text"
                     placeholder={i18n('login')}
+                    maxLength={maxLoginLength}
                 />
             </div>
             <div className="form__row">
@@ -39,67 +51,65 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 <Field
                     name="postsCount"
                     component={Input}
-                    type="number"
-                    max="9999"
                     placeholder={i18n('postsCount')}
+                    normalize={normalizeNumberField(maxPostsCount)}
                 />
             </div>
             <div className="form__row">
                 <Field
                     name="followersCount"
                     component={Input}
-                    type="number"
-                    max="999999999" // 999M
                     placeholder={i18n('followersCount')}
+                    normalize={normalizeNumberField(maxFollowersCount)}
                 />
             </div>
             <div className="form__row">
                 <Field
                     name="followingCount"
                     component={Input}
-                    type="number"
-                    max="9999"
                     placeholder={i18n('followingCount')}
+                    normalize={normalizeNumberField(maxFollowingCount)}
                 />
             </div>
             <div className="form__row">
                 <Field
                     name="name"
                     component={Input}
-                    type="text"
                     placeholder={i18n('name')}
+                    maxLength={maxNameLength}
                 />
             </div>
             <div className="form__row">
                 <Field
                     name="business"
                     component={Input}
-                    type="text"
                     placeholder={i18n('business')}
+                    normalize={normalizeTextField}
                 />
             </div>
             <div className="form__row">
                 <Field
                     name="bio"
                     component={Input}
-                    type="text"
                     placeholder={i18n('bio')}
+                    maxLength={maxBioLength}
+                    normalize={normalizeMultilineField}
                 />
             </div>
             <div className="form__row">
                 <Field
                     name="website"
                     component={Input}
-                    type="text"
                     placeholder={i18n('website')}
+                    normalize={normalizeTextField}
                 />
             </div>
             <div className="form__row">
                 <Field
                     name="address"
                     component={Input}
-                    type="text"
                     placeholder={i18n('address')}
+                    normalize={normalizeTextField}
                 />
             </div>
             <div className="form__row">
@@ -132,7 +142,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                     />
                 </div>
             </div>
-            <button type="button" onClick={onClick}>
+            <button type="button" onClick={clearValues}>
                 {i18n('clearValues')}
             </button>
         </form>
