@@ -10,7 +10,7 @@ const eng: StringMap = {
     following: 'Following',
     followingCount: 'Following count',
     name: 'Name',
-    business: 'Business category',
+    business: 'Business',
     bio: 'Bio',
     website: 'Website',
     address: 'Address',
@@ -23,6 +23,10 @@ const eng: StringMap = {
     errorUnsupportedType: 'Only images are supported (jpeg, png)',
     thousand: 'K',
     million: 'M',
+    follow: 'Follow',
+    phoneButton: 'Call',
+    emailButton: 'Email',
+    addressButton: 'Directions',
 };
 
 export default eng;

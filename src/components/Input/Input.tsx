@@ -8,7 +8,7 @@ export const Input = ({ input, type, placeholder, max }: InputProps) => {
     const { name, onChange, value: inputValue } = input;
     const textarea = name === 'bio';
 
-    const validateChange = (value: string) => {
+    const validateInput = (value: string) => {
         if (type === 'number') {
             const reg = /^\d+$/; // only nums
 
@@ -22,6 +22,18 @@ export const Input = ({ input, type, placeholder, max }: InputProps) => {
         }
     };
 
+    const validateTextarea = (value: string) => {
+        const rowsLimit = 10;
+
+        if (value.split('\n').length <= rowsLimit) {
+            onChange(value);
+        }
+    };
+
+    let maxLength;
+    if (textarea) maxLength = 150;
+    if (name === 'login' || name === 'name') maxLength = 30;
+
     return (
         <ToolboxInput
             type="text" // validation work`s only with "text"
@@ -29,8 +41,8 @@ export const Input = ({ input, type, placeholder, max }: InputProps) => {
             value={inputValue}
             label={placeholder}
             multiline={textarea}
-            maxLength={textarea ? 150 : null}
-            onChange={textarea ? onChange : validateChange}
+            maxLength={maxLength}
+            onChange={textarea ? validateTextarea : validateInput}
         />
     );
 };

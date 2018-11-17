@@ -10,7 +10,7 @@ const ru: StringMap = {
     following: 'Подписки',
     followingCount: 'Количество подписок',
     name: 'Имя',
-    business: 'Категория компании',
+    business: 'Деятельность',
     bio: 'О себе',
     website: 'Сайт',
     address: 'Адрес',
@@ -23,6 +23,10 @@ const ru: StringMap = {
     errorUnsupportedType: 'Поддерживаются только изображения (jpeg, png)',
     thousand: ' тыс.',
     million: ' млн',
+    follow: 'Подписаться',
+    phoneButton: 'Позвонить',
+    emailButton: 'Эл. письмо',
+    addressButton: 'Как добраться',
 };
 
 export default ru;
