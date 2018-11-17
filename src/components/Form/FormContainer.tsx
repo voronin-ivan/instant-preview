@@ -4,10 +4,10 @@ import { reduxForm } from 'redux-form';
 import { Form } from './Form';
 import { reset } from '../../redux/actions/preview';
 import { setData } from '../../utils/idb';
-import { RootState } from '../../models/root';
-import { PreviewState } from '../../models/preview';
+import { RootModel } from '../../models/root';
+import { PreviewModel } from '../../models/preview';
 
-const mapStateToProps = (state: RootState) => ({
+const mapStateToProps = (state: RootModel) => ({
     lang: state.lang,
     initialValues: state.preview,
 });
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => (
     }, dispatch)
 );
 
-const onChange = (preview: Partial<PreviewState>) => {
+const onChange = (preview: Partial<PreviewModel>) => {
     setData('preview', preview);
 };
 

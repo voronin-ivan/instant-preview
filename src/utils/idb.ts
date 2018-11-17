@@ -1,18 +1,18 @@
 import { Store, set, get } from 'idb-keyval';
-import { PreviewState } from '../models/preview';
-import { LangState } from '../models/lang';
-import { RootState } from '../models/root';
+import { PreviewModel } from '../models/preview';
+import { LangModel } from '../models/lang';
+import { RootModel } from '../models/root';
 
 const store = new Store('insta-preview');
 
 export const setData = (
     key: string,
-    value: PreviewState | LangState,
+    value: PreviewModel | LangModel,
 ): Promise<void> => set(key, value, store);
 
-export const getInitState = async (): Promise<RootState> => {
-    const lang = await get<LangState>('lang', store) || 'ru';
-    const preview = await get<PreviewState>('preview', store);
+export const getInitState = async (): Promise<RootModel> => {
+    const lang = await get<LangModel>('lang', store) || 'ru';
+    const preview = await get<PreviewModel>('preview', store);
 
     return { lang, preview };
 };

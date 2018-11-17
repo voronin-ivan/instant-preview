@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, InjectedFormProps } from 'redux-form';
 import { Input } from '../Input/Input';
+import { Upload } from '../Upload/Upload';
 import { Checkbox } from '../Checkbox/Checkbox';
 import { reset as actionReset } from '../../redux/actions/preview';
 import i18n from '../../utils/i18n';
@@ -23,20 +24,23 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 <Field
                     name="login"
                     component={Input}
+                    type="text"
                     placeholder={i18n('login')}
                 />
             </div>
             <div className="form__row">
                 <Field
                     name="photo"
-                    component={Input}
-                    placeholder={i18n('name')}
+                    component={Upload}
+                    placeholder={i18n('photo')}
                 />
             </div>
             <div className="form__row">
                 <Field
                     name="postsCount"
                     component={Input}
+                    type="number"
+                    max="9999"
                     placeholder={i18n('postsCount')}
                 />
             </div>
@@ -44,6 +48,8 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 <Field
                     name="followersCount"
                     component={Input}
+                    type="number"
+                    max="999999999" // 999M
                     placeholder={i18n('followersCount')}
                 />
             </div>
@@ -51,6 +57,8 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 <Field
                     name="followingCount"
                     component={Input}
+                    type="number"
+                    max="9999"
                     placeholder={i18n('followingCount')}
                 />
             </div>
@@ -58,6 +66,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 <Field
                     name="name"
                     component={Input}
+                    type="text"
                     placeholder={i18n('name')}
                 />
             </div>
@@ -65,6 +74,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 <Field
                     name="business"
                     component={Input}
+                    type="text"
                     placeholder={i18n('business')}
                 />
             </div>
@@ -72,6 +82,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 <Field
                     name="bio"
                     component={Input}
+                    type="text"
                     placeholder={i18n('bio')}
                 />
             </div>
@@ -79,6 +90,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 <Field
                     name="website"
                     component={Input}
+                    type="text"
                     placeholder={i18n('website')}
                 />
             </div>
@@ -86,6 +98,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 <Field
                     name="address"
                     component={Input}
+                    type="text"
                     placeholder={i18n('address')}
                 />
             </div>

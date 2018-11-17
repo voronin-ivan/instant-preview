@@ -1,34 +1,52 @@
 import React from 'react';
-import i18n from '../../utils/i18n';
-import { LangState } from '../../models/lang';
-import { PreviewState } from '../../models/preview';
+import { PreviewCommon } from './Common/PreviewCommon';
+import { PreviewInfo } from './Info/PreviewInfo';
+import { PreviewButtons } from './Buttons/PreviewButtons';
+import { LangModel } from '../../models/lang';
+import { PreviewModel } from '../../models/preview';
+
+import './Preview.scss';
 
 export interface PreviewProps {
-    lang: LangState;
-    preview: PreviewState;
+    lang: LangModel;
+    preview: PreviewModel;
 }
 
 export const Preview = (props: PreviewProps) => {
     const {
         login,
-        name,
-        hasActiveStory,
+        photo,
+        activeStory,
+        postsCount,
+        followersCount,
+        followingCount,
+        showPhone,
+        showEmail,
+        ...info
     } = props.preview;
 
     return (
-        <div>
-            <div>
-                <span>{i18n('login')}:</span>
-                <span>{login}</span>
+        <div className="preview">
+            <div className="preview__wrapper">
+                <div className="preview__header">
+                    <div className="preview__header-text">{login}</div>
+                </div>
+                <PreviewCommon
+                    photo={photo}
+                    activeStory={activeStory}
+                    postsCount={postsCount}
+                    followersCount={followersCount}
+                    followingCount={followingCount}
+                />
+                <PreviewInfo {...info} />
+                <PreviewButtons
+                    phone={showPhone}
+                    email={showEmail}
+                    address={Boolean(info.address)}
+                />
+                <div className="preview__posts" />
             </div>
-            <div>
-                <span>{i18n('name')}:</span>
-                <span>{name}</span>
-            </div>
-            <div>
-                <span>{i18n('activeStory')}:</span>
-                <span>{hasActiveStory ? 'yep' : 'nope'}</span>
-            </div>
+            <div className="preview__phone" />
         </div>
     );
 };

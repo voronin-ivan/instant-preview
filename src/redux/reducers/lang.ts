@@ -1,11 +1,11 @@
 import { ActionType, getType } from 'typesafe-actions';
-import { LangState } from '../../models/lang';
+import { LangModel } from '../../models/lang';
 import { setData } from '../../utils/idb';
 import * as langActions from '../actions/lang';
 
 type LangAction = ActionType<typeof langActions>;
 
-export const langReducer = (state: LangState = 'ru', action: LangAction) => {
+export const langReducer = (state: LangModel = 'ru', action: LangAction) => {
     switch (action.type) {
         case getType(langActions.change):
             setData('lang', action.payload);

@@ -1,18 +1,28 @@
 import { connect } from 'react-redux';
 import { formValueSelector } from 'redux-form';
 import { Preview, PreviewProps } from './Preview';
-import { RootState } from '../../models/root';
+import { RootModel } from '../../models/root';
 
 const selector = formValueSelector('main');
 
-const mapStateToProps = (state: RootState): PreviewProps => ({
+const mapStateToProps = (state: RootModel): PreviewProps => ({
     lang: state.lang,
     preview: selector(
         state,
         'login',
+        'photo',
+        'activeStory',
+        'postsCount',
+        'followersCount',
+        'followingCount',
         'name',
-        'hasActiveStory',
-        'description',
+        'verifiedAcc',
+        'business',
+        'bio',
+        'website',
+        'address',
+        'showPhone',
+        'showEmail',
     ),
 });
 
