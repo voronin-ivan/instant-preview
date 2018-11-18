@@ -1,3 +1,5 @@
+import { UploadedFileModel } from './file';
+
 export interface PreviewModel {
     login?: string;
     photo?: File;
@@ -13,4 +15,5 @@ export interface PreviewModel {
     address?: string;
     showPhone?: boolean;
     showEmail?: boolean;
+    posts?: UploadedFileModel[]
 }

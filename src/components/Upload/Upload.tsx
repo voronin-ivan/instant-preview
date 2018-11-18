@@ -1,17 +1,20 @@
 import React from 'react';
 import { Input as ToolboxInput } from 'react-toolbox/lib/input';
-import { Button as ToolboxButton } from 'react-toolbox/lib/button';
 import { InputProps } from '../../models/input';
 import i18n from '../../utils/i18n';
 
 import './Upload.scss';
 
 interface UploadState {
-    error: string;
+    error: '' | 'errorSize' | 'errorUnsupportedType';
+    focused: boolean;
 }
 
 export class Upload extends React.Component<InputProps, UploadState> {
-    state = { error: '' }
+    state: UploadState = {
+        error: '',
+        focused: false,
+    }
 
     private maxFileSize = 6000000; // 6 Mb
 
@@ -44,8 +47,12 @@ export class Upload extends React.Component<InputProps, UploadState> {
 
     private resetField = () => this.props.input.onChange(null);
 
+    private toggleFocus = () => this.setState(prevState => ({
+        focused: !prevState.focused,
+    }));
+
     render() {
-        const { value } = this.props.input;
+        const { value, name } = this.props.input;
         const { error } = this.state;
 
         return (
@@ -58,30 +65,28 @@ export class Upload extends React.Component<InputProps, UploadState> {
                     error={error ? i18n(error) : ''}
                     disabled
                 />
-                <ToolboxButton
-                    className="upload__button"
-                    ripple={false}
-                    icon="+"
-                    floating
-                    mini
-                >
+                <button className="upload__button" type="button">
                     <label className="upload__label">
+                        <span>{i18n('upload')}</span>
                         <input
                             className="upload__input"
                             type="file"
                             accept="image/jpeg,image/png"
                             onChange={this.handleChange}
+                            onFocus={this.toggleFocus}
+                            onBlur={this.toggleFocus}
                         />
                     </label>
-                </ToolboxButton>
-                <ToolboxButton
-                    className="upload__button"
-                    ripple={false}
-                    onClick={this.resetField}
-                    icon="-"
-                    floating
-                    mini
-                />
+                </button>
+                {name === 'photo' && (
+                    <button
+                        className="upload__button"
+                        onClick={this.resetField}
+                        type="button"
+                    >
+                        стереть
+                    </button>
+                )}
             </div>
         );
     }

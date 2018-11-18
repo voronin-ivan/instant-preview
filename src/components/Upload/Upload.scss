@@ -1,23 +1,14 @@
 [class].upload {
+    position: relative;
     display: flex;
     width: 100%;
 
-    &__button {
-        position: relative;
-        flex-shrink: 0;
-    }
-
-    &__label {
+    &__input {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: auto;
-        cursor: pointer;
-    }
-
-    &__input {
-        display: none;
+        opacity: 0;
+        z-index: -1;
+        pointer-events: none;
     }
 }

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Field, InjectedFormProps } from 'redux-form';
+import { Field, FieldArray, InjectedFormProps } from 'redux-form';
 import { Input } from '../Input/Input';
 import { Upload } from '../Upload/Upload';
 import { Checkbox } from '../Checkbox/Checkbox';
+import { Files } from './Files/FormFiles';
 import { reset as actionReset } from '../../redux/actions/preview';
 import i18n from '../../utils/i18n';
 import {
@@ -110,6 +111,13 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                     component={Input}
                     placeholder={i18n('address')}
                     normalize={normalizeTextField}
+                />
+            </div>
+            <div className="form__row">
+                <FieldArray
+                    name="posts"
+                    component={Files}
+                    props={{ placeholder: i18n('post') }}
                 />
             </div>
             <div className="form__row">

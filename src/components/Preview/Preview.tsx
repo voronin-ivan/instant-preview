@@ -5,6 +5,8 @@ import { PreviewButtons } from './Buttons/PreviewButtons';
 import { LangModel } from '../../models/lang';
 import { PreviewModel } from '../../models/preview';
 
+import { fileToUrl } from '../../utils/helpers';
+
 import './Preview.scss';
 
 export interface PreviewProps {
@@ -22,6 +24,7 @@ export const Preview = (props: PreviewProps) => {
         followingCount,
         showPhone,
         showEmail,
+        posts,
         ...info
     } = props.preview;
 
@@ -44,7 +47,11 @@ export const Preview = (props: PreviewProps) => {
                     email={showEmail}
                     address={Boolean(info.address)}
                 />
-                <div className="preview__posts" />
+                <div className="preview__posts">
+                    {posts && posts.map(post => (
+                        <img src={fileToUrl(post.content)} alt="" />
+                    ))}
+                </div>
             </div>
             <div className="preview__phone" />
         </div>
