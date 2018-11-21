@@ -21,6 +21,7 @@
     "react": "16.5.2",
     "react-dom": "16.5.2",
     "react-redux": "5.0.7",
+    "react-svg": "7.1.0",
     "react-toolbox": "2.0.0-beta.13",
     "redux": "4.0.1",
     "redux-devtools-extension": "2.13.5",

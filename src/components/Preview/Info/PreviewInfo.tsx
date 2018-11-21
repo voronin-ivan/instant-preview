@@ -15,7 +15,7 @@ export class PreviewInfo extends React.PureComponent<PreviewModel> {
 
         const nameClassNames = classNames(
             'preview__info-name',
-            { 'preview__info-name--verified': verifiedAcc && name.length },
+            { 'preview__info-name--verified': verifiedAcc && name },
         );
 
         return (

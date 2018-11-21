@@ -1,5 +1,7 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Input as ToolboxInput } from 'react-toolbox/lib/input';
+import { Button } from '../Button/Button';
 import { InputProps } from '../../models/input';
 import i18n from '../../utils/i18n';
 
@@ -10,7 +12,7 @@ interface UploadState {
     focused: boolean;
 }
 
-export class Upload extends React.Component<InputProps, UploadState> {
+export class Upload extends React.PureComponent<InputProps, UploadState> {
     state: UploadState = {
         error: '',
         focused: false,
@@ -53,7 +55,11 @@ export class Upload extends React.Component<InputProps, UploadState> {
 
     render() {
         const { value, name } = this.props.input;
-        const { error } = this.state;
+        const { error, focused } = this.state;
+        const buttonClassNames = classNames(
+            'upload__button',
+            { 'upload__button--focused': focused },
+        );
 
         return (
             <div className="upload">
@@ -65,7 +71,18 @@ export class Upload extends React.Component<InputProps, UploadState> {
                     error={error ? i18n(error) : ''}
                     disabled
                 />
-                <button className="upload__button" type="button">
+                {name === 'photo' && value && (
+                    <Button
+                        className="upload__clear"
+                        onClick={this.resetField}
+                        icon="clear"
+                    />
+                )}
+                <Button
+                    className={buttonClassNames}
+                    theme="purple"
+                    tabIndex={-1}
+                >
                     <label className="upload__label">
                         <span>{i18n('upload')}</span>
                         <input
@@ -77,16 +94,7 @@ export class Upload extends React.Component<InputProps, UploadState> {
                             onBlur={this.toggleFocus}
                         />
                     </label>
-                </button>
-                {name === 'photo' && (
-                    <button
-                        className="upload__button"
-                        onClick={this.resetField}
-                        type="button"
-                    >
-                        стереть
-                    </button>
-                )}
+                </Button>
             </div>
         );
     }

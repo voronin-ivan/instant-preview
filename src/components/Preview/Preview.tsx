@@ -48,9 +48,13 @@ export const Preview = (props: PreviewProps) => {
                     address={Boolean(info.address)}
                 />
                 <div className="preview__posts">
-                    {posts && posts.map(post => (
-                        <img src={fileToUrl(post.content)} alt="" />
-                    ))}
+                    {posts && posts.map((post) => {
+                        if (!post.content) return null;
+
+                        return (
+                            <img src={fileToUrl(post.content)} alt="" />
+                        );
+                    })}
                 </div>
             </div>
             <div className="preview__phone" />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, WrappedFieldArrayProps } from 'redux-form';
+import { Button } from '../../Button/Button';
 import { Upload } from '../../Upload/Upload';
 import { UploadedFileModel } from '../../../models/file';
 import i18n from '../../../utils/i18n';
@@ -11,24 +12,27 @@ interface FilesProps extends WrappedFieldArrayProps<UploadedFileModel> {
 export const Files = ({ fields, placeholder }: FilesProps) => (
     <div className="form__files">
         <div className="form__files-row">
-            <h2>{i18n(fields.name)}</h2>
-            <button type="button" onClick={() => fields.push({})}>
+            <h2 className="form__files-title">{i18n(fields.name)}</h2>
+            <Button
+                className="form__files-add"
+                theme="white"
+                onClick={() => fields.push({})}
+            >
                 {i18n('add')}
-            </button>
+            </Button>
         </div>
         {fields.map((item: string, index: number) => (
-            <div className="form__files-item" key={item}>
+            <div className="form__files-row" key={item}>
                 <Field
                     name={`${item}.content`}
                     component={Upload}
                     placeholder={`${placeholder} #${index + 1}`}
                 />
-                <button
-                    type="button"
+                <Button
+                    className="form__files-remove"
+                    icon="remove"
                     onClick={() => fields.remove(index)}
-                >
-                    remove
-                </button>
+                />
             </div>
         ))}
     </div>
