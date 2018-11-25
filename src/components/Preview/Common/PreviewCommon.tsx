@@ -12,7 +12,7 @@ export const PreviewCommon = ({
     postsCount,
     followersCount,
     followingCount,
-}: PreviewModel) => {
+}: Partial<PreviewModel>) => {
     const photoUrl = photo ? fileToUrl(photo) : './img/photo.png';
     const photoClassNames = classNames(
         'preview__common-photo',

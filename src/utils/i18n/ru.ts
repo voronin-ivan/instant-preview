@@ -30,6 +30,7 @@ const ru: StringMap = {
     phoneButton: 'Позвонить',
     emailButton: 'Эл. письмо',
     addressButton: 'Как добраться',
+    noPosts: 'Публикаций пока нет',
 };
 
 export default ru;

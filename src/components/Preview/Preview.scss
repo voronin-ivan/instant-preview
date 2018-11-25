@@ -19,10 +19,15 @@
     }
 
     &__wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
         overflow: hidden;
     }
 
     &__header {
+        flex-shrink: 0;
         height: 50px;
         margin-bottom: 8px;
         padding-top: 28px;
@@ -43,6 +48,7 @@
 
     &__common {
         display: flex;
+        flex-shrink: 0;
         margin-bottom: 6px;
         padding: 0 10px;
     }
@@ -125,6 +131,7 @@
     }
 
     &__info {
+        flex-shrink: 0;
         margin-bottom: 8px;
         padding: 0 10px;
         font-size: 9px;
@@ -172,6 +179,7 @@
 
     &__buttons {
         display: flex;
+        flex-shrink: 0;
         border-top: 1px solid #eaeaea;
     }
 
@@ -198,6 +206,63 @@
     }
 
     &__posts {
+        display: flex;
+        flex-wrap: wrap;
+        border-top: 1px solid #eaeaea;
+
+        &::before {
+            display: block;
+            content: "";
+            width: 100%;
+            height: 28px;
+            background: url("./posts-icons.png") no-repeat center;
+            background-size: 180px 16px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        &--empty {
+            align-items: center;
+            justify-content: center;
+            height: calc(100% - 54px);
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    &__posts-info {
+        height: 90px;
+        margin-bottom: 40px;
+        padding-top: 65px;
+        font-size: 15px;
+        text-align: center;
+        background: url("./posts.png") no-repeat center top;
+        background-size: 55px;
+    }
+
+    &__posts-item {
+        width: 80.5px;
+        height: 80.5px;
+        margin-bottom: 1px;
+
+        &:not(:nth-child(3n)) {
+            margin-right: 1px;
+        }
+
+        &--empty {
+            background-color: #939393;
+        }
+    }
+
+    &__navigation {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 54px;
+        background: url("./navigation.png") no-repeat;
+        background-size: 100% 54px;
         border-top: 1px solid #eaeaea;
     }
 }

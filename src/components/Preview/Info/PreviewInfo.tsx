@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { PreviewModel } from '../../../models/preview';
 
-export class PreviewInfo extends React.PureComponent<PreviewModel> {
+export class PreviewInfo extends React.PureComponent<Partial<PreviewModel>> {
     render() {
         const {
             name,
