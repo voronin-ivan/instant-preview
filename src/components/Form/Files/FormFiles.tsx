@@ -7,9 +7,10 @@ import i18n from '../../../utils/i18n';
 
 interface FilesProps extends WrappedFieldArrayProps<UploadedFileModel> {
     placeholder: string;
+    maxFiles: number;
 }
 
-export const Files = ({ fields, placeholder }: FilesProps) => (
+export const Files = ({ fields, placeholder, maxFiles }: FilesProps) => (
     <div className="form__files">
         <div className="form__files-row">
             <h2 className="form__files-title">{i18n(fields.name)}</h2>
@@ -17,6 +18,7 @@ export const Files = ({ fields, placeholder }: FilesProps) => (
                 className="form__files-add"
                 theme="white"
                 onClick={() => fields.push({})}
+                disabled={fields.length >= maxFiles}
             >
                 {i18n('add')}
             </Button>

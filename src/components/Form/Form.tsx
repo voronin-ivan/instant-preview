@@ -148,7 +148,10 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 <FieldArray
                     name="posts"
                     component={Files}
-                    props={{ placeholder: i18n('post') }}
+                    props={{
+                        placeholder: i18n('post'),
+                        maxFiles: 15,
+                    }}
                 />
             </div>
             <Button
