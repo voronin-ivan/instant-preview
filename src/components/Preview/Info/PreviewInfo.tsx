@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { PreviewModel } from '../../../models/preview';
 
-export class PreviewInfo extends React.PureComponent<PreviewModel> {
+export class PreviewInfo extends React.PureComponent<Partial<PreviewModel>> {
     render() {
         const {
             name,
@@ -15,7 +15,7 @@ export class PreviewInfo extends React.PureComponent<PreviewModel> {
 
         const nameClassNames = classNames(
             'preview__info-name',
-            { 'preview__info-name--verified': verifiedAcc && name.length },
+            { 'preview__info-name--verified': verifiedAcc && name },
         );
 
         return (

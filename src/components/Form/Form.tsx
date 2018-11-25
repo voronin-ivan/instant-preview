@@ -1,8 +1,10 @@
 import React from 'react';
-import { Field, InjectedFormProps } from 'redux-form';
+import { Field, FieldArray, InjectedFormProps } from 'redux-form';
 import { Input } from '../Input/Input';
 import { Upload } from '../Upload/Upload';
 import { Checkbox } from '../Checkbox/Checkbox';
+import { Files } from './Files/FormFiles';
+import { Button } from '../Button/Button';
 import { reset as actionReset } from '../../redux/actions/preview';
 import i18n from '../../utils/i18n';
 import {
@@ -142,9 +144,23 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                     />
                 </div>
             </div>
-            <button type="button" onClick={clearValues}>
+            <div className="form__row">
+                <FieldArray
+                    name="posts"
+                    component={Files}
+                    props={{
+                        placeholder: i18n('post'),
+                        maxFiles: 15,
+                    }}
+                />
+            </div>
+            <Button
+                className="form__button-clear"
+                theme="white"
+                onClick={clearValues}
+            >
                 {i18n('clearValues')}
-            </button>
+            </Button>
         </form>
     );
 };

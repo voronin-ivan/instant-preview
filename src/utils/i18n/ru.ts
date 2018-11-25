@@ -18,6 +18,9 @@ const ru: StringMap = {
     verifiedAcc: 'Подтверждённый аккаунт',
     showEmail: 'Показать email',
     showPhone: 'Показать телефон',
+    post: 'Публикация',
+    add: 'Добавить',
+    upload: 'Загрузить',
     clearValues: 'Очистить значения',
     errorSize: 'Размер файла превышает лимит (6МБ)',
     errorUnsupportedType: 'Поддерживаются только изображения (jpeg, png)',
@@ -27,6 +30,7 @@ const ru: StringMap = {
     phoneButton: 'Позвонить',
     emailButton: 'Эл. письмо',
     addressButton: 'Как добраться',
+    noPosts: 'Публикаций пока нет',
 };
 
 export default ru;

@@ -1,23 +1,33 @@
 [class].upload {
+    position: relative;
     display: flex;
+    align-items: flex-end;
     width: 100%;
 
-    &__button {
-        position: relative;
-        flex-shrink: 0;
-    }
-
-    &__label {
+    &__input {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: auto;
-        cursor: pointer;
+        opacity: 0;
+        z-index: -1;
+        pointer-events: none;
     }
 
-    &__input {
-        display: none;
+    &__button {
+        flex-shrink: 0;
+        width: 74px;
+        margin-left: 10px;
+
+        &--focused {
+            background-color: #3f51b5;
+        }
+    }
+
+    &__clear {
+        position: absolute;
+        bottom: 6px;
+        right: 85px;
+        width: 15px;
+        height: 15px;
     }
 }

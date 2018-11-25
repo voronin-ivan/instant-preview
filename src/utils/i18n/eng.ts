@@ -18,6 +18,9 @@ const eng: StringMap = {
     verifiedAcc: 'Verified account',
     showEmail: 'Show email',
     showPhone: 'Show phone',
+    post: 'Post',
+    add: 'Add',
+    upload: 'Upload',
     clearValues: 'Clear values',
     errorSize: 'File size exceeds the limit (6MB)',
     errorUnsupportedType: 'Only images are supported (jpeg, png)',
@@ -27,6 +30,7 @@ const eng: StringMap = {
     phoneButton: 'Call',
     emailButton: 'Email',
     addressButton: 'Directions',
+    noPosts: 'No posts yet',
 };
 
 export default eng;
