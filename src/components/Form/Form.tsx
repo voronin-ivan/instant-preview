@@ -47,6 +47,10 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                     name="photo"
                     component={Upload}
                     placeholder={i18n('photo')}
+                    props={{
+                        showFileName: true,
+                        showClearButton: true,
+                    }}
                 />
             </div>
             <div className="form__row">
@@ -114,7 +118,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                     normalize={normalizeTextField}
                 />
             </div>
-            <div className="form__row">
+            <div className="form__row form__row--checkboxes">
                 <div className="form__checkbox">
                     <Field
                         name="activeStory"
@@ -149,8 +153,19 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                     name="posts"
                     component={Files}
                     props={{
-                        placeholder: i18n('post'),
+                        showFileName: true,
                         maxFiles: 15,
+                        placeholder: i18n('post'),
+                    }}
+                />
+            </div>
+            <div className="form__row">
+                <FieldArray
+                    name="stories"
+                    component={Files}
+                    props={{
+                        placeholder: i18n('story'),
+                        maxFiles: 5,
                     }}
                 />
             </div>

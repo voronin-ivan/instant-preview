@@ -4,6 +4,8 @@ const ru: StringMap = {
     login: 'Имя пользователя',
     photo: 'Фото профиля',
     posts: 'Публикации',
+    stories: 'Истории',
+    story: 'История',
     postsCount: 'Количество публикаций',
     followers: 'Подписчики',
     followersCount: 'Количество подписчиков',

@@ -4,6 +4,8 @@ const eng: StringMap = {
     login: 'Login',
     photo: 'Profile photo',
     posts: 'Posts',
+    stories: 'Stories',
+    story: 'Story',
     postsCount: 'Posts count',
     followers: 'Followers',
     followersCount: 'Followers count',

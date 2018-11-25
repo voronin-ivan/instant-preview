@@ -5,6 +5,12 @@
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 10px;
+
+        &--checkboxes {
+            margin-bottom: 15px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #ccc;
+        }
     }
 
     &__checkbox {
@@ -43,6 +49,6 @@
 
     &__button-clear {
         width: 125px;
-        margin-top: 40px;
+        margin-top: 30px;
     }
 }
