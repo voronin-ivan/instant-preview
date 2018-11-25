@@ -59,4 +59,10 @@
             fill: #ccc;
         }
     }
+
+    &--disabled {
+        color: #262626;
+        background-color: #ccc;
+        pointer-events: none;
+    }
 }

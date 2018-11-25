@@ -14,13 +14,21 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export class Button extends React.PureComponent<ButtonProps> {
     render() {
-        const { children, className, theme, icon, ...props } = this.props;
+        const {
+            children,
+            className,
+            theme,
+            icon,
+            disabled,
+            ...props
+        } = this.props;
 
         const buttonClassNames = classNames(
             className,
             'button',
             theme ? `button--theme-${theme}` : '',
             icon ? `button--icon button--icon-${icon}` : '',
+            { 'button--disabled': disabled },
         );
 
         const content = icon
@@ -31,6 +39,7 @@ export class Button extends React.PureComponent<ButtonProps> {
             <button
                 className={buttonClassNames}
                 type="button"
+                disabled={disabled}
                 {...props}
             >
                 {content}
