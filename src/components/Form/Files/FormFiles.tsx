@@ -4,6 +4,7 @@ import { Button } from '../../Button/Button';
 import { Input } from '../../Input/Input';
 import { Upload } from '../../Upload/Upload';
 import { UploadedFileModel } from '../../../models/file';
+import { normalizeTextField } from '../../../utils/normalizer';
 import i18n from '../../../utils/i18n';
 
 interface FilesProps extends WrappedFieldArrayProps<UploadedFileModel> {
@@ -12,7 +13,7 @@ interface FilesProps extends WrappedFieldArrayProps<UploadedFileModel> {
     showFileName: boolean;
 }
 
-export const Files = ({
+export const FormFiles = ({
     fields,
     placeholder,
     maxFiles,
@@ -37,6 +38,7 @@ export const Files = ({
                         name={`${item}.title`}
                         component={Input}
                         placeholder={`${placeholder} #${index + 1}`}
+                        normalize={normalizeTextField}
                     />
                 )}
                 <Field
