@@ -4,8 +4,8 @@ import ReactSVG from 'react-svg';
 
 import './Button.scss';
 
-import './clear.svg';
-import './remove.svg';
+import './assets/clear.svg';
+import './assets/remove.svg';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     icon?: 'clear' | 'remove';

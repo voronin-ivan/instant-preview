@@ -12,7 +12,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url("./phone.png");
+        background-image: url("./assets/phone.png");
         background-size: 280px 561px;
         background-repeat: no-repeat;
         pointer-events: none;
@@ -64,7 +64,7 @@
             content: "";
             width: 63px;
             height: 63px;
-            background: url("./story.png") no-repeat;
+            background: url("./assets/story.png") no-repeat;
             background-size: 63px;
         }
     }
@@ -152,7 +152,7 @@
             content: "";
             width: 10px;
             height: 10px;
-            background: url("./verified.svg") no-repeat;
+            background: url("./assets/verified.svg") no-repeat;
             background-size: 10px;
         }
     }
@@ -214,7 +214,7 @@
             content: "";
             width: 100%;
             height: 28px;
-            background: url("./posts-icons.png") no-repeat center;
+            background: url("./assets/posts-icons.png") no-repeat center;
             background-size: 180px 16px;
             border-bottom: 1px solid #eaeaea;
         }
@@ -236,7 +236,7 @@
         padding-top: 65px;
         font-size: 15px;
         text-align: center;
-        background: url("./posts.png") no-repeat center top;
+        background: url("./assets/no-posts.png") no-repeat center top;
         background-size: 55px;
     }
 
@@ -260,7 +260,7 @@
         left: 0;
         width: 100%;
         height: 54px;
-        background: url("./navigation.png") no-repeat;
+        background: url("./assets/navigation.png") no-repeat;
         background-size: 100% 54px;
         border-top: 1px solid #eaeaea;
     }
