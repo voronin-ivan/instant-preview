@@ -1,6 +1,7 @@
 import React from 'react';
 import { PreviewCommon } from './Common/PreviewCommon';
 import { PreviewInfo } from './Info/PreviewInfo';
+import { PreviewStories } from './Stories/PreviewStories';
 import { PreviewButtons } from './Buttons/PreviewButtons';
 import { PreviewPosts } from './Posts/PreviewPosts';
 import { LangModel } from '../../models/lang';
@@ -23,6 +24,7 @@ export const Preview = (props: PreviewProps) => {
         followingCount,
         showPhone,
         showEmail,
+        stories,
         posts,
         ...info
     } = props.preview;
@@ -41,6 +43,7 @@ export const Preview = (props: PreviewProps) => {
                     followingCount={followingCount}
                 />
                 <PreviewInfo {...info} />
+                <PreviewStories stories={stories} />
                 <PreviewButtons
                     phone={showPhone}
                     email={showEmail}

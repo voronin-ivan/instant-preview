@@ -176,6 +176,43 @@
         letter-spacing: -0.2px;
     }
 
+    &__stories {
+        display: flex;
+        flex-shrink: 0;
+        margin-bottom: 5px;
+        padding-top: 3px;
+        padding-left: 6px;
+    }
+
+    &__stories-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        width: 46px;
+        margin-right: 6px;
+        font-weight: 100;
+        font-size: 9px;
+        letter-spacing: -0.8px;
+        white-space: nowrap;
+        text-align: center;
+
+        img {
+            display: block;
+            width: 36px;
+            height: 36px;
+            margin-bottom: 4px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 0 0 2px #fff, 0 0 0 3px rgba(0, 0, 0, 0.1);
+        }
+
+        span {
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
     &__buttons {
         display: flex;
         flex-shrink: 0;
@@ -247,6 +284,10 @@
 
         &:not(:nth-child(3n)) {
             margin-right: 1px;
+        }
+
+        &:nth-child(3n) {
+            width: 81px; // i hate my life
         }
 
         &--empty {

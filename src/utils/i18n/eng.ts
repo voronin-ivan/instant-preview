@@ -33,6 +33,7 @@ const eng: StringMap = {
     emailButton: 'Email',
     addressButton: 'Directions',
     noPosts: 'No posts yet',
+    highlights: 'Highlights',
 };
 
 export default eng;

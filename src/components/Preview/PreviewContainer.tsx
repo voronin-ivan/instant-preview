@@ -24,6 +24,7 @@ const mapStateToProps = (state: RootModel): PreviewProps => ({
         'showPhone',
         'showEmail',
         'posts',
+        'stories',
     ),
 });
 

@@ -15,5 +15,6 @@ export interface PreviewModel {
     address?: string;
     showPhone?: boolean;
     showEmail?: boolean;
-    posts?: UploadedFileModel[]
+    posts?: UploadedFileModel[];
+    stories?: UploadedFileModel[];
 }

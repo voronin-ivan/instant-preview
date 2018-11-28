@@ -25,7 +25,7 @@ export const FormFiles = ({
             <Button
                 className="form__files-add"
                 theme="white"
-                onClick={() => fields.push({ title: 'Highlight' })}
+                onClick={() => fields.push({})}
                 disabled={fields.length >= maxFiles}
             >
                 {i18n('add')}

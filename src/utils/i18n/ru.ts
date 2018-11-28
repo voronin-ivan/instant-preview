@@ -33,6 +33,7 @@ const ru: StringMap = {
     emailButton: 'Эл. письмо',
     addressButton: 'Как добраться',
     noPosts: 'Публикаций пока нет',
+    highlights: 'Актуальное',
 };
 
 export default ru;
