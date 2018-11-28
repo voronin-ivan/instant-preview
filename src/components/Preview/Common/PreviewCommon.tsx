@@ -4,7 +4,7 @@ import { PreviewModel } from '../../../models/preview';
 import { fileToUrl, formatCount } from '../../../utils/helpers';
 import i18n from '../../../utils/i18n';
 
-import '../photo.png';
+import '../assets/no-photo.png';
 
 export const PreviewCommon = ({
     photo,
@@ -13,7 +13,7 @@ export const PreviewCommon = ({
     followersCount,
     followingCount,
 }: Partial<PreviewModel>) => {
-    const photoUrl = photo ? fileToUrl(photo) : './img/photo.png';
+    const photoUrl = photo ? fileToUrl(photo) : './img/no-photo.png';
     const photoClassNames = classNames(
         'preview__common-photo',
         { 'preview__common-photo--active': activeStory },

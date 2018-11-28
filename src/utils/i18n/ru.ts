@@ -4,6 +4,8 @@ const ru: StringMap = {
     login: 'Имя пользователя',
     photo: 'Фото профиля',
     posts: 'Публикации',
+    stories: 'Истории',
+    story: 'История',
     postsCount: 'Количество публикаций',
     followers: 'Подписчики',
     followersCount: 'Количество подписчиков',
@@ -31,6 +33,7 @@ const ru: StringMap = {
     emailButton: 'Эл. письмо',
     addressButton: 'Как добраться',
     noPosts: 'Публикаций пока нет',
+    highlights: 'Актуальное',
 };
 
 export default ru;

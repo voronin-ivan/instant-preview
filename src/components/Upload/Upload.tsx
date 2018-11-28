@@ -7,12 +7,17 @@ import i18n from '../../utils/i18n';
 
 import './Upload.scss';
 
+type UploadProps = InputProps & {
+    showFileName?: boolean;
+    showClearButton?: boolean;
+};
+
 interface UploadState {
     error: '' | 'errorSize' | 'errorUnsupportedType';
     focused: boolean;
 }
 
-export class Upload extends React.PureComponent<InputProps, UploadState> {
+export class Upload extends React.PureComponent<UploadProps, UploadState> {
     state: UploadState = {
         error: '',
         focused: false,
@@ -54,24 +59,33 @@ export class Upload extends React.PureComponent<InputProps, UploadState> {
     }));
 
     render() {
-        const { value, name } = this.props.input;
+        const { input, showClearButton, showFileName } = this.props;
+        const { value } = input;
         const { error, focused } = this.state;
+
         const buttonClassNames = classNames(
             'upload__button',
             { 'upload__button--focused': focused },
         );
 
+        const uploadClassNames = classNames(
+            'upload',
+            { 'upload--full': showFileName },
+        );
+
         return (
-            <div className="upload">
-                <ToolboxInput
-                    className="input"
-                    type="text"
-                    label={this.props.placeholder}
-                    value={value && value.name}
-                    error={error ? i18n(error) : ''}
-                    disabled
-                />
-                {name === 'photo' && value && (
+            <div className={uploadClassNames}>
+                {showFileName && (
+                    <ToolboxInput
+                        className="input"
+                        type="text"
+                        label={this.props.placeholder}
+                        value={value && value.name}
+                        error={error ? i18n(error) : ''}
+                        disabled
+                    />
+                )}
+                {showClearButton && value && (
                     <Button
                         className="upload__clear"
                         onClick={this.resetField}

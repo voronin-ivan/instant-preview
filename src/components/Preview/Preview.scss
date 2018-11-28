@@ -12,7 +12,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url("./phone.png");
+        background-image: url("./assets/phone.png");
         background-size: 280px 561px;
         background-repeat: no-repeat;
         pointer-events: none;
@@ -64,7 +64,7 @@
             content: "";
             width: 63px;
             height: 63px;
-            background: url("./story.png") no-repeat;
+            background: url("./assets/story.png") no-repeat;
             background-size: 63px;
         }
     }
@@ -127,7 +127,6 @@
         color: #fff;
         background-color: #3195f4;
         border-radius: 3px;
-        cursor: pointer;
     }
 
     &__info {
@@ -153,7 +152,7 @@
             content: "";
             width: 10px;
             height: 10px;
-            background: url("./verified.svg") no-repeat;
+            background: url("./assets/verified.svg") no-repeat;
             background-size: 10px;
         }
     }
@@ -175,6 +174,43 @@
     &__info-address {
         color: #003569;
         letter-spacing: -0.2px;
+    }
+
+    &__stories {
+        display: flex;
+        flex-shrink: 0;
+        margin-bottom: 5px;
+        padding-top: 3px;
+        padding-left: 6px;
+    }
+
+    &__stories-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        width: 46px;
+        margin-right: 6px;
+        font-weight: 100;
+        font-size: 9px;
+        letter-spacing: -0.8px;
+        white-space: nowrap;
+        text-align: center;
+
+        img {
+            display: block;
+            width: 36px;
+            height: 36px;
+            margin-bottom: 4px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 0 0 2px #fff, 0 0 0 3px rgba(0, 0, 0, 0.1);
+        }
+
+        span {
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 
     &__buttons {
@@ -215,7 +251,7 @@
             content: "";
             width: 100%;
             height: 28px;
-            background: url("./posts-icons.png") no-repeat center;
+            background: url("./assets/posts-icons.png") no-repeat center;
             background-size: 180px 16px;
             border-bottom: 1px solid #eaeaea;
         }
@@ -237,7 +273,7 @@
         padding-top: 65px;
         font-size: 15px;
         text-align: center;
-        background: url("./posts.png") no-repeat center top;
+        background: url("./assets/no-posts.png") no-repeat center top;
         background-size: 55px;
     }
 
@@ -248,6 +284,10 @@
 
         &:not(:nth-child(3n)) {
             margin-right: 1px;
+        }
+
+        &:nth-child(3n) {
+            width: 81px; // i hate my life
         }
 
         &--empty {
@@ -261,7 +301,7 @@
         left: 0;
         width: 100%;
         height: 54px;
-        background: url("./navigation.png") no-repeat;
+        background: url("./assets/navigation.png") no-repeat;
         background-size: 100% 54px;
         border-top: 1px solid #eaeaea;
     }
