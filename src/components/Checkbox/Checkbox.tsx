@@ -1,14 +1,17 @@
 import React from 'react';
 import { WrappedFieldProps } from 'redux-form';
 import { Checkbox as ToolboxCheckbox } from 'react-toolbox/lib/checkbox';
-import i18n from '../../utils/i18n';
 
 import './Checkbox.scss';
 
-export const Checkbox = ({ input: { value, onChange, name } }: WrappedFieldProps) => (
+interface ICheckBoxProps extends WrappedFieldProps {
+    label: string;
+}
+
+export const Checkbox = ({ input: { value, onChange }, label }: ICheckBoxProps) => (
     <ToolboxCheckbox
         className="checkbox"
-        label={i18n(name)}
+        label={label}
         onChange={onChange}
         checked={Boolean(value)}
     />
