@@ -37,15 +37,15 @@ export const FormFiles = ({
                     <Field
                         name={`${item}.title`}
                         component={Input}
-                        placeholder={`${placeholder} #${index + 1}`}
+                        label={`${placeholder} #${index + 1}`}
                         normalize={normalizeTextField}
                     />
                 )}
                 <Field
                     name={`${item}.content`}
                     component={Upload}
-                    placeholder={`${placeholder} #${index + 1}`}
-                    props={{ showFileName }}
+                    label={`${placeholder} #${index + 1}`}
+                    showFileName
                 />
                 <Button
                     className="form__files-remove"

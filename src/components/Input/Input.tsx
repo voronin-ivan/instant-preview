@@ -1,10 +1,10 @@
 import React from 'react';
 import { Input as ToolboxInput } from 'react-toolbox/lib/input';
-import { InputProps } from '../../models/input';
+import { InputModel } from '../../models/input';
 
 import './Input.scss';
 
-export const Input = ({ input, placeholder, maxLength }: InputProps) => {
+export const Input = ({ input, maxLength, label }: InputModel) => {
     const { name, onChange, value } = input;
 
     return (
@@ -12,7 +12,7 @@ export const Input = ({ input, placeholder, maxLength }: InputProps) => {
             type="text" // normalize work`s only with "text"
             className="input"
             value={value}
-            label={placeholder}
+            label={label}
             multiline={name === 'bio'}
             maxLength={maxLength}
             onChange={onChange}
