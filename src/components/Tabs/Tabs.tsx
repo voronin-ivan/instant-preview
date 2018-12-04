@@ -15,26 +15,26 @@ export interface TabsProps {
 
 const languages: Array<'ru' | 'eng'> = ['ru', 'eng'];
 
-export const Tabs = ({ lang, changeLang }: TabsProps) => {
-    const onChange = (index: number) => changeLang(languages[index]);
+export class Tabs extends React.PureComponent<TabsProps> {
+    private onChange = (index: number) => this.props.changeLang(languages[index]);
 
-    return (
-        <ToolboxTabs
-            className="tabs"
-            index={languages.indexOf(lang)}
-            onChange={onChange}
-            fixed
-        >
-            <ToolboxTab
-                className="tabs__item"
-                activeClassName="tabs__item--active"
-                label="ru"
-            />
-            <ToolboxTab
-                className="tabs__item"
-                activeClassName="tabs__item--active"
-                label="eng"
-            />
-        </ToolboxTabs>
-    );
-};
+    render() {
+        return (
+            <ToolboxTabs
+                className="tabs"
+                index={languages.indexOf(this.props.lang)}
+                onChange={this.onChange}
+                fixed
+            >
+                {languages.map(lang => (
+                    <ToolboxTab
+                        className="tabs__item"
+                        activeClassName="tabs__item--active"
+                        label={lang}
+                        key={lang}
+                    />
+                ))}
+            </ToolboxTabs>
+        );
+    }
+}
