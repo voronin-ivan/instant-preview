@@ -30,8 +30,8 @@ export const Preview = (props: PreviewProps) => {
     } = props.preview;
 
     return (
-        <div className="preview">
-            <div className="preview__wrapper">
+        <div className="preview" id="framedWrapper">
+            <div className="preview__wrapper" id="wrapper">
                 <div className="preview__header">
                     <div className="preview__header-text">{login}</div>
                 </div>

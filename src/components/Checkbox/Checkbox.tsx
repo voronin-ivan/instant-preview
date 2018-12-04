@@ -1,11 +1,14 @@
 import React from 'react';
-import { WrappedFieldProps } from 'redux-form';
 import { Checkbox as ToolboxCheckbox } from 'react-toolbox/lib/checkbox';
 
 import './Checkbox.scss';
 
-interface ICheckBoxProps extends WrappedFieldProps {
+interface ICheckBoxProps {
     label: string;
+    input?: {
+        value: boolean;
+        onChange: (value: boolean) => void;
+    }
 }
 
 export const Checkbox = ({ input: { value, onChange }, label }: ICheckBoxProps) => (
@@ -13,6 +16,6 @@ export const Checkbox = ({ input: { value, onChange }, label }: ICheckBoxProps) 
         className="checkbox"
         label={label}
         onChange={onChange}
-        checked={Boolean(value)}
+        checked={value}
     />
 );

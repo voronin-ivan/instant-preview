@@ -1,9 +1,9 @@
 import React from 'react';
 import { FieldArray, InjectedFormProps } from 'redux-form';
-import { Button } from '../Button/Button';
 import { FormMainFields } from './MainFields/FormMainFields';
 import { FormCheckboxes } from './Checkboxes/FormCheckboxes';
 import { FormFiles } from './Files/FormFiles';
+import { FormButtons } from './Buttons/FormButtons';
 import { reset as actionReset } from '../../redux/actions/preview';
 import i18n from '../../utils/i18n';
 
@@ -44,13 +44,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                     }}
                 />
             </div>
-            <Button
-                className="form__button-clear"
-                theme="white"
-                onClick={clearValues}
-            >
-                {i18n('clearValues')}
-            </Button>
+            <FormButtons clearValues={clearValues} />
         </form>
     );
 };
