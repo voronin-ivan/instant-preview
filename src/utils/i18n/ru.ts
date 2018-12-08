@@ -34,6 +34,8 @@ const ru: StringMap = {
     addressButton: 'Как добраться',
     noPosts: 'Публикаций пока нет',
     highlights: 'Актуальное',
+    download: 'Скачать',
+    withFrame: 'С корпусом',
 };
 
 export default ru;

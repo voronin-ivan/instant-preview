@@ -47,8 +47,18 @@
         margin-left: 5px;
     }
 
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    &__button-download {
+        width: 105px;
+        margin-bottom: 10px;
+    }
+
     &__button-clear {
         width: 125px;
-        margin-top: 30px;
     }
 }

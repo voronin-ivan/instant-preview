@@ -26,9 +26,9 @@ export class Button extends React.PureComponent<ButtonProps> {
         const buttonClassNames = classNames(
             className,
             'button',
+            { 'button--disabled': disabled },
             theme ? `button--theme-${theme}` : '',
             icon ? `button--icon button--icon-${icon}` : '',
-            { 'button--disabled': disabled },
         );
 
         const content = icon

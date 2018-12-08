@@ -1,3 +1,4 @@
+import html2canvas from 'html2canvas';
 import i18n from './i18n';
 
 export const fileToUrl = (file: File) => window.URL.createObjectURL(file);
@@ -29,4 +30,17 @@ export const formatCount = (value: string) => {
         default:
             return value;
     }
+};
+
+export const saveElementToImage = async (element: HTMLElement) => {
+    const fileName = `insta-preview-${new Date().getTime()}.png`;
+    const link = document.createElement('a');
+    const canvas = await html2canvas(element, {
+        logging: false,
+        backgroundColor: null,
+    });
+
+    link.download = fileName;
+    link.href = canvas.toDataURL('image/png;base64');
+    link.click();
 };

@@ -9,6 +9,9 @@ import { PreviewModel } from '../../models/preview';
 
 import './Preview.scss';
 
+import './assets/phone.png';
+import './assets/navigation.png';
+
 export interface PreviewProps {
     lang: LangModel;
     preview: PreviewModel;
@@ -30,8 +33,8 @@ export const Preview = (props: PreviewProps) => {
     } = props.preview;
 
     return (
-        <div className="preview">
-            <div className="preview__wrapper">
+        <div className="preview" id="framedWrapper">
+            <div className="preview__wrapper" id="wrapper">
                 <div className="preview__header">
                     <div className="preview__header-text">{login}</div>
                 </div>
@@ -53,9 +56,17 @@ export const Preview = (props: PreviewProps) => {
                     posts={posts}
                     postsCount={Number(postsCount)}
                 />
-                <div className="preview__navigation" />
+                <img
+                    alt=""
+                    src="./img/navigation.png"
+                    className="preview__navigation"
+                />
             </div>
-            <div className="preview__phone" />
+            <img
+                alt=""
+                src="./img/phone.png"
+                className="preview__phone"
+            />
         </div>
     );
 };

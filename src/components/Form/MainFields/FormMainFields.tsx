@@ -22,7 +22,7 @@ export const FormMainFields = () => (
             <Field
                 name="login"
                 component={Input}
-                placeholder={i18n('login')}
+                label={i18n('login')}
                 maxLength={maxLoginLength}
             />
         </div>
@@ -30,18 +30,16 @@ export const FormMainFields = () => (
             <Field
                 name="photo"
                 component={Upload}
-                placeholder={i18n('photo')}
-                props={{
-                    showFileName: true,
-                    showClearButton: true,
-                }}
+                label={i18n('photo')}
+                showFileName
+                showClearButton
             />
         </div>
         <div className="form__row">
             <Field
                 name="postsCount"
                 component={Input}
-                placeholder={i18n('postsCount')}
+                label={i18n('postsCount')}
                 normalize={normalizeNumberField(maxPostsCount)}
             />
         </div>
@@ -49,7 +47,7 @@ export const FormMainFields = () => (
             <Field
                 name="followersCount"
                 component={Input}
-                placeholder={i18n('followersCount')}
+                label={i18n('followersCount')}
                 normalize={normalizeNumberField(maxFollowersCount)}
             />
         </div>
@@ -57,7 +55,7 @@ export const FormMainFields = () => (
             <Field
                 name="followingCount"
                 component={Input}
-                placeholder={i18n('followingCount')}
+                label={i18n('followingCount')}
                 normalize={normalizeNumberField(maxFollowingCount)}
             />
         </div>
@@ -65,7 +63,7 @@ export const FormMainFields = () => (
             <Field
                 name="name"
                 component={Input}
-                placeholder={i18n('name')}
+                label={i18n('name')}
                 maxLength={maxNameLength}
             />
         </div>
@@ -73,7 +71,7 @@ export const FormMainFields = () => (
             <Field
                 name="business"
                 component={Input}
-                placeholder={i18n('business')}
+                label={i18n('business')}
                 normalize={normalizeTextField}
             />
         </div>
@@ -81,7 +79,7 @@ export const FormMainFields = () => (
             <Field
                 name="bio"
                 component={Input}
-                placeholder={i18n('bio')}
+                label={i18n('bio')}
                 maxLength={maxBioLength}
                 normalize={normalizeMultilineField}
             />
@@ -90,7 +88,7 @@ export const FormMainFields = () => (
             <Field
                 name="website"
                 component={Input}
-                placeholder={i18n('website')}
+                label={i18n('website')}
                 normalize={normalizeTextField}
             />
         </div>
@@ -98,7 +96,7 @@ export const FormMainFields = () => (
             <Field
                 name="address"
                 component={Input}
-                placeholder={i18n('address')}
+                label={i18n('address')}
                 normalize={normalizeTextField}
             />
         </div>

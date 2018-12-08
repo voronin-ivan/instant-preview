@@ -2,12 +2,12 @@ import React from 'react';
 import classNames from 'classnames';
 import { Input as ToolboxInput } from 'react-toolbox/lib/input';
 import { Button } from '../Button/Button';
-import { InputProps } from '../../models/input';
+import { InputModel } from '../../models/input';
 import i18n from '../../utils/i18n';
 
 import './Upload.scss';
 
-type UploadProps = InputProps & {
+type UploadProps = InputModel & {
     showFileName?: boolean;
     showClearButton?: boolean;
 };
@@ -27,7 +27,7 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
 
     private allowedTypes = new Set(['image/jpeg', 'image/png']);
 
-    componentDidUpdate(prevProps: InputProps) {
+    componentDidUpdate(prevProps: UploadProps) {
         if (this.props.input.value !== prevProps.input.value) {
             // eslint-disable-next-line react/no-did-update-set-state
             this.setState({ error: '' }); // for correct "clear all"
@@ -59,7 +59,7 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
     }));
 
     render() {
-        const { input, showClearButton, showFileName } = this.props;
+        const { input, label, showClearButton, showFileName } = this.props;
         const { value } = input;
         const { error, focused } = this.state;
 
@@ -79,7 +79,7 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
                     <ToolboxInput
                         className="input"
                         type="text"
-                        label={this.props.placeholder}
+                        label={label}
                         value={value && value.name}
                         error={error ? i18n(error) : ''}
                         disabled

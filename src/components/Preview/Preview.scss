@@ -1,10 +1,11 @@
 .preview {
     position: fixed;
     top: calc(50% - 255px);
-    width: 280px;
-    height: 561px;
+    width: 281px;
+    height: 563px;
     padding: 16px 18px;
     font-size: 11px;
+    pointer-events: none;
 
     &__phone {
         position: absolute;
@@ -12,10 +13,6 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url("./assets/phone.png");
-        background-size: 280px 561px;
-        background-repeat: no-repeat;
-        pointer-events: none;
     }
 
     &__wrapper {
@@ -24,6 +21,7 @@
         flex-direction: column;
         height: 100%;
         overflow: hidden;
+        background-color: #fff;
     }
 
     &__header {
@@ -55,18 +53,6 @@
 
     &__common-photo {
         position: relative;
-
-        &--active::after {
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            display: block;
-            content: "";
-            width: 63px;
-            height: 63px;
-            background: url("./assets/story.png") no-repeat;
-            background-size: 63px;
-        }
     }
 
     &__photo-img {
@@ -77,6 +63,15 @@
         margin-right: 9px;
         border-radius: 50%;
         border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &__photo-story {
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        display: block;
+        width: 63px;
+        height: 63px;
     }
 
     &__common-statistics {
@@ -141,19 +136,15 @@
     }
 
     &__info-name {
-        position: relative;
+        display: flex;
+        align-items: center;
         font-weight: bold;
 
-        &--verified::after {
-            position: absolute;
-            top: 0;
-            right: -13px;
+        img {
             display: block;
-            content: "";
-            width: 10px;
-            height: 10px;
-            background: url("./assets/verified.svg") no-repeat;
-            background-size: 10px;
+            width: 9px;
+            height: 9px;
+            margin-left: 3px;
         }
     }
 
@@ -185,6 +176,7 @@
     }
 
     &__stories-item {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -197,13 +189,27 @@
         white-space: nowrap;
         text-align: center;
 
-        img {
+        &::after {
+            position: absolute;
+            z-index: 1;
+            top: -2px;
             display: block;
-            width: 36px;
-            height: 36px;
+            content: "";
+            width: 39px;
+            height: 39px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+        }
+
+        img {
+            position: relative;
+            z-index: 2;
+            display: block;
+            width: 37px;
+            height: 37px;
             margin-bottom: 4px;
             border-radius: 50%;
-            box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 0 0 2px #fff, 0 0 0 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         span {
@@ -242,53 +248,45 @@
     }
 
     &__posts {
+        width: calc(100% + 1px);
         display: flex;
         flex-wrap: wrap;
         border-top: 1px solid #eaeaea;
-
-        &::before {
-            display: block;
-            content: "";
-            width: 100%;
-            height: 28px;
-            background: url("./assets/posts-icons.png") no-repeat center;
-            background-size: 180px 16px;
-            border-bottom: 1px solid #eaeaea;
-        }
 
         &--empty {
             align-items: center;
             justify-content: center;
             height: calc(100% - 54px);
-
-            &::before {
-                display: none;
-            }
         }
+    }
+
+    &__posts-icons {
+        width: 100%;
+        height: 28px;
+        margin: 0 auto;
+        padding: 6px 33px;
+        border-bottom: 1px solid #eaeaea;
     }
 
     &__posts-info {
         height: 90px;
-        margin-bottom: 40px;
-        padding-top: 65px;
+        margin-bottom: 50px;
         font-size: 15px;
         text-align: center;
-        background: url("./assets/no-posts.png") no-repeat center top;
-        background-size: 55px;
+
+        img {
+            display: block;
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 10px;
+        }
     }
 
     &__posts-item {
-        width: 80.5px;
-        height: 80.5px;
+        width: 81px;
+        height: 81px;
         margin-bottom: 1px;
-
-        &:not(:nth-child(3n)) {
-            margin-right: 1px;
-        }
-
-        &:nth-child(3n) {
-            width: 81px; // i hate my life
-        }
+        margin-right: 1px;
 
         &--empty {
             background-color: #939393;
@@ -300,9 +298,7 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 54px;
-        background: url("./assets/navigation.png") no-repeat;
-        background-size: 100% 54px;
+        height: 55px;
         border-top: 1px solid #eaeaea;
     }
 }

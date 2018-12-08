@@ -4,6 +4,9 @@ import { UploadedFileModel } from '../../../models/file';
 import { fileToUrl } from '../../../utils/helpers';
 import i18n from '../../../utils/i18n';
 
+import '../assets/posts-icons.png';
+import '../assets/posts-empty.png';
+
 interface PreviewPostsProps {
     posts: UploadedFileModel[];
     postsCount: number;
@@ -52,10 +55,22 @@ export const PreviewPosts = ({ posts, postsCount }: PreviewPostsProps) => {
 
     return (
         <div className={postsClassNames}>
-            {
-                isEmpty
-                    ? <div className="preview__posts-info">{i18n('noPosts')}</div>
-                    : postsElements
+            {isEmpty
+                ? (
+                    <div className="preview__posts-info">
+                        <img src="./img/posts-empty.png" alt="" />
+                        {i18n('noPosts')}
+                    </div>
+                ) : (
+                    <React.Fragment>
+                        <img
+                            alt=""
+                            src="./img/posts-icons.png"
+                            className="preview__posts-icons"
+                        />
+                        {postsElements}
+                    </React.Fragment>
+                )
             }
         </div>
     );

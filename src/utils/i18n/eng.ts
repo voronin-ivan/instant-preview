@@ -34,6 +34,8 @@ const eng: StringMap = {
     addressButton: 'Directions',
     noPosts: 'No posts yet',
     highlights: 'Highlights',
+    download: 'Download',
+    withFrame: 'With frame',
 };
 
 export default eng;

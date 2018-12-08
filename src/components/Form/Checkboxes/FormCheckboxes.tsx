@@ -9,28 +9,28 @@ export const FormCheckboxes = () => (
             <Field
                 name="activeStory"
                 component={Checkbox}
-                placeholder={i18n('activeStory')}
+                label={i18n('activeStory')}
             />
         </div>
         <div className="form__checkbox">
             <Field
                 name="verifiedAcc"
                 component={Checkbox}
-                placeholder={i18n('verifiedAcc')}
+                label={i18n('verifiedAcc')}
             />
         </div>
         <div className="form__checkbox">
             <Field
                 name="showEmail"
                 component={Checkbox}
-                placeholder={i18n('showEmail')}
+                label={i18n('showEmail')}
             />
         </div>
         <div className="form__checkbox">
             <Field
                 name="showPhone"
                 component={Checkbox}
-                placeholder={i18n('showPhone')}
+                label={i18n('showPhone')}
             />
         </div>
     </div>

@@ -7,7 +7,7 @@ import { UploadedFileModel } from '../../../models/file';
 import { normalizeTextField } from '../../../utils/normalizer';
 import i18n from '../../../utils/i18n';
 
-interface FilesProps extends WrappedFieldArrayProps<UploadedFileModel> {
+interface FormFilesProps extends WrappedFieldArrayProps<UploadedFileModel> {
     placeholder: string;
     maxFiles: number;
     showFileName: boolean;
@@ -18,7 +18,7 @@ export const FormFiles = ({
     placeholder,
     maxFiles,
     showFileName,
-}: FilesProps) => (
+}: FormFilesProps) => (
     <div className="form__files">
         <div className="form__files-row">
             <h2 className="form__files-title">{i18n(fields.name)}</h2>
@@ -37,15 +37,15 @@ export const FormFiles = ({
                     <Field
                         name={`${item}.title`}
                         component={Input}
-                        placeholder={`${placeholder} #${index + 1}`}
+                        label={`${placeholder} #${index + 1}`}
                         normalize={normalizeTextField}
                     />
                 )}
                 <Field
                     name={`${item}.content`}
                     component={Upload}
-                    placeholder={`${placeholder} #${index + 1}`}
-                    props={{ showFileName }}
+                    label={`${placeholder} #${index + 1}`}
+                    showFileName={showFileName}
                 />
                 <Button
                     className="form__files-remove"
