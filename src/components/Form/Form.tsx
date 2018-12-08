@@ -27,21 +27,17 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                 <FieldArray
                     name="posts"
                     component={FormFiles}
-                    props={{
-                        showFileName: true,
-                        maxFiles: 15,
-                        placeholder: i18n('post'),
-                    }}
+                    showFileName
+                    maxFiles={15}
+                    placeholder={i18n('post')}
                 />
             </div>
             <div className="form__row">
                 <FieldArray
                     name="stories"
                     component={FormFiles}
-                    props={{
-                        placeholder: i18n('story'),
-                        maxFiles: 5,
-                    }}
+                    maxFiles={5}
+                    placeholder={i18n('story')}
                 />
             </div>
             <FormButtons clearValues={clearValues} />

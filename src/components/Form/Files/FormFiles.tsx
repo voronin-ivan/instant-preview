@@ -45,7 +45,7 @@ export const FormFiles = ({
                     name={`${item}.content`}
                     component={Upload}
                     label={`${placeholder} #${index + 1}`}
-                    showFileName
+                    showFileName={showFileName}
                 />
                 <Button
                     className="form__files-remove"

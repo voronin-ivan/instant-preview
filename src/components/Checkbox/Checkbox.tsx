@@ -6,7 +6,7 @@ import './Checkbox.scss';
 interface ICheckBoxProps {
     label: string;
     input?: {
-        value: boolean;
+        value: boolean | string;
         onChange: (value: boolean) => void;
     }
 }
@@ -16,6 +16,6 @@ export const Checkbox = ({ input: { value, onChange }, label }: ICheckBoxProps) 
         className="checkbox"
         label={label}
         onChange={onChange}
-        checked={value}
+        checked={Boolean(value)}
     />
 );

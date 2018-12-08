@@ -1,10 +1,10 @@
 import React from 'react';
-import classNames from 'classnames';
 import { PreviewModel } from '../../../models/preview';
 import { fileToUrl, formatCount } from '../../../utils/helpers';
 import i18n from '../../../utils/i18n';
 
-import '../assets/no-photo.png';
+import '../assets/photo-empty.png';
+import '../assets/photo-story.png';
 
 export const PreviewCommon = ({
     photo,
@@ -13,20 +13,23 @@ export const PreviewCommon = ({
     followersCount,
     followingCount,
 }: Partial<PreviewModel>) => {
-    const photoUrl = photo ? fileToUrl(photo) : './img/no-photo.png';
-    const photoClassNames = classNames(
-        'preview__common-photo',
-        { 'preview__common-photo--active': activeStory },
-    );
+    const photoUrl = photo ? fileToUrl(photo) : './img/photo-empty.png';
 
     return (
         <div className="preview__common">
-            <div className={photoClassNames}>
+            <div className="preview__common-photo">
                 <img
                     src={photoUrl}
                     className="preview__photo-img"
                     alt=""
                 />
+                {activeStory && (
+                    <img
+                        src="./img/photo-story.png"
+                        className="preview__photo-story"
+                        alt=""
+                    />
+                )}
             </div>
             <div className="preview__common-statistics">
                 <div className="preview__statistics-wrapper">
