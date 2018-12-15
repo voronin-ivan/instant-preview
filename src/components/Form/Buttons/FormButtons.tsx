@@ -14,7 +14,7 @@ interface FormButtonsState {
 
 export class FormButtons extends React.Component<FormButtonsProps, FormButtonsState> {
     state: FormButtonsState = {
-        framedWrapper: true,
+        framedWrapper: false,
     }
 
     private toggleFrame = () => {
@@ -39,6 +39,7 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
                         className="form__button-download"
                         theme="purple"
                         onClick={this.download}
+                        big
                     >
                         {i18n('download')}
                     </Button>
@@ -54,6 +55,7 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
                     className="form__button-clear"
                     theme="white"
                     onClick={this.props.clearValues}
+                    big
                 >
                     {i18n('clearValues')}
                 </Button>

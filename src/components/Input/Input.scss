@@ -6,13 +6,26 @@
     width: 100%;
     padding-bottom: 0;
 
-    input,
-    textarea {
-        padding: 10px 0 5px;
-        border-bottom: 1px solid #ccc;
+    &--disabled {
+        pointer-events: none;
     }
 
     textarea {
         resize: none;
+    }
+
+    input,
+    textarea {
+        padding: 10px 0 5px;
+        border-bottom: 1px solid #ccc;
+        transition: border 0.2s ease-in-out;
+
+        &:hover {
+            border-color: #5360ad;
+        }
+    }
+
+    label {
+        font-size: 15px;
     }
 }

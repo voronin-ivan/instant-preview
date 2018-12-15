@@ -77,7 +77,7 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
             <div className={uploadClassNames}>
                 {showFileName && (
                     <ToolboxInput
-                        className="input"
+                        className="input input--disabled"
                         type="text"
                         label={label}
                         value={value && value.name}
