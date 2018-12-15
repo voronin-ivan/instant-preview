@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from '../Header/Header';
 import { PreviewContainer } from '../Preview/PreviewContainer';
 import { FormContainer } from '../Form/FormContainer';
+import { ContactsContainer } from '../Contacts/ContactsContainer';
 
 import './App.scss';
 
@@ -14,6 +15,7 @@ export const App = () => (
             </section>
             <section className="app__right">
                 <FormContainer />
+                <ContactsContainer />
             </section>
         </main>
     </React.Fragment>

@@ -1,0 +1,17 @@
+.contacts {
+    font-size: 14px;
+    text-align: center;
+    color: #757575;
+
+    &__link {
+        color: #5360ad;
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: underline;
+            outline: none;
+        }
+    }
+}
