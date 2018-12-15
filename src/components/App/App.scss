@@ -3,6 +3,7 @@ body {
     padding-bottom: 50px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #262626;
+    background: url("./assets/background.svg") no-repeat center;
 }
 
 .container {
@@ -22,10 +23,16 @@ body {
     }
 
     &__spinner {
-        text-align: center;
+        position: absolute;
+        top: calc(50% - 70px);
+        left: calc(50% - 35px);
+        width: 70px;
+        height: 70px;
+        background: url("./assets/spinner.svg") no-repeat center;
+        background-size: cover;
     }
 
     &__right {
-        width: 400px;
+        width: 380px;
     }
 }

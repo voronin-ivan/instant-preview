@@ -1,3 +1,16 @@
 [class].checkbox {
     margin-bottom: 0;
+    cursor: pointer;
+
+    span {
+        padding-left: 0;
+        margin-left: 10px;
+        border-bottom: 2px solid transparent;
+        transition: border 0.2s ease-in-out;
+    }
+
+    &:hover span,
+    input:focus ~ span {
+        border-bottom: 2px solid #5360ad;
+    }
 }

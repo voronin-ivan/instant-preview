@@ -31,7 +31,7 @@ export const FormFiles = ({
                 {i18n('add')}
             </Button>
         </div>
-        {fields.map((item: string, index: number) => (
+        {fields.map((item, index) => (
             <div className="form__files-row" key={item}>
                 {!showFileName && (
                     <Field

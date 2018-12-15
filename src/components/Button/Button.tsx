@@ -10,6 +10,7 @@ import './assets/remove.svg';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     icon?: 'clear' | 'remove';
     theme?: 'purple' | 'white';
+    big?: boolean;
 }
 
 export class Button extends React.PureComponent<ButtonProps> {
@@ -19,6 +20,7 @@ export class Button extends React.PureComponent<ButtonProps> {
             className,
             theme,
             icon,
+            big,
             disabled,
             ...props
         } = this.props;
@@ -27,6 +29,7 @@ export class Button extends React.PureComponent<ButtonProps> {
             className,
             'button',
             { 'button--disabled': disabled },
+            { 'button--big': big },
             theme ? `button--theme-${theme}` : '',
             icon ? `button--icon button--icon-${icon}` : '',
         );

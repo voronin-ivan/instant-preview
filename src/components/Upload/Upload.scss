@@ -23,6 +23,7 @@
 
         &--focused {
             background-color: #3f51b5;
+            box-shadow: 2px 2px 5px 1px rgba(74, 80, 117, 0.6);
         }
     }
 
@@ -32,5 +33,9 @@
         right: 85px;
         width: 15px;
         height: 15px;
+    }
+
+    input {
+        padding-right: 25px;
     }
 }
