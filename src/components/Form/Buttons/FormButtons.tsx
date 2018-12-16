@@ -26,12 +26,12 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
     }
 
     private download = async () => {
-        const element = this.state.framedWrapper
+        const elementId = this.state.framedWrapper
             ? 'framedWrapper'
             : 'wrapper';
 
         this.setState({ inProgress: true });
-        await saveElementToImage(document.getElementById(element)); // fck refs :D
+        await saveElementToImage(elementId);
         this.setState({ inProgress: false });
     }
 

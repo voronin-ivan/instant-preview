@@ -32,12 +32,17 @@ export const formatCount = (value: string) => {
     }
 };
 
-export const saveElementToImage = async (element: HTMLElement) => {
+export const saveElementToImage = async (elementId: string) => {
     const fileName = `insta-preview-${new Date().getTime()}.png`;
     const link = document.createElement('a');
+    const element = document.getElementById(elementId); // fck refs :D
     const canvas = await html2canvas(element, {
         logging: false,
         backgroundColor: null,
+        onclone: (clonedDoc) => {
+            const clonedElement = clonedDoc.getElementById(elementId);
+            clonedElement.style.animation = 'none';
+        },
     });
 
     link.download = fileName;
