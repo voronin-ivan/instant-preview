@@ -74,4 +74,13 @@
         height: 30px;
         font-size: 13px;
     }
+
+    &--progress {
+        font-size: 0;
+        pointer-events: none;
+        background-image: url("./assets/progress.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 20px;
+    }
 }

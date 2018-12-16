@@ -11,6 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     icon?: 'clear' | 'remove';
     theme?: 'purple' | 'white';
     big?: boolean;
+    inProgress?: boolean;
 }
 
 export class Button extends React.PureComponent<ButtonProps> {
@@ -21,6 +22,7 @@ export class Button extends React.PureComponent<ButtonProps> {
             theme,
             icon,
             big,
+            inProgress,
             disabled,
             ...props
         } = this.props;
@@ -30,6 +32,7 @@ export class Button extends React.PureComponent<ButtonProps> {
             'button',
             { 'button--disabled': disabled },
             { 'button--big': big },
+            { 'button--progress': inProgress },
             theme ? `button--theme-${theme}` : '',
             icon ? `button--icon button--icon-${icon}` : '',
         );

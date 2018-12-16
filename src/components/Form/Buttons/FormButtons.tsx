@@ -9,11 +9,13 @@ interface FormButtonsProps {
 }
 
 interface FormButtonsState {
+    inProgress: boolean;
     framedWrapper: boolean;
 }
 
 export class FormButtons extends React.Component<FormButtonsProps, FormButtonsState> {
     state: FormButtonsState = {
+        inProgress: false,
         framedWrapper: false,
     }
 
@@ -23,12 +25,14 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
         }));
     }
 
-    private download = () => {
+    private download = async () => {
         const element = this.state.framedWrapper
             ? 'framedWrapper'
             : 'wrapper';
 
-        saveElementToImage(document.getElementById(element)); // fck refs :D
+        this.setState({ inProgress: true });
+        await saveElementToImage(document.getElementById(element)); // fck refs :D
+        this.setState({ inProgress: false });
     }
 
     render() {
@@ -39,6 +43,7 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
                         className="form__button-download"
                         theme="purple"
                         onClick={this.download}
+                        inProgress={this.state.inProgress}
                         big
                     >
                         {i18n('download')}
