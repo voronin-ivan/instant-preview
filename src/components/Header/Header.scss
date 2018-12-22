@@ -1,4 +1,5 @@
 @import "../mixins";
+@import "../variables";
 
 .header {
     position: fixed;
@@ -19,7 +20,7 @@
 
     &__logo {
         font-size: 25px;
-        color: #000;
+        color: $color-dark;
         text-decoration: none;
     }
 }

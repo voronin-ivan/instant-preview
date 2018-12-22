@@ -1,3 +1,5 @@
+@import "../variables";
+
 .button {
     display: block;
     height: 25px;
@@ -22,12 +24,12 @@
     }
 
     &--theme-purple {
-        background-color: #5360ad;
+        background-color: $color-main;
         color: #fff;
 
         &:hover,
         &:focus {
-            background-color: #3f51b5;
+            background-color: $color-main-action;
         }
 
         &:focus {
@@ -41,7 +43,7 @@
 
         &:hover,
         &:focus {
-            border-color: #5360ad;
+            border-color: $color-main;
         }
     }
 
@@ -54,7 +56,7 @@
     &--icon-clear:focus {
 
         .button__svg {
-            fill: #262626;
+            fill: $color-dark;
         }
     }
 
@@ -67,7 +69,7 @@
     }
 
     &--disabled {
-        color: #262626;
+        color: $color-dark;
         background-color: #ccc;
         pointer-events: none;
     }

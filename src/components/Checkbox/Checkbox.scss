@@ -1,4 +1,5 @@
 @import "../mixins";
+@import "../variables";
 
 [class].checkbox {
     margin-bottom: 0;
@@ -13,7 +14,7 @@
 
     &:hover span,
     input:focus ~ span {
-        border-color: #5360ad;
+        border-color: $color-main;
 
         @include touch {
             border-color: transparent;

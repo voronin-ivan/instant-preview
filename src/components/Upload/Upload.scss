@@ -1,4 +1,5 @@
 @import "../mixins";
+@import "../variables";
 
 [class].upload {
     position: relative;
@@ -24,7 +25,7 @@
         margin-left: 10px;
 
         &--focused {
-            background-color: #3f51b5;
+            background-color: $color-main-action;
             box-shadow: 2px 2px 5px 1px rgba(74, 80, 117, 0.6);
         }
     }

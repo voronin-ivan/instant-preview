@@ -1,10 +1,12 @@
+@import "../variables";
+
 .contacts {
     font-size: 14px;
     text-align: center;
     color: #757575;
 
     &__link {
-        color: #5360ad;
+        color: $color-main;
         text-decoration: none;
 
         &:hover,

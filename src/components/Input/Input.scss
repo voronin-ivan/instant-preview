@@ -1,3 +1,5 @@
+@import "../variables";
+
 :root {
     --input-padding: 15px;
 }
@@ -21,7 +23,7 @@
         transition: border 0.2s ease-in-out;
 
         &:hover {
-            border-color: #5360ad;
+            border-color: $color-main;
         }
     }
 

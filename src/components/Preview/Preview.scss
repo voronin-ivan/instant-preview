@@ -1,4 +1,5 @@
 @import "../mixins";
+@import "../variables";
 
 .preview {
     position: fixed;
@@ -37,7 +38,7 @@
         margin-bottom: 8px;
         padding-top: 28px;
         background-color: #fafafa;
-        border-bottom: 1px solid #eaeaea;
+        border-bottom: 1px solid $color-light;
     }
 
     &__header-text {
@@ -229,7 +230,7 @@
     &__buttons {
         display: flex;
         flex-shrink: 0;
-        border-top: 1px solid #eaeaea;
+        border-top: 1px solid $color-light;
     }
 
     &__buttons-item {
@@ -250,7 +251,7 @@
             content: "";
             width: 1px;
             height: 14px;
-            background-color: #eaeaea;
+            background-color: $color-light;
         }
     }
 
@@ -258,7 +259,7 @@
         width: calc(100% + 1px);
         display: flex;
         flex-wrap: wrap;
-        border-top: 1px solid #eaeaea;
+        border-top: 1px solid $color-light;
 
         &--empty {
             align-items: center;
@@ -272,7 +273,7 @@
         height: 28px;
         margin: 0 auto;
         padding: 6px 33px;
-        border-bottom: 1px solid #eaeaea;
+        border-bottom: 1px solid $color-light;
     }
 
     &__posts-info {
@@ -306,7 +307,7 @@
         left: 0;
         width: 100%;
         height: 55px;
-        border-top: 1px solid #eaeaea;
+        border-top: 1px solid $color-light;
     }
 }
 

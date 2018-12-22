@@ -1,4 +1,5 @@
 @import "../mixins";
+@import "../variables";
 
 html {
     min-height: 100%;
@@ -8,7 +9,7 @@ body {
     margin: 0;
     padding-bottom: 50px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #262626;
+    color: $color-dark;
     background-image: linear-gradient(to bottom, #f7f8ff, #fff 25%);
 
     @include touch {
