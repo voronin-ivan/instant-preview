@@ -2,6 +2,7 @@
     display: block;
     height: 25px;
     padding: 0 7px;
+    font-size: 12px;
     border: none;
     border-radius: 2px;
     cursor: pointer;
@@ -35,6 +36,7 @@
     }
 
     &--theme-white {
+        background-color: #fff;
         border: 2px solid #ccc;
 
         &:hover,
@@ -60,7 +62,7 @@
     &--icon-remove:focus {
 
         .button__svg {
-            fill: #ccc;
+            fill: #777;
         }
     }
 

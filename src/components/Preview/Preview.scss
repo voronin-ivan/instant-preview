@@ -1,3 +1,5 @@
+@import "../mixins";
+
 .preview {
     position: fixed;
     top: calc(50% - 255px);
@@ -7,6 +9,10 @@
     font-size: 11px;
     pointer-events: none;
     animation: 0.5s ease-out appearanceFromTop;
+
+    @include touch {
+        position: relative;
+    }
 
     &__phone {
         position: absolute;

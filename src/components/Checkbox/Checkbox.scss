@@ -1,3 +1,5 @@
+@import "../mixins";
+
 [class].checkbox {
     margin-bottom: 0;
     cursor: pointer;
@@ -11,6 +13,10 @@
 
     &:hover span,
     input:focus ~ span {
-        border-bottom: 2px solid #5360ad;
+        border-color: #5360ad;
+
+        @include touch {
+            border-color: transparent;
+        }
     }
 }

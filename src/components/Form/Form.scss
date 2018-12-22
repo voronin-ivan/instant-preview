@@ -1,6 +1,8 @@
+@import "../mixins";
+
 .form {
-    margin-bottom: 50px;
     padding-top: 20px;
+    overflow: hidden;
 
     &__row {
         display: flex;
@@ -9,6 +11,10 @@
 
         &--checkboxes {
             margin: 20px 0;
+
+            @include touch {
+                margin-top: 0;
+            }
         }
     }
 
@@ -16,8 +22,20 @@
         min-width: 155px;
         margin-top: 20px;
 
-        &:nth-child(even) {
-            margin-left: 15px;
+        @include touch {
+            min-width: 100%;
+        }
+
+        &:nth-child(odd) {
+            margin-right: 15px;
+
+            @include touch {
+                margin-right: 0;
+            }
+
+            @include desktop-plus {
+                margin-right: 95px;
+            }
         }
     }
 
@@ -56,12 +74,17 @@
         height: 22px;
         margin-bottom: 1px;
         margin-left: 5px;
+        background-color: #fff;
     }
 
     &__buttons {
         display: flex;
         justify-content: space-between;
-        margin-top: 30px;
+        margin: 30px 0 50px;
+
+        @include touch {
+            margin-bottom: 30px;
+        }
     }
 
     &__button-download {
