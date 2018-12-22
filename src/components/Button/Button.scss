@@ -1,7 +1,10 @@
+@import "../variables";
+
 .button {
     display: block;
     height: 25px;
     padding: 0 7px;
+    font-size: 12px;
     border: none;
     border-radius: 2px;
     cursor: pointer;
@@ -21,12 +24,12 @@
     }
 
     &--theme-purple {
-        background-color: #5360ad;
+        background-color: $color-main;
         color: #fff;
 
         &:hover,
         &:focus {
-            background-color: #3f51b5;
+            background-color: $color-main-action;
         }
 
         &:focus {
@@ -35,11 +38,12 @@
     }
 
     &--theme-white {
+        background-color: #fff;
         border: 2px solid #ccc;
 
         &:hover,
         &:focus {
-            border-color: #5360ad;
+            border-color: $color-main;
         }
     }
 
@@ -52,7 +56,7 @@
     &--icon-clear:focus {
 
         .button__svg {
-            fill: #262626;
+            fill: $color-dark;
         }
     }
 
@@ -60,12 +64,12 @@
     &--icon-remove:focus {
 
         .button__svg {
-            fill: #ccc;
+            fill: #777;
         }
     }
 
     &--disabled {
-        color: #262626;
+        color: $color-dark;
         background-color: #ccc;
         pointer-events: none;
     }
@@ -73,5 +77,14 @@
     &--big {
         height: 30px;
         font-size: 13px;
+    }
+
+    &--progress {
+        font-size: 0;
+        pointer-events: none;
+        background-image: url("./assets/progress.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 20px;
     }
 }

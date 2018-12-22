@@ -9,7 +9,7 @@ import './App.scss';
 export const App = () => (
     <React.Fragment>
         <Header />
-        <main className="container">
+        <main className="container container--main">
             <section className="app__left">
                 <PreviewContainer />
             </section>

@@ -1,3 +1,6 @@
+@import "../mixins";
+@import "../variables";
+
 .header {
     position: fixed;
     z-index: 1;
@@ -8,9 +11,16 @@
     background-color: #fff;
     box-shadow: 0 -8px 0 #fff, 0 -2px 8px 0 rgba(0, 0, 0, 0.4);
 
+    @include touch {
+        position: relative;
+        height: 85px;
+        margin-bottom: 25px;
+        padding-top: 10px;
+    }
+
     &__logo {
         font-size: 25px;
-        color: #000;
+        color: $color-dark;
         text-decoration: none;
     }
 }
