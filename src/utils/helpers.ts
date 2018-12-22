@@ -37,6 +37,7 @@ export const saveElementToImage = async (elementId: string) => {
     const link = document.createElement('a');
     const element = document.getElementById(elementId); // fck refs :D
     const canvas = await html2canvas(element, {
+        scale: 2,
         logging: false,
         backgroundColor: null,
         onclone: (clonedDoc) => {
