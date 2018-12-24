@@ -6,6 +6,9 @@ import { ContactsContainer } from '../Contacts/ContactsContainer';
 
 import './App.scss';
 
+import './assets/favicon_56.png';
+import './assets/favicon_120.png';
+
 export const App = () => (
     <React.Fragment>
         <Header />
