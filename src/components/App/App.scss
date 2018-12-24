@@ -29,10 +29,10 @@ body {
 
     &--main {
         min-height: calc(100vh - 100px);
-    }
 
-    @include touch {
-        flex-direction: column;
+        @include touch {
+            flex-direction: column;
+        }
     }
 
     @include desktop-plus {
