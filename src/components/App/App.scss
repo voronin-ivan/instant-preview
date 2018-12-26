@@ -1,6 +1,11 @@
 @import "../mixins";
 @import "../variables";
 
+:root {
+    --input-padding: 15px;
+    --tab-navigation-border-color: rgba(0, 0, 0, 0);
+}
+
 html {
     min-height: 100%;
 }
