@@ -3,6 +3,7 @@ import { Header } from '../Header/Header';
 import { PreviewContainer } from '../Preview/PreviewContainer';
 import { FormContainer } from '../Form/FormContainer';
 import { ContactsContainer } from '../Contacts/ContactsContainer';
+import { YaMetrica } from '../YaMetrica/YaMetrica';
 
 import './App.scss';
 
@@ -21,5 +22,6 @@ export const App = () => (
                 <ContactsContainer />
             </section>
         </main>
+        <YaMetrica />
     </React.Fragment>
 );

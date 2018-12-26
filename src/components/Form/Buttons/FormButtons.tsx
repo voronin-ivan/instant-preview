@@ -1,4 +1,5 @@
 import React from 'react';
+import ym from 'react-yandex-metrika';
 import { Button } from '../../Button/Button';
 import { Checkbox } from '../../Checkbox/Checkbox';
 import { saveElementToImage } from '../../../utils/helpers';
@@ -29,6 +30,8 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
         const elementId = this.state.framedWrapper
             ? 'framedWrapper'
             : 'wrapper';
+
+        ym('reachGoal', 'download');
 
         this.setState({ inProgress: true });
         await saveElementToImage(elementId);
