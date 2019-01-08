@@ -19,7 +19,7 @@ const renderStoriesElements = (stories: UploadedFileModel[]): JSX.Element[] => (
                     src={fileToUrl(content)}
                     alt=""
                 />
-                <span>{title || i18n('highlights')}</span>
+                <span>{title || i18n('story')}</span>
             </div>
         );
 
