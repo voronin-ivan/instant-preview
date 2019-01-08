@@ -33,7 +33,6 @@ const ru: StringMap = {
     emailButton: 'Эл. письмо',
     addressButton: 'Как добраться',
     noPosts: 'Публикаций пока нет',
-    highlights: 'Актуальное',
     download: 'Скачать',
     withFrame: 'С корпусом',
     writeUs: 'Пишите нам',

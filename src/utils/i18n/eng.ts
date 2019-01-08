@@ -33,7 +33,6 @@ const eng: StringMap = {
     emailButton: 'Email',
     addressButton: 'Directions',
     noPosts: 'No posts yet',
-    highlights: 'Highlights',
     download: 'Download',
     withFrame: 'With frame',
     writeUs: 'Write us',
