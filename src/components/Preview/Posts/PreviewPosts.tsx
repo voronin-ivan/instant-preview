@@ -12,8 +12,8 @@ interface PreviewPostsProps {
     postsCount: number;
 }
 
-export const PreviewPosts = ({ posts, postsCount }: PreviewPostsProps) => {
-    const postsElements = posts ? posts.reduce((acc, post, index) => {
+const renderPostsElements = (posts: UploadedFileModel[]): JSX.Element[] => (
+    posts.reduce((acc, post, index) => {
         if (!post.content) return acc;
 
         const postElement = (
@@ -26,16 +26,18 @@ export const PreviewPosts = ({ posts, postsCount }: PreviewPostsProps) => {
         );
 
         return [...acc, postElement];
-    }, []) : [];
+    }, [])
+);
+
+export const PreviewPosts = ({ posts, postsCount }: PreviewPostsProps) => {
+    const postsElements = posts ? renderPostsElements(posts) : [];
 
     if (postsElements.length < postsCount) {
         const maxPosts = 15; // on viewport
         const startIndex = postsElements.length;
 
         for (let i = startIndex; i < postsCount; i++) {
-            if (postsElements.length >= maxPosts) {
-                break;
-            }
+            if (postsElements.length >= maxPosts) break;
 
             postsElements.push((
                 <div

@@ -1,6 +1,6 @@
 {
   "name": "insta-preview",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "SPA for previewing instagram profile",
   "author": "Ivan Voronin",
   "license": "MIT",
@@ -61,7 +61,7 @@
     "uglifyjs-webpack-plugin": "1.2.7",
     "webpack": "4.20.2",
     "webpack-cli": "3.1.2",
-    "webpack-dev-server": "3.1.9",
+    "webpack-dev-server": "3.1.11",
     "webpack-merge": "4.1.4"
   },
   "husky": {
