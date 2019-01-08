@@ -7,8 +7,8 @@ interface PreviewStoriesProps {
     stories: UploadedFileModel[];
 }
 
-export const PreviewStories = ({ stories }: PreviewStoriesProps) => {
-    const storiesElements = stories ? stories.reduce((acc, story, index) => {
+const renderStoriesElements = (stories: UploadedFileModel[]): JSX.Element[] => (
+    stories.reduce((acc, story, index) => {
         const { content, title } = story;
 
         if (!content) return acc;
@@ -24,7 +24,13 @@ export const PreviewStories = ({ stories }: PreviewStoriesProps) => {
         );
 
         return [...acc, storyElement];
-    }, []) : [];
+    }, [])
+);
+
+export const PreviewStories = ({ stories }: PreviewStoriesProps) => {
+    const storiesElements = stories
+        ? renderStoriesElements(stories)
+        : [];
 
     if (!storiesElements.length) return null;
 
