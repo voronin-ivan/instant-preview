@@ -5,11 +5,18 @@ import * as previewActions from '../actions/preview';
 
 type PreviewAction = ActionType<typeof previewActions>;
 
-export const previewReducer = (state: PreviewModel = {}, action: PreviewAction) => {
+type PreviewReducer = (
+    state: PreviewModel,
+    action: PreviewAction
+) => PreviewModel;
+
+const defaultState = {};
+
+export const previewReducer: PreviewReducer = (state = defaultState, action) => {
     switch (action.type) {
         case getType(previewActions.reset):
-            setData('preview', {});
-            return {};
+            setData('preview', defaultState);
+            return defaultState;
 
         default: return state;
     }
