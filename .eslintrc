@@ -10,6 +10,7 @@
         "no-restricted-globals": "off",
         "no-underscore-dangle": "off",
         "no-plusplus": "off",
+        "no-console": ["error", {"allow": ["error"]}],
         "indent": ["error", 4, {"SwitchCase": 1}],
         "object-curly-newline": "off",
         "react/jsx-indent": ["error", 4],

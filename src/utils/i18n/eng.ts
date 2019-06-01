@@ -24,6 +24,7 @@ const eng: StringMap = {
     add: 'Add',
     upload: 'Upload',
     clearValues: 'Clear values',
+    errorMain: 'Something went wrong, try reload the page. If an error occurs again, please contact us',
     errorSize: 'File size exceeds the limit (6MB)',
     errorUnsupportedType: 'Only images are supported (jpeg, png)',
     thousand: 'K',

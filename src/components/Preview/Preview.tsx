@@ -14,10 +14,12 @@ import './assets/navigation.png';
 
 export interface PreviewProps {
     lang: LangModel;
-    preview: PreviewModel;
+    preview?: PreviewModel;
 }
 
-export const Preview = (props: PreviewProps) => {
+export const Preview = ({ preview }: PreviewProps) => {
+    if (!preview) return null;
+
     const {
         login,
         photo,
@@ -30,7 +32,7 @@ export const Preview = (props: PreviewProps) => {
         stories,
         posts,
         ...info
-    } = props.preview;
+    } = preview;
 
     return (
         <div className="preview" id="framedWrapper">
