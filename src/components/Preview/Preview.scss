@@ -9,7 +9,7 @@
     padding: 16px 18px;
     font-size: 11px;
     pointer-events: none;
-    animation: 0.5s ease-out appearanceFromTop;
+    animation: 0.5s ease-out smoothAppearance;
 
     @include touch {
         position: relative;
@@ -311,15 +311,13 @@
     }
 }
 
-@keyframes appearanceFromTop {
+@keyframes smoothAppearance {
 
     0% {
-        transform: translateY(-20%);
         opacity: 0;
     }
 
     100% {
-        transform: translateX(0);
         opacity: 1;
     }
 }
