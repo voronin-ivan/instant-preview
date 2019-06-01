@@ -1,0 +1,33 @@
+@import "../mixins";
+@import "../variables";
+
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: calc(100vh - 200px);
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+
+    @include touch {
+        width: 90%;
+        height: 100vh;
+        font-size: 16px;
+        line-break: 20px;
+    }
+
+    &__link {
+        color: $color-main;
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: underline;
+            outline: none;
+        }
+    }
+}
