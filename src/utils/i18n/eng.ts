@@ -37,6 +37,8 @@ const eng: StringMap = {
     download: 'Download',
     withFrame: 'With frame',
     writeUs: 'Write us',
+    save: 'Save',
+    cancel: 'Cancel',
 };
 
 export default eng;

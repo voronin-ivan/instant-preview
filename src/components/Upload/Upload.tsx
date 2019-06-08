@@ -2,8 +2,10 @@ import React from 'react';
 import classNames from 'classnames';
 import { Input as ToolboxInput } from 'react-toolbox/lib/input';
 import { Button } from '../Button/Button';
+import { Crop } from '../Crop/Crop';
 import { InputModel } from '../../models/input';
 import i18n from '../../utils/i18n';
+import { fileToUrl } from '../../utils/helpers';
 
 import './Upload.scss';
 
@@ -14,13 +16,19 @@ type UploadProps = InputModel & {
 
 interface UploadState {
     error: '' | 'errorSize' | 'errorUnsupportedType';
+    src: string,
+    fileName: string;
     focused: boolean;
+    showCrop: boolean;
 }
 
 export class Upload extends React.PureComponent<UploadProps, UploadState> {
     state: UploadState = {
         error: '',
+        src: '',
+        fileName: '',
         focused: false,
+        showCrop: false,
     }
 
     private maxFileSize = 6000000; // 6 Mb
@@ -36,6 +44,7 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
 
     private handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files[0];
+
         // eslint-disable-next-line no-param-reassign
         event.target.value = null; // for correct "clear all"
 
@@ -49,8 +58,23 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
             return;
         }
 
-        this.props.input.onChange(file);
+        this.setState({
+            src: fileToUrl(file),
+            fileName: file.name,
+            showCrop: true,
+        });
     };
+
+    private hideCrop = () => this.setState({ showCrop: false });
+
+    private onSuccessCrop = (content: File) => {
+        this.props.input.onChange({
+            content,
+            title: this.state.fileName,
+        });
+
+        this.hideCrop();
+    }
 
     private resetField = () => this.props.input.onChange(null);
 
@@ -60,8 +84,9 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
 
     render() {
         const { input, label, showClearButton, showFileName } = this.props;
+        const { error, focused, showCrop, src, fileName } = this.state;
         const { value } = input;
-        const { error, focused } = this.state;
+        const title = (value && value.title) || '';
 
         const buttonClassNames = classNames(
             'upload__button',
@@ -71,6 +96,7 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
         const uploadClassNames = classNames(
             'upload',
             { 'upload--full': showFileName },
+            { 'upload--padding': showClearButton },
         );
 
         return (
@@ -80,7 +106,7 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
                         className="input input--disabled"
                         type="text"
                         label={label}
-                        value={value && value.name}
+                        value={title}
                         error={error ? i18n(error) : ''}
                         disabled
                     />
@@ -109,6 +135,13 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
                         />
                     </label>
                 </Button>
+                <Crop
+                    active={showCrop}
+                    src={src}
+                    fileName={fileName}
+                    onSave={this.onSuccessCrop}
+                    onCancel={this.hideCrop}
+                />
             </div>
         );
     }

@@ -2,7 +2,7 @@ import { UploadedFileModel } from './file';
 
 export interface PreviewModel {
     login?: string;
-    photo?: File;
+    photo?: UploadedFileModel;
     activeStory?: boolean;
     postsCount?: string;
     followersCount?: string;

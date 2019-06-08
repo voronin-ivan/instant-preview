@@ -42,7 +42,7 @@ export const FormFiles = ({
                     />
                 )}
                 <Field
-                    name={`${item}.content`}
+                    name={item}
                     component={Upload}
                     label={`${placeholder} #${index + 1}`}
                     showFileName={showFileName}

@@ -37,6 +37,8 @@ const ru: StringMap = {
     download: 'Скачать',
     withFrame: 'С корпусом',
     writeUs: 'Пишите нам',
+    save: 'Сохранить',
+    cancel: 'Отменить',
 };
 
 export default ru;
