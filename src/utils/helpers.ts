@@ -1,4 +1,5 @@
 import html2canvas from 'html2canvas';
+import { Crop } from 'react-image-crop';
 import i18n from './i18n';
 
 export const fileToUrl = (file: File) => window.URL.createObjectURL(file);
@@ -49,4 +50,29 @@ export const saveElementToImage = async (elementId: string) => {
     link.download = fileName;
     link.href = canvas.toDataURL('image/png;base64');
     link.click();
+};
+
+export const getCanvasWithImage = (image: HTMLImageElement, crop: Crop) => {
+    const scaleX = image.naturalWidth / image.width;
+    const scaleY = image.naturalHeight / image.height;
+    const canvas = document.createElement('canvas');
+
+    canvas.width = crop.width;
+    canvas.height = crop.height;
+
+    const ctx = canvas.getContext('2d');
+
+    ctx.drawImage(
+        image,
+        crop.x * scaleX,
+        crop.y * scaleY,
+        crop.width * scaleX,
+        crop.height * scaleY,
+        0,
+        0,
+        crop.width,
+        crop.height,
+    );
+
+    return canvas;
 };

@@ -1,0 +1,42 @@
+@import "../mixins";
+
+[class].crop {
+    max-width: 825px;
+    width: calc(100% - 50px);
+
+    @include touch {
+        width: calc(100% - 30px);
+    }
+
+    section {
+        text-align: center;
+
+        @include touch {
+            padding: 15px;
+        }
+    }
+
+    &__wrapper {
+        max-height: 70vh;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 17px;
+
+        @include touch {
+            margin-top: 12px;
+        }
+    }
+
+    &__buttons-item {
+        width: 85px;
+
+        &--save {
+            width: 90px;
+            margin-left: 10px;
+        }
+    }
+}

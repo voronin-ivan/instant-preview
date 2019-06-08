@@ -10,6 +10,10 @@
         width: 100%;
     }
 
+    &--padding input {
+        padding-right: 25px;
+    }
+
     &__input {
         position: absolute;
         top: 0;
@@ -42,9 +46,5 @@
         @include touch {
             background-color: #fff;
         }
-    }
-
-    input {
-        padding-right: 25px;
     }
 }

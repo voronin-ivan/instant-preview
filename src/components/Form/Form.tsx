@@ -26,7 +26,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
             <div className="form__row">
                 <FieldArray
                     name="posts"
-                    component={FormFiles}
+                    component={FormFiles as any}
                     showFileName
                     maxFiles={15}
                     placeholder={i18n('post')}
@@ -35,7 +35,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
             <div className="form__row">
                 <FieldArray
                     name="stories"
-                    component={FormFiles}
+                    component={FormFiles as any}
                     maxFiles={5}
                     placeholder={i18n('story')}
                 />
