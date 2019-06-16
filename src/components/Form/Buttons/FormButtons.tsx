@@ -33,6 +33,16 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
         this.setState({ inProgress: false });
     }
 
+    private renderCheckbox = (name: string) => (
+        <div className="form__buttons-checkbox">
+            <Field
+                name={name}
+                component={Checkbox}
+                label={i18n(name)}
+            />
+        </div>
+    );
+
     render() {
         return (
             <div className="form__buttons">
@@ -55,20 +65,8 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
                         {i18n('clearValues')}
                     </Button>
                 </div>
-                <div className="form__buttons-checkbox">
-                    <Field
-                        name="hideFrame"
-                        component={Checkbox}
-                        label={i18n('hideFrame')}
-                    />
-                </div>
-                <div className="form__buttons-checkbox">
-                    <Field
-                        name="hideInfo"
-                        component={Checkbox}
-                        label={i18n('hideInfo')}
-                    />
-                </div>
+                {this.renderCheckbox('hideFrame')}
+                {this.renderCheckbox('hideInfo')}
             </div>
         );
     }
