@@ -6,14 +6,17 @@ import { FormFiles } from './Files/FormFiles';
 import { FormButtons } from './Buttons/FormButtons';
 import { reset as actionReset } from '../../redux/actions/preview';
 import i18n from '../../utils/i18n';
+import { LangModel } from '../../models/lang';
 
 import './Form.scss';
 
-interface FormProps extends InjectedFormProps {
+export interface FormProps extends InjectedFormProps {
     resetPreview: typeof actionReset;
+    hideFrame: boolean;
+    lang: LangModel;
 }
 
-export const Form = ({ reset, resetPreview }: FormProps) => {
+export const Form = ({ reset, resetPreview, hideFrame }: FormProps) => {
     const clearValues = () => {
         reset();
         resetPreview();
@@ -28,7 +31,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                     name="posts"
                     component={FormFiles as any}
                     showFileName
-                    maxFiles={15}
+                    maxFiles={18}
                     placeholder={i18n('post')}
                 />
             </div>
@@ -40,7 +43,7 @@ export const Form = ({ reset, resetPreview }: FormProps) => {
                     placeholder={i18n('story')}
                 />
             </div>
-            <FormButtons clearValues={clearValues} />
+            <FormButtons clearValues={clearValues} hideFrame={hideFrame} />
         </form>
     );
 };

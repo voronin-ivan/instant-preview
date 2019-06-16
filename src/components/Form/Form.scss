@@ -84,8 +84,6 @@
     }
 
     &__buttons {
-        display: flex;
-        justify-content: space-between;
         margin: 30px 0 50px;
 
         @include touch {
@@ -93,12 +91,21 @@
         }
     }
 
-    &__button-download {
+    &__buttons-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__buttons-download {
         width: 105px;
         margin-bottom: 10px;
     }
 
-    &__button-clear {
+    &__buttons-clear {
         width: 145px;
+    }
+
+    &__buttons-checkbox {
+        margin: 5px 0 10px;
     }
 }
