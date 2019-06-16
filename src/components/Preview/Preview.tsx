@@ -31,6 +31,8 @@ export const Preview = ({ preview }: PreviewProps) => {
         showEmail,
         stories,
         posts,
+        hideFrame,
+        hideInfo,
         ...info
     } = preview;
 
@@ -40,23 +42,28 @@ export const Preview = ({ preview }: PreviewProps) => {
                 <div className="preview__header">
                     <div className="preview__header-text">{login}</div>
                 </div>
-                <PreviewCommon
-                    photo={photo}
-                    activeStory={activeStory}
-                    postsCount={postsCount}
-                    followersCount={followersCount}
-                    followingCount={followingCount}
-                />
-                <PreviewInfo {...info} />
-                <PreviewStories stories={stories} />
-                <PreviewButtons
-                    phone={showPhone}
-                    email={showEmail}
-                    address={Boolean(info.address)}
-                />
+                {!hideInfo && (
+                    <>
+                        <PreviewCommon
+                            photo={photo}
+                            activeStory={activeStory}
+                            postsCount={postsCount}
+                            followersCount={followersCount}
+                            followingCount={followingCount}
+                        />
+                        <PreviewInfo {...info} />
+                        <PreviewStories stories={stories} />
+                        <PreviewButtons
+                            phone={showPhone}
+                            email={showEmail}
+                            address={Boolean(info.address)}
+                        />
+                    </>
+                )}
                 <PreviewPosts
                     posts={posts}
                     postsCount={Number(postsCount)}
+                    hideInfo={hideInfo}
                 />
                 <img
                     alt=""
@@ -64,11 +71,13 @@ export const Preview = ({ preview }: PreviewProps) => {
                     className="preview__navigation"
                 />
             </div>
-            <img
-                alt=""
-                src="./img/phone.png"
-                className="preview__phone"
-            />
+            {!hideFrame && (
+                <img
+                    alt=""
+                    src="./img/phone.png"
+                    className="preview__phone"
+                />
+            )}
         </div>
     );
 };

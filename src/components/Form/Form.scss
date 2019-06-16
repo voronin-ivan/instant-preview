@@ -48,13 +48,19 @@
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
+        padding-bottom: 5px;
+        background-color: #fff;
+        border: 2px solid transparent;
+        border-radius: 2px;
 
-        &:not(:first-child) {
-            margin-top: 5px;
+        &--title {
+            padding-bottom: 0;
         }
 
-        &:not(:first-child):last-child {
-            margin-bottom: 25px;
+        &:focus,
+        &--dragging {
+            border-color: #ccc;
+            outline: none;
         }
     }
 
@@ -78,8 +84,6 @@
     }
 
     &__buttons {
-        display: flex;
-        justify-content: space-between;
         margin: 30px 0 50px;
 
         @include touch {
@@ -87,12 +91,21 @@
         }
     }
 
-    &__button-download {
+    &__buttons-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__buttons-download {
         width: 105px;
         margin-bottom: 10px;
     }
 
-    &__button-clear {
+    &__buttons-clear {
         width: 145px;
+    }
+
+    &__buttons-checkbox {
+        margin: 5px 0 10px;
     }
 }

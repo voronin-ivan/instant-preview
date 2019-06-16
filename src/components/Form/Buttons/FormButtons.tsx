@@ -1,5 +1,6 @@
 import React from 'react';
 import ym from 'react-yandex-metrika';
+import { Field } from 'redux-form';
 import { Button } from '../../Button/Button';
 import { Checkbox } from '../../Checkbox/Checkbox';
 import { saveElementToImage } from '../../../utils/helpers';
@@ -7,33 +8,27 @@ import i18n from '../../../utils/i18n';
 
 interface FormButtonsProps {
     clearValues: () => void;
+    hideFrame?: boolean;
 }
 
 interface FormButtonsState {
     inProgress: boolean;
-    framedWrapper: boolean;
 }
 
 export class FormButtons extends React.Component<FormButtonsProps, FormButtonsState> {
     state: FormButtonsState = {
         inProgress: false,
-        framedWrapper: false,
-    }
-
-    private toggleFrame = () => {
-        this.setState(prevState => ({
-            framedWrapper: !prevState.framedWrapper,
-        }));
     }
 
     private download = async () => {
-        const elementId = this.state.framedWrapper
-            ? 'framedWrapper'
-            : 'wrapper';
+        this.setState({ inProgress: true });
 
         ym('reachGoal', 'download');
 
-        this.setState({ inProgress: true });
+        const elementId = this.props.hideFrame
+            ? 'wrapper'
+            : 'framedWrapper';
+
         await saveElementToImage(elementId);
         this.setState({ inProgress: false });
     }
@@ -41,9 +36,9 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
     render() {
         return (
             <div className="form__buttons">
-                <div>
+                <div className="form__buttons-wrapper">
                     <Button
-                        className="form__button-download"
+                        className="form__buttons-download"
                         theme="purple"
                         onClick={this.download}
                         inProgress={this.state.inProgress}
@@ -51,22 +46,29 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
                     >
                         {i18n('download')}
                     </Button>
-                    <Checkbox
-                        label={i18n('withFrame')}
-                        input={{
-                            value: this.state.framedWrapper,
-                            onChange: this.toggleFrame,
-                        }}
+                    <Button
+                        className="form__buttons-clear"
+                        theme="white"
+                        onClick={this.props.clearValues}
+                        big
+                    >
+                        {i18n('clearValues')}
+                    </Button>
+                </div>
+                <div className="form__buttons-checkbox">
+                    <Field
+                        name="hideFrame"
+                        component={Checkbox}
+                        label={i18n('hideFrame')}
                     />
                 </div>
-                <Button
-                    className="form__button-clear"
-                    theme="white"
-                    onClick={this.props.clearValues}
-                    big
-                >
-                    {i18n('clearValues')}
-                </Button>
+                <div className="form__buttons-checkbox">
+                    <Field
+                        name="hideInfo"
+                        component={Checkbox}
+                        label={i18n('hideInfo')}
+                    />
+                </div>
             </div>
         );
     }

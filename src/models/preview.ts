@@ -17,4 +17,6 @@ export interface PreviewModel {
     showEmail?: boolean;
     posts?: UploadedFileModel[];
     stories?: UploadedFileModel[];
+    hideFrame?: boolean;
+    hideInfo?: boolean;
 }

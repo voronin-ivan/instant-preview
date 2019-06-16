@@ -10,6 +10,7 @@ import '../assets/posts-empty.png';
 interface PreviewPostsProps {
     posts: UploadedFileModel[];
     postsCount: number;
+    hideInfo: boolean;
 }
 
 const renderPostsElements = (posts: UploadedFileModel[]): JSX.Element[] => (
@@ -29,11 +30,11 @@ const renderPostsElements = (posts: UploadedFileModel[]): JSX.Element[] => (
     }, [])
 );
 
-export const PreviewPosts = ({ posts, postsCount }: PreviewPostsProps) => {
+export const PreviewPosts = ({ posts, postsCount, hideInfo }: PreviewPostsProps) => {
     const postsElements = posts ? renderPostsElements(posts) : [];
 
     if (postsElements.length < postsCount) {
-        const maxPosts = 15; // on viewport
+        const maxPosts = 18; // on viewport
         const startIndex = postsElements.length;
 
         for (let i = startIndex; i < postsCount; i++) {
@@ -65,11 +66,13 @@ export const PreviewPosts = ({ posts, postsCount }: PreviewPostsProps) => {
                     </div>
                 ) : (
                     <React.Fragment>
-                        <img
-                            alt=""
-                            src="./img/posts-icons.png"
-                            className="preview__posts-icons"
-                        />
+                        {!hideInfo && (
+                            <img
+                                alt=""
+                                src="./img/posts-icons.png"
+                                className="preview__posts-icons"
+                            />
+                        )}
                         {postsElements}
                     </React.Fragment>
                 )
