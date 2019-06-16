@@ -29,6 +29,7 @@ export const Form = ({ reset, resetPreview, hideFrame }: FormProps) => {
             <div className="form__row">
                 <FieldArray
                     name="posts"
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     component={FormFiles as any}
                     showFileName
                     maxFiles={18}
@@ -38,6 +39,7 @@ export const Form = ({ reset, resetPreview, hideFrame }: FormProps) => {
             <div className="form__row">
                 <FieldArray
                     name="stories"
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     component={FormFiles as any}
                     maxFiles={5}
                     placeholder={i18n('story')}
