@@ -5,6 +5,19 @@ const common = require('./common.js');
 
 module.exports = merge(common, {
     mode: 'production',
+    module: {
+        rules: [{
+            test: /\.(mjs|js|jsx)$/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        '@babel/preset-env',
+                    ],
+                },
+            },
+        }],
+    },
     performance: {
         hints: 'warning',
     },

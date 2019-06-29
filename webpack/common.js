@@ -8,6 +8,15 @@ const isProduction = process.env.NODE_ENV === 'production';
 const scriptName = `[name]${isProduction ? '-[contenthash]' : ''}.js`;
 const styleName = `style${isProduction ? '-[contenthash:hex:20]' : ''}.css`;
 
+const postCssLoader = {
+    loader: 'postcss-loader',
+    options: {
+        plugins: [
+            require('autoprefixer'),
+        ],
+    }
+};
+
 module.exports = {
     entry: {
         init: './src/init.ts',
@@ -36,7 +45,7 @@ module.exports = {
                             loader: 'css-loader',
                             options: { sourceMap: true },
                         },
-                        'postcss-loader',
+                        postCssLoader,
                         'sass-loader',
                     ],
                 }),
@@ -53,7 +62,7 @@ module.exports = {
                                 localIdentName: '[local]--[hash:base64:8]',
                             },
                         },
-                        'postcss-loader',
+                        postCssLoader,
                     ],
                 }),
             },
