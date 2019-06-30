@@ -49,7 +49,14 @@ export const saveElementToImage = async (elementId: string) => {
 
     link.download = fileName;
     link.href = canvas.toDataURL('image/png;base64');
-    link.click();
+
+    const evt = new MouseEvent('click', {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+    });
+
+    link.dispatchEvent(evt);
 };
 
 export const getCanvasWithImage = (image: HTMLImageElement, crop: Crop) => {

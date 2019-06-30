@@ -3,6 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const postCssLoader = require('./loaders/postcss');
+const cssLoader = require('./loaders/css');
+const fileLoader = require('./loaders/file');
+
 const basePath = path.resolve(__dirname, '..');
 const isProduction = process.env.NODE_ENV === 'production';
 const scriptName = `[name]${isProduction ? '-[contenthash]' : ''}.js`;
@@ -32,11 +36,8 @@ module.exports = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     use: [
-                        {
-                            loader: 'css-loader',
-                            options: { sourceMap: true },
-                        },
-                        'postcss-loader',
+                        cssLoader('scss'),
+                        postCssLoader,
                         'sass-loader',
                     ],
                 }),
@@ -45,26 +46,14 @@ module.exports = {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                modules: true,
-                                importLoaders: 1,
-                                localIdentName: '[local]--[hash:base64:8]',
-                            },
-                        },
-                        'postcss-loader',
+                        cssLoader('css'),
+                        postCssLoader,
                     ],
                 }),
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: 'img/[name].[ext]',
-                    },
-                }],
+                use: fileLoader,
             },
         ],
     },

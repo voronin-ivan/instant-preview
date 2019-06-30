@@ -1,3 +1,7 @@
+import 'core-js/modules/es.promise';
+import 'core-js/modules/es.object.assign';
+import 'core-js/modules/es.string.starts-with';
+
 import { getInitState } from './utils/idb';
 
 getInitState()
