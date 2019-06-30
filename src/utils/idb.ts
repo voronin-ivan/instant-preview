@@ -5,13 +5,21 @@ import { RootModel } from '../models/root';
 
 const store = new Store('insta-preview');
 
-export const setData = (
-    key: string,
-    value: PreviewModel | LangModel,
-): Promise<void> => set(key, value, store);
+const initState: RootModel = {
+    lang: 'ru',
+    preview: {},
+};
+
+export const setData = (key: string, value: PreviewModel | LangModel) => {
+    if (window.indexedDB) {
+        set(key, value, store);
+    }
+};
 
 export const getInitState = async (): Promise<RootModel> => {
-    const lang = await get<LangModel>('lang', store) || 'ru';
+    if (!window.indexedDB) return initState;
+
+    const lang = await get<LangModel>('lang', store);
     const preview = await get<PreviewModel>('preview', store);
 
     return { lang, preview };

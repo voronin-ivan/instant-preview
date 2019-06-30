@@ -1,21 +1,17 @@
 const merge = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 const common = require('./common.js');
+const babelLoader = require('./loaders/babel');
 
 module.exports = merge(common, {
     mode: 'production',
     module: {
         rules: [{
+            // transpile some deps to ES5
             test: /\.(mjs|js|jsx)$/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: [
-                        '@babel/preset-env',
-                    ],
-                },
-            },
+            use: babelLoader,
         }],
     },
     performance: {
