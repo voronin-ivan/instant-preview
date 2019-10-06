@@ -32,10 +32,10 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
                     <span>
                         <span>{i18n('errorMain')}&nbsp;—&nbsp;</span>
                         <a
-                            href="mailto:hi@insta-preview.com"
+                            href="mailto:hi@instant-preview.com"
                             className="error__link"
                         >
-                            hi@insta-preview.com
+                            hi@instant-preview.com
                         </a>
                     </span>
                 </div>

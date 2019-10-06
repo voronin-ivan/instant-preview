@@ -1,6 +1,6 @@
 {
-  "name": "insta-preview",
-  "version": "1.2.1",
+  "name": "instant-preview",
+  "version": "1.2.2",
   "description": "SPA for previewing instagram profile",
   "author": "Ivan Voronin",
   "license": "MIT",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/voronin-ivan/insta-preview.git"
+    "url": "git+https://github.com/voronin-ivan/instant-preview.git"
   },
   "dependencies": {
     "classnames": "2.2.6",

@@ -12,10 +12,10 @@ export const Contacts = () => (
     <div className="contacts">
         <span>{i18n('writeUs')}&nbsp;—&nbsp;</span>
         <a
-            href="mailto:hi@insta-preview.com"
+            href="mailto:hi@instant-preview.com"
             className="contacts__link"
         >
-            hi@insta-preview.com
+            hi@instant-preview.com
         </a>
     </div>
 );
