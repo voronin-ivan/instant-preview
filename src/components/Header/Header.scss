@@ -20,5 +20,9 @@
         font-size: 25px;
         color: $color-dark;
         text-decoration: none;
+
+        @include touch {
+            font-size: 22px;
+        }
     }
 }

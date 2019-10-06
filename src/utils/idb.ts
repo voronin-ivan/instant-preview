@@ -3,7 +3,7 @@ import { PreviewModel } from '../models/preview';
 import { LangModel } from '../models/lang';
 import { RootModel } from '../models/root';
 
-const store = new Store('insta-preview');
+const store = new Store('instant-preview');
 
 const initState: RootModel = {
     lang: 'ru',

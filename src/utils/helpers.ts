@@ -34,7 +34,7 @@ export const formatCount = (value: string) => {
 };
 
 export const saveElementToImage = async (elementId: string) => {
-    const fileName = `insta-preview-${new Date().getTime()}.png`;
+    const fileName = `instant-preview-${new Date().getTime()}.png`;
     const link = document.createElement('a');
     const element = document.getElementById(elementId); // fck refs :D
     const canvas = await html2canvas(element, {
