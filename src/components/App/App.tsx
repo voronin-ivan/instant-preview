@@ -1,27 +1,24 @@
 import React from 'react';
 import { ErrorBoundaryContainer } from '../ErrorBoundary/ErrorBoundaryContainer';
 import { Header } from '../Header/Header';
-import { PreviewContainer } from '../Preview/PreviewContainer';
-import { FormContainer } from '../Form/FormContainer';
-import { ContactsContainer } from '../Contacts/ContactsContainer';
 import { YaMetrica } from '../YaMetrica/YaMetrica';
+import { PromoContainer } from '../Promo/PromoContainer';
+import { FeaturesContainer } from '../Features/FeaturesContainer';
+import { Editor } from '../Editor/Editor';
 
 import './App.scss';
 
 import './assets/favicon_56.png';
 import './assets/favicon_120.png';
+import './assets/og_image.png';
 
 export const App = () => (
     <ErrorBoundaryContainer>
         <Header />
-        <main className="container container--main">
-            <section className="app__left">
-                <PreviewContainer />
-            </section>
-            <section className="app__right">
-                <FormContainer />
-                <ContactsContainer />
-            </section>
+        <main>
+            <PromoContainer />
+            <FeaturesContainer />
+            <Editor />
         </main>
         <YaMetrica />
     </ErrorBoundaryContainer>

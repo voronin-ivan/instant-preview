@@ -40,6 +40,12 @@ const eng: StringMap = {
     writeUs: 'Write us',
     save: 'Save',
     cancel: 'Cancel',
+    promoTitle: 'Build a dream profile',
+    promoDescription: 'It\'s simple!\nJust add main information and upload photos. Feel free to swap posts and highlights until achieve the best visual combination.\n\nDownload the result and present it to your clients or colleagues. Publish materials in the chosen order, update profile settings and draw inspiration from done work.',
+    promoText: 'How does it work?',
+    featureInformation: 'Fill out all\nprofile information',
+    featureCombination: 'Combine posts',
+    featurePlatforms: 'Use on different\ndevices',
 };
 
 export default eng;

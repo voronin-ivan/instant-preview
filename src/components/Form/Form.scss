@@ -1,8 +1,11 @@
 @import "../mixins";
 
 .form {
-    padding-top: 20px;
     overflow: hidden;
+
+    @include touch {
+        margin-top: 20px;
+    }
 
     &__row {
         display: flex;
