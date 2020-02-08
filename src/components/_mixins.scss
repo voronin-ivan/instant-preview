@@ -1,5 +1,5 @@
 @mixin touch {
-    @media (max-width: 739px) {
+    @media (max-width: 810px) {
         @content;
     }
 }

@@ -1,19 +1,12 @@
-@import "../mixins";
 @import "../variables";
 
 .preview {
-    position: fixed;
-    top: calc(50% - 255px);
     width: 281px;
     height: 563px;
     padding: 16px 18px;
     font-size: 11px;
     pointer-events: none;
     animation: 0.5s ease-out smoothAppearance;
-
-    @include touch {
-        position: relative;
-    }
 
     &__phone {
         position: absolute;

@@ -13,16 +13,24 @@
 
     @include touch {
         position: relative;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
     &__logo {
-        font-size: 25px;
-        color: $color-dark;
+        display: block;
+        width: 187px;
+        height: 30px;
+        background: url("./assets/logo.svg") no-repeat;
+        // bc logo with paddings :/
+        background-size: 220px;
+        background-position: -16px;
+        color: rgba(0, 0, 0, 0);
         text-decoration: none;
 
         @include touch {
-            font-size: 22px;
+            width: 160px;
+            background-size: 190px;
+            background-position: -15px;
         }
     }
 }
