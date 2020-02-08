@@ -10,9 +10,12 @@ This SMM-tool helps to preview instagram-profile with custom parameters (descrip
 - Redux
 
 #### Install
+```sh
+$ nvm
+```
 
 ```sh
-$ npm install
+$ npm ci
 ```
 
 #### Development
