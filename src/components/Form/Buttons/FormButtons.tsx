@@ -5,6 +5,7 @@ import { Button } from '../../Button/Button';
 import { Checkbox } from '../../Checkbox/Checkbox';
 import { saveElementToImage } from '../../../utils/helpers';
 import i18n from '../../../utils/i18n';
+import { logError } from '../../../utils/logger';
 
 interface FormButtonsProps {
     clearValues: () => void;
@@ -29,8 +30,13 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
             ? 'wrapper'
             : 'framedWrapper';
 
-        await saveElementToImage(elementId);
-        this.setState({ inProgress: false });
+        try {
+            await saveElementToImage(elementId);
+        } catch (e) {
+            logError(e);
+        } finally {
+            this.setState({ inProgress: false });
+        }
     }
 
     private renderCheckbox = (name: string) => (

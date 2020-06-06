@@ -2,8 +2,9 @@ import { Store, set, get } from 'idb-keyval';
 import { PreviewModel } from '../models/preview';
 import { LangModel } from '../models/lang';
 import { RootModel } from '../models/root';
+import { logError } from './logger';
 
-const store = new Store('instant-preview');
+let store: Store | null = null;
 
 const initState: RootModel = {
     lang: 'ru',
@@ -11,16 +12,28 @@ const initState: RootModel = {
 };
 
 export const setData = (key: string, value: PreviewModel | LangModel) => {
-    if (window.indexedDB) {
-        set(key, value, store);
+    if (store) {
+        try {
+            set(key, value, store);
+        } catch (e) {
+            logError(e);
+        }
     }
 };
 
-export const getInitState = async (): Promise<RootModel> => {
+export const getInitState = async () => {
     if (!window.indexedDB) return initState;
 
-    const lang = await get<LangModel>('lang', store);
-    const preview = await get<PreviewModel>('preview', store);
+    try {
+        store = new Store('instant-preview');
 
-    return { lang, preview };
+        const lang = await get<LangModel>('lang', store);
+        const preview = await get<PreviewModel>('preview', store);
+
+        return { lang, preview };
+    } catch (e) {
+        logError(e);
+
+        return initState;
+    }
 };

@@ -3,6 +3,9 @@ import 'core-js/modules/es.object.assign';
 import 'core-js/modules/es.string.starts-with';
 
 import { getInitState } from './utils/idb';
+import { initLogger } from './utils/logger';
+
+initLogger();
 
 getInitState()
     .then((state) => {

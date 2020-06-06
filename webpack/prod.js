@@ -7,6 +7,7 @@ const babelLoader = require('./loaders/babel');
 
 module.exports = merge(common, {
     mode: 'production',
+    devtool: 'cheap-module-source-map',
     module: {
         rules: [{
             // transpile some deps to ES5
@@ -23,6 +24,7 @@ module.exports = merge(common, {
             new TerserPlugin({
                 parallel: true,
                 cache: true,
+                sourceMap: true
             }),
         ],
     },
