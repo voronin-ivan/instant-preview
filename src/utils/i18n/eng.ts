@@ -27,6 +27,7 @@ const eng: StringMap = {
     errorMain: 'Something went wrong, try reload the page. If an error occurs again, please contact us',
     errorSize: 'File size exceeds the limit (6MB)',
     errorUnsupportedType: 'Only images are supported (jpeg, png)',
+    errorDownload: 'Something went wrong',
     thousand: 'K',
     million: 'M',
     follow: 'Follow',

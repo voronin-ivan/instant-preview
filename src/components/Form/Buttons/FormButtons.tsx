@@ -14,15 +14,20 @@ interface FormButtonsProps {
 
 interface FormButtonsState {
     inProgress: boolean;
+    hasError: boolean;
 }
 
 export class FormButtons extends React.Component<FormButtonsProps, FormButtonsState> {
     state: FormButtonsState = {
         inProgress: false,
+        hasError: false,
     }
 
     private download = async () => {
-        this.setState({ inProgress: true });
+        this.setState({
+            inProgress: true,
+            hasError: false,
+        });
 
         ym('reachGoal', 'download');
 
@@ -33,6 +38,8 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
         try {
             await saveElementToImage(elementId);
         } catch (e) {
+            this.setState({ hasError: true });
+
             logError(e);
         } finally {
             this.setState({ inProgress: false });
@@ -71,6 +78,11 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
                         {i18n('clearValues')}
                     </Button>
                 </div>
+                {this.state.hasError && (
+                    <div className="form__buttons-error">
+                        {i18n('errorDownload')}
+                    </div>
+                )}
                 {this.renderCheckbox('hideFrame')}
                 {this.renderCheckbox('hideInfo')}
             </div>
