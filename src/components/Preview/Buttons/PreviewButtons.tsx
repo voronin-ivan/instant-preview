@@ -1,5 +1,5 @@
 import React from 'react';
-import i18n from '../../../utils/i18n';
+import { useTranslation } from 'react-i18next';
 
 interface PreviewButtonsProps {
     phone: boolean;
@@ -12,23 +12,25 @@ export const PreviewButtons = ({
     email,
     address,
 }: PreviewButtonsProps) => {
+    const { t } = useTranslation();
+
     if (!phone && !email && !address) return null;
 
     return (
         <div className="preview__buttons">
             {phone && (
                 <div className="preview__buttons-item">
-                    {i18n('phoneButton')}
+                    {t('phoneButton')}
                 </div>
             )}
             {email && (
                 <div className="preview__buttons-item">
-                    {i18n('emailButton')}
+                    {t('emailButton')}
                 </div>
             )}
             {address && (
                 <div className="preview__buttons-item">
-                    {i18n('addressButton')}
+                    {t('addressButton')}
                 </div>
             )}
         </div>

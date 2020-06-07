@@ -1,13 +1,13 @@
 import React from 'react';
 import ym from 'react-yandex-metrika';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { Field } from 'redux-form';
 import { Button } from '../../Button/Button';
 import { Checkbox } from '../../Checkbox/Checkbox';
 import { saveElementToImage } from '../../../utils/helpers';
-import i18n from '../../../utils/i18n';
 import { logError } from '../../../utils/logger';
 
-interface FormButtonsProps {
+interface FormButtonsProps extends WithTranslation {
     clearValues: () => void;
     hideFrame?: boolean;
 }
@@ -17,7 +17,7 @@ interface FormButtonsState {
     hasError: boolean;
 }
 
-export class FormButtons extends React.Component<FormButtonsProps, FormButtonsState> {
+class FormButtonsView extends React.Component<FormButtonsProps, FormButtonsState> {
     state: FormButtonsState = {
         inProgress: false,
         hasError: false,
@@ -51,12 +51,14 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
             <Field
                 name={name}
                 component={Checkbox}
-                label={i18n(name)}
+                label={this.props.t(name)}
             />
         </div>
     );
 
     render() {
+        const { t } = this.props;
+
         return (
             <div className="form__buttons">
                 <div className="form__buttons-wrapper">
@@ -67,7 +69,7 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
                         inProgress={this.state.inProgress}
                         big
                     >
-                        {i18n('download')}
+                        {t('download')}
                     </Button>
                     <Button
                         className="form__buttons-clear"
@@ -75,12 +77,12 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
                         onClick={this.props.clearValues}
                         big
                     >
-                        {i18n('clearValues')}
+                        {t('clearValues')}
                     </Button>
                 </div>
                 {this.state.hasError && (
                     <div className="form__buttons-error">
-                        {i18n('errorDownload')}
+                        {t('errorDownload')}
                     </div>
                 )}
                 {this.renderCheckbox('hideFrame')}
@@ -89,3 +91,5 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
         );
     }
 }
+
+export const FormButtons = withTranslation()(FormButtonsView);

@@ -1,20 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
-import i18n from '../../utils/i18n';
-import { LangModel } from '../../models/lang';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
 import './Promo.scss';
-
-export interface PromoProps {
-    lang: LangModel;
-}
 
 interface PromoState {
     visibleVideo: boolean;
     visibleSpinner: boolean;
 }
 
-export class Promo extends React.Component<PromoProps, PromoState> {
+class PromoView extends React.Component<WithTranslation, PromoState> {
     state = {
         visibleVideo: false,
         visibleSpinner: false,
@@ -37,7 +32,7 @@ export class Promo extends React.Component<PromoProps, PromoState> {
             onClick={this.showVideo}
         >
             <div className="promo__video-text">
-                {i18n('promoText')}
+                {this.props.t('promoText')}
             </div>
             {this.state.visibleSpinner ? (
                 <div className="promo__video-spinner" />
@@ -80,14 +75,15 @@ export class Promo extends React.Component<PromoProps, PromoState> {
 
     render() {
         const { visibleVideo, visibleSpinner } = this.state;
+        const { t } = this.props;
 
         return (
             <section className="promo">
                 <div className="container container--wrap">
                     <div className="left">
-                        <h1 className="promo__title">{i18n('promoTitle')}</h1>
+                        <h1 className="promo__title">{t('promoTitle')}</h1>
                         <div className="promo__description">
-                            {i18n('promoDescription')}
+                            {t('promoDescription')}
                         </div>
                     </div>
                     <div className="right">
@@ -104,3 +100,5 @@ export class Promo extends React.Component<PromoProps, PromoState> {
         );
     }
 }
+
+export const Promo = withTranslation()(PromoView);

@@ -4,7 +4,6 @@ import { PreviewInfo } from './Info/PreviewInfo';
 import { PreviewStories } from './Stories/PreviewStories';
 import { PreviewButtons } from './Buttons/PreviewButtons';
 import { PreviewPosts } from './Posts/PreviewPosts';
-import { LangModel } from '../../models/lang';
 import { PreviewModel } from '../../models/preview';
 
 import './Preview.scss';
@@ -13,7 +12,6 @@ import './assets/phone.png';
 import './assets/navigation.png';
 
 export interface PreviewProps {
-    lang: LangModel;
     preview?: PreviewModel;
 }
 

@@ -1,5 +1,4 @@
-export type LangModel = 'ru' | 'eng';
-
-export interface StringMap {
-    [s: string]: string;
+export enum LANG {
+    'EN' = 'en',
+    'RU' = 'ru',
 }

@@ -8,8 +8,8 @@ export const formatCount = (value: string) => {
     if (!value) return '0';
 
     const valueNum = Number(value);
-    const million = i18n('million');
-    const thousand = i18n('thousand');
+    const million = i18n.t('million');
+    const thousand = i18n.t('thousand');
 
     switch (value.length) {
         case 9:

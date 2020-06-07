@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactCrop, { Crop as ICrop } from 'react-image-crop';
 import { Dialog } from 'react-toolbox/lib/dialog';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { getCanvasWithImage } from '../../utils/helpers';
-import i18n from '../../utils/i18n';
 import { Button } from '../Button/Button';
 
 import 'react-image-crop/lib/ReactCrop.scss';
 import './Crop.scss';
 
-interface CropProps {
+interface CropProps extends WithTranslation {
     active: boolean;
     src: string;
     fileName: string;
@@ -25,7 +25,7 @@ const defaultCrop: ICrop = {
     width: 85,
 };
 
-export class Crop extends React.PureComponent<CropProps, CropState> {
+class CropView extends React.PureComponent<CropProps, CropState> {
     state: CropState = {
         crop: defaultCrop,
     };
@@ -54,7 +54,7 @@ export class Crop extends React.PureComponent<CropProps, CropState> {
     render() {
         const { crop } = this.state;
         const { width, height } = crop;
-        const { active, src } = this.props;
+        const { active, src, t } = this.props;
 
         return (
             <Dialog
@@ -77,7 +77,7 @@ export class Crop extends React.PureComponent<CropProps, CropState> {
                         onClick={this.onCropCancel}
                         big
                     >
-                        {i18n('cancel')}
+                        {t('cancel')}
                     </Button>
                     <Button
                         className="crop__buttons-item crop__buttons-item--save"
@@ -86,10 +86,12 @@ export class Crop extends React.PureComponent<CropProps, CropState> {
                         disabled={!width || !height}
                         big
                     >
-                        {i18n('save')}
+                        {t('save')}
                     </Button>
                 </div>
             </Dialog>
         );
     }
 }
+
+export const Crop = withTranslation()(CropView);

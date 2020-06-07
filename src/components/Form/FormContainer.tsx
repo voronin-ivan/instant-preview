@@ -7,14 +7,13 @@ import { setData } from '../../utils/idb';
 import { RootModel } from '../../models/root';
 import { PreviewModel } from '../../models/preview';
 
-type MapState = Pick<FormProps, 'lang' | 'initialValues' | 'hideFrame'>;
+type MapState = Pick<FormProps, 'initialValues' | 'hideFrame'>;
 type MapDispatch = Pick<FormProps, 'resetPreview'>;
 
 const formName = 'main';
 const selector = formValueSelector(formName);
 
 const mapStateToProps = (state: RootModel): MapState => ({
-    lang: state.lang,
     initialValues: state.preview,
     hideFrame: selector(state, 'hideFrame'),
 });

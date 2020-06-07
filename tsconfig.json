@@ -9,7 +9,7 @@
         "preserveConstEnums": true,
         "allowSyntheticDefaultImports": true,
         "sourceMap": true,
-        "lib": ["es6", "dom"],
+        "lib": ["ES2015", "ES2017.Object", "DOM"],
         "jsx": "react",
         "resolveJsonModule": true
     },

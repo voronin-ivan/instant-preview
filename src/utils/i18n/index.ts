@@ -1,17 +1,15 @@
-import ru from './ru';
-import eng from './eng';
-import store from '../../redux/store';
-import { RootModel } from '../../models/root';
+import i18next from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import { en } from './en';
+import { ru } from './ru';
+import { LANG } from '../../models/lang';
 
-const languages = { ru, eng };
+i18next
+    .use(initReactI18next)
+    .init({
+        fallbackLng: LANG.EN,
+        lng: window.__INIT__.lang,
+        resources: { en, ru },
+    });
 
-export default (value: string): string => {
-    const currentStore: RootModel = store.getState();
-    const tranlation = languages[currentStore.lang][value];
-
-    if (!tranlation) {
-        throw new Error(`Missing translation for "${value}"`);
-    }
-
-    return tranlation;
-};
+export default i18next;

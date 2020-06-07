@@ -9,7 +9,7 @@ export const Input = ({ input, maxLength, label }: InputModel) => {
 
     return (
         <ToolboxInput
-            type="text" // normalize work`s only with "text"
+            type="text" // normalize works only with "text"
             className="input"
             value={value}
             label={label}
