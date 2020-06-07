@@ -1,9 +1,9 @@
 import React from 'react';
-import { ErrorBoundaryContainer } from '../ErrorBoundary/ErrorBoundaryContainer';
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
 import { Header } from '../Header/Header';
 import { YaMetrica } from '../YaMetrica/YaMetrica';
-import { PromoContainer } from '../Promo/PromoContainer';
-import { FeaturesContainer } from '../Features/FeaturesContainer';
+import { Promo } from '../Promo/Promo';
+import { Features } from '../Features/Features';
 import { Editor } from '../Editor/Editor';
 
 import './App.scss';
@@ -13,13 +13,13 @@ import './assets/favicon_120.png';
 import './assets/og_image.png';
 
 export const App = () => (
-    <ErrorBoundaryContainer>
+    <ErrorBoundary>
         <Header />
         <main>
-            <PromoContainer />
-            <FeaturesContainer />
+            <Promo />
+            <Features />
             <Editor />
         </main>
         <YaMetrica />
-    </ErrorBoundaryContainer>
+    </ErrorBoundary>
 );

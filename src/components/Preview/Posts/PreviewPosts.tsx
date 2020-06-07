@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 import { UploadedFileModel } from '../../../models/file';
 import { fileToUrl } from '../../../utils/helpers';
-import i18n from '../../../utils/i18n';
 
 import '../assets/posts-icons.png';
 import '../assets/posts-empty.png';
@@ -30,8 +30,9 @@ const renderPostsElements = (posts: UploadedFileModel[]): JSX.Element[] => (
     }, [])
 );
 
-export const PreviewPosts = ({ posts, postsCount, hideInfo }: PreviewPostsProps) => {
-    const postsElements = posts ? renderPostsElements(posts) : [];
+export const PreviewPosts = ({ posts = [], postsCount, hideInfo }: PreviewPostsProps) => {
+    const postsElements = renderPostsElements(posts);
+    const { t } = useTranslation();
 
     if (postsElements.length < postsCount) {
         const maxPosts = 18; // on viewport
@@ -62,7 +63,7 @@ export const PreviewPosts = ({ posts, postsCount, hideInfo }: PreviewPostsProps)
                 ? (
                     <div className="preview__posts-info">
                         <img src="./img/posts-empty.png" alt="" />
-                        {i18n('noPosts')}
+                        {t('noPosts')}
                     </div>
                 ) : (
                     <React.Fragment>

@@ -1,27 +1,33 @@
 import React from 'react';
 import ym from 'react-yandex-metrika';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { Field } from 'redux-form';
 import { Button } from '../../Button/Button';
 import { Checkbox } from '../../Checkbox/Checkbox';
 import { saveElementToImage } from '../../../utils/helpers';
-import i18n from '../../../utils/i18n';
+import { logError } from '../../../utils/logger';
 
-interface FormButtonsProps {
+interface FormButtonsProps extends WithTranslation {
     clearValues: () => void;
     hideFrame?: boolean;
 }
 
 interface FormButtonsState {
     inProgress: boolean;
+    hasError: boolean;
 }
 
-export class FormButtons extends React.Component<FormButtonsProps, FormButtonsState> {
+class FormButtonsView extends React.Component<FormButtonsProps, FormButtonsState> {
     state: FormButtonsState = {
         inProgress: false,
+        hasError: false,
     }
 
     private download = async () => {
-        this.setState({ inProgress: true });
+        this.setState({
+            inProgress: true,
+            hasError: false,
+        });
 
         ym('reachGoal', 'download');
 
@@ -29,8 +35,15 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
             ? 'wrapper'
             : 'framedWrapper';
 
-        await saveElementToImage(elementId);
-        this.setState({ inProgress: false });
+        try {
+            await saveElementToImage(elementId);
+        } catch (e) {
+            this.setState({ hasError: true });
+
+            logError(e);
+        } finally {
+            this.setState({ inProgress: false });
+        }
     }
 
     private renderCheckbox = (name: string) => (
@@ -38,12 +51,14 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
             <Field
                 name={name}
                 component={Checkbox}
-                label={i18n(name)}
+                label={this.props.t(name)}
             />
         </div>
     );
 
     render() {
+        const { t } = this.props;
+
         return (
             <div className="form__buttons">
                 <div className="form__buttons-wrapper">
@@ -54,7 +69,7 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
                         inProgress={this.state.inProgress}
                         big
                     >
-                        {i18n('download')}
+                        {t('download')}
                     </Button>
                     <Button
                         className="form__buttons-clear"
@@ -62,12 +77,19 @@ export class FormButtons extends React.Component<FormButtonsProps, FormButtonsSt
                         onClick={this.props.clearValues}
                         big
                     >
-                        {i18n('clearValues')}
+                        {t('clearValues')}
                     </Button>
                 </div>
+                {this.state.hasError && (
+                    <div className="form__buttons-error">
+                        {t('errorDownload')}
+                    </div>
+                )}
                 {this.renderCheckbox('hideFrame')}
                 {this.renderCheckbox('hideInfo')}
             </div>
         );
     }
 }
+
+export const FormButtons = withTranslation()(FormButtonsView);

@@ -1,18 +1,18 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Input as ToolboxInput } from 'react-toolbox/lib/input';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { Button } from '../Button/Button';
 import { Crop } from '../Crop/Crop';
 import { InputModel } from '../../models/input';
-import i18n from '../../utils/i18n';
 import { fileToUrl } from '../../utils/helpers';
 
 import './Upload.scss';
 
-type UploadProps = InputModel & {
+interface UploadProps extends InputModel, WithTranslation {
     showFileName?: boolean;
     showClearButton?: boolean;
-};
+}
 
 interface UploadState {
     error: '' | 'errorSize' | 'errorUnsupportedType';
@@ -22,7 +22,7 @@ interface UploadState {
     showCrop: boolean;
 }
 
-export class Upload extends React.PureComponent<UploadProps, UploadState> {
+class UploadView extends React.PureComponent<UploadProps, UploadState> {
     state: UploadState = {
         error: '',
         src: '',
@@ -83,7 +83,7 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
     }));
 
     render() {
-        const { input, label, showClearButton, showFileName } = this.props;
+        const { input, label, showClearButton, showFileName, t } = this.props;
         const { error, focused, showCrop, src, fileName } = this.state;
         const { value } = input;
         const title = (value && value.title) || '';
@@ -107,7 +107,7 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
                         type="text"
                         label={label}
                         value={title}
-                        error={error ? i18n(error) : ''}
+                        error={error ? t(error) : ''}
                         disabled
                     />
                 )}
@@ -124,7 +124,7 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
                     tabIndex={-1}
                 >
                     <label className="upload__label">
-                        <span>{i18n('upload')}</span>
+                        <span>{t('upload')}</span>
                         <input
                             className="upload__input"
                             type="file"
@@ -146,3 +146,5 @@ export class Upload extends React.PureComponent<UploadProps, UploadState> {
         );
     }
 }
+
+export const Upload = withTranslation()(UploadView);

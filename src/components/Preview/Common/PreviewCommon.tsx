@@ -1,7 +1,7 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { PreviewModel } from '../../../models/preview';
 import { fileToUrl, formatCount } from '../../../utils/helpers';
-import i18n from '../../../utils/i18n';
 
 import '../assets/photo-empty.png';
 import '../assets/photo-story.png';
@@ -13,6 +13,7 @@ export const PreviewCommon = ({
     followersCount,
     followingCount,
 }: Partial<PreviewModel>) => {
+    const { t } = useTranslation();
     const photoUrl = photo ? fileToUrl(photo.content) : './img/photo-empty.png';
 
     return (
@@ -38,7 +39,7 @@ export const PreviewCommon = ({
                             {formatCount(postsCount)}
                         </div>
                         <div className="preview__item-title">
-                            {i18n('posts')}
+                            {t('posts')}
                         </div>
                     </div>
                     <div className="preview__statistics-item preview__statistics-item--followers">
@@ -46,7 +47,7 @@ export const PreviewCommon = ({
                             {formatCount(followersCount)}
                         </div>
                         <div className="preview__item-title">
-                            {i18n('followers')}
+                            {t('followers')}
                         </div>
                     </div>
                     <div className="preview__statistics-item preview__statistics-item--following">
@@ -54,11 +55,11 @@ export const PreviewCommon = ({
                             {formatCount(followingCount)}
                         </div>
                         <div className="preview__item-title">
-                            {i18n('following')}
+                            {t('following')}
                         </div>
                     </div>
                 </div>
-                <div className="preview__follow-button">{i18n('follow')}</div>
+                <div className="preview__follow-button">{t('follow')}</div>
             </div>
         </div>
     );

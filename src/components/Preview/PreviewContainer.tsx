@@ -4,7 +4,6 @@ import { Preview, PreviewProps } from './Preview';
 import { RootModel } from '../../models/root';
 
 const mapStateToProps = (state: RootModel): PreviewProps => ({
-    lang: state.lang,
     preview: getFormValues('main')(state),
 });
 

@@ -1,19 +1,17 @@
 import React from 'react';
 import { FieldArray, InjectedFormProps } from 'redux-form';
+import { useTranslation } from 'react-i18next';
 import { FormMainFields } from './MainFields/FormMainFields';
 import { FormCheckboxes } from './Checkboxes/FormCheckboxes';
 import { FormFiles } from './Files/FormFiles';
 import { FormButtons } from './Buttons/FormButtons';
 import { reset as actionReset } from '../../redux/actions/preview';
-import i18n from '../../utils/i18n';
-import { LangModel } from '../../models/lang';
 
 import './Form.scss';
 
 export interface FormProps extends InjectedFormProps {
     resetPreview: typeof actionReset;
     hideFrame: boolean;
-    lang: LangModel;
 }
 
 export const Form = ({ reset, resetPreview, hideFrame }: FormProps) => {
@@ -21,6 +19,8 @@ export const Form = ({ reset, resetPreview, hideFrame }: FormProps) => {
         reset();
         resetPreview();
     };
+
+    const { t } = useTranslation();
 
     return (
         <form className="form">
@@ -33,7 +33,7 @@ export const Form = ({ reset, resetPreview, hideFrame }: FormProps) => {
                     component={FormFiles as any}
                     showFileName
                     maxFiles={18}
-                    placeholder={i18n('post')}
+                    placeholder={t('post')}
                 />
             </div>
             <div className="form__row">
@@ -42,7 +42,7 @@ export const Form = ({ reset, resetPreview, hideFrame }: FormProps) => {
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     component={FormFiles as any}
                     maxFiles={5}
-                    placeholder={i18n('story')}
+                    placeholder={t('story')}
                 />
             </div>
             <FormButtons clearValues={clearValues} hideFrame={hideFrame} />

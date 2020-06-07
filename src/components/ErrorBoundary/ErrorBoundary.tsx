@@ -1,18 +1,13 @@
 import React from 'react';
-import i18n from '../../utils/i18n';
-import { LangModel } from '../../models/lang';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
 import './ErrorBoundary.scss';
-
-export interface ErrorBoundaryProps {
-    lang: LangModel;
-}
 
 interface ErrorBoundaryState {
     hasError: boolean;
 }
 
-export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+class ErrorBoundaryView extends React.Component<WithTranslation, ErrorBoundaryState> {
     state = {
         hasError: false,
     }
@@ -26,22 +21,26 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     }
 
     render() {
-        if (this.state.hasError) {
-            return (
-                <div className="error">
-                    <span>
-                        <span>{i18n('errorMain')}&nbsp;—&nbsp;</span>
-                        <a
-                            href="mailto:hi@instant-preview.com"
-                            className="error__link"
-                        >
-                            hi@instant-preview.com
-                        </a>
-                    </span>
-                </div>
-            );
+        const { children, t } = this.props;
+
+        if (!this.state.hasError) {
+            return children;
         }
 
-        return this.props.children;
+        return (
+            <div className="error">
+                <span>
+                    <span>{t('errorMain')}&nbsp;—&nbsp;</span>
+                    <a
+                        href="mailto:hi@instant-preview.com"
+                        className="error__link"
+                    >
+                        hi@instant-preview.com
+                    </a>
+                </span>
+            </div>
+        );
     }
 }
+
+export const ErrorBoundary = withTranslation()(ErrorBoundaryView);

@@ -1,19 +1,19 @@
 import React from 'react';
-import { ErrorBoundaryContainer } from '../ErrorBoundary/ErrorBoundaryContainer';
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
 import { PreviewContainer } from '../Preview/PreviewContainer';
 import { FormContainer } from '../Form/FormContainer';
-import { ContactsContainer } from '../Contacts/ContactsContainer';
+import { Contacts } from '../Contacts/Contacts';
 
 export const Editor = () => (
-    <ErrorBoundaryContainer>
+    <ErrorBoundary>
         <section className="editor container container--wrap container--editor">
             <div className="left">
                 <PreviewContainer />
             </div>
             <div className="right">
                 <FormContainer />
-                <ContactsContainer />
+                <Contacts />
             </div>
         </section>
-    </ErrorBoundaryContainer>
+    </ErrorBoundary>
 );

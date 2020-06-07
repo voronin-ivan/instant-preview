@@ -3,38 +3,39 @@ import {
     Tabs as ToolboxTabs,
     Tab as ToolboxTab,
 } from 'react-toolbox/lib/tabs';
-import { LangModel } from '../../models/lang';
-import { change } from '../../redux/actions/lang';
+import { useTranslation } from 'react-i18next';
+import { LANG } from '../../models/lang';
+import { setData } from '../../utils/idb';
 
 import './Tabs.scss';
 
-export interface TabsProps {
-    lang: LangModel,
-    changeLang: typeof change
-}
+const languages: string[] = Object.values(LANG);
 
-const languages: Array<'ru' | 'eng'> = ['ru', 'eng'];
+export const Tabs = () => {
+    const { i18n } = useTranslation();
 
-export class Tabs extends React.PureComponent<TabsProps> {
-    private onChange = (index: number) => this.props.changeLang(languages[index]);
+    const onChange = (index: number) => {
+        const language = languages[index];
 
-    render() {
-        return (
-            <ToolboxTabs
-                className="tabs"
-                index={languages.indexOf(this.props.lang)}
-                onChange={this.onChange}
-                fixed
-            >
-                {languages.map(lang => (
-                    <ToolboxTab
-                        className="tabs__item"
-                        activeClassName="tabs__item--active"
-                        label={lang}
-                        key={lang}
-                    />
-                ))}
-            </ToolboxTabs>
-        );
-    }
-}
+        i18n.changeLanguage(language);
+        setData('lang', language);
+    };
+
+    return (
+        <ToolboxTabs
+            className="tabs"
+            index={languages.indexOf(i18n.language)}
+            onChange={onChange}
+            fixed
+        >
+            {languages.map(lang => (
+                <ToolboxTab
+                    className="tabs__item"
+                    activeClassName="tabs__item--active"
+                    label={lang}
+                    key={lang}
+                />
+            ))}
+        </ToolboxTabs>
+    );
+};

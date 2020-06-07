@@ -1,26 +1,40 @@
 import { Store, set, get } from 'idb-keyval';
 import { PreviewModel } from '../models/preview';
-import { LangModel } from '../models/lang';
+import { LANG } from '../models/lang';
 import { RootModel } from '../models/root';
+import { logError } from './logger';
 
 const store = new Store('instant-preview');
 
 const initState: RootModel = {
-    lang: 'ru',
+    lang: LANG.EN,
     preview: {},
 };
 
-export const setData = (key: string, value: PreviewModel | LangModel) => {
-    if (window.indexedDB) {
-        set(key, value, store);
+export const setData = (key: string, value: PreviewModel | string) => {
+    if (window.indexedDB && store) {
+        try {
+            set(key, value, store);
+        } catch (e) {
+            logError(e);
+        }
     }
 };
 
-export const getInitState = async (): Promise<RootModel> => {
-    if (!window.indexedDB) return initState;
+export const getInitState = async () => {
+    if (!window.indexedDB || !store) return initState;
 
-    const lang = await get<LangModel>('lang', store);
-    const preview = await get<PreviewModel>('preview', store);
+    try {
+        const lang = await get<string>('lang', store) || initState.lang;
+        const preview = await get<PreviewModel>('preview', store) || initState.preview;
 
-    return { lang, preview };
+        return {
+            lang: lang === 'eng' ? LANG.EN : lang as LANG, // fallback for old users
+            preview,
+        };
+    } catch (e) {
+        logError(e);
+
+        return initState;
+    }
 };

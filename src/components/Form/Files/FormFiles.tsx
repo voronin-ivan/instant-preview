@@ -2,20 +2,20 @@ import React from 'react';
 import { Field, WrappedFieldArrayProps } from 'redux-form';
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 import classNames from 'classnames';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { Button } from '../../Button/Button';
 import { Input } from '../../Input/Input';
 import { Upload } from '../../Upload/Upload';
 import { UploadedFileModel } from '../../../models/file';
 import { normalizeTextField } from '../../../utils/normalizer';
-import i18n from '../../../utils/i18n';
 
-interface FormFilesProps extends WrappedFieldArrayProps<UploadedFileModel> {
+interface FormFilesProps extends WrappedFieldArrayProps<UploadedFileModel>, WithTranslation {
     placeholder: string;
     maxFiles: number;
     showFileName: boolean;
 }
 
-export class FormFiles extends React.PureComponent<FormFilesProps> {
+class FormFilesView extends React.PureComponent<FormFilesProps> {
     private renderDraggableElement = (item: string, index: number) => {
         const { showFileName, placeholder, fields } = this.props;
         const isDragDisabled = fields.length < 2;
@@ -80,19 +80,19 @@ export class FormFiles extends React.PureComponent<FormFilesProps> {
     }
 
     render() {
-        const { fields, maxFiles } = this.props;
+        const { fields, maxFiles, t } = this.props;
 
         return (
             <div className="form__files">
                 <div className="form__files-row form__files-row--title">
-                    <h2 className="form__files-title">{i18n(fields.name)}</h2>
+                    <h2 className="form__files-title">{t(fields.name)}</h2>
                     <Button
                         className="form__files-add"
                         theme="white"
                         onClick={() => fields.push({})}
                         disabled={fields.length >= maxFiles}
                     >
-                        {i18n('add')}
+                        {t('add')}
                     </Button>
                 </div>
                 <DragDropContext onDragEnd={this.onDragEnd}>
@@ -112,3 +112,5 @@ export class FormFiles extends React.PureComponent<FormFilesProps> {
         );
     }
 }
+
+export const FormFiles = withTranslation()(FormFilesView);
