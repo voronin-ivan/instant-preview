@@ -1,6 +1,6 @@
 import html2canvas from 'html2canvas';
 import { Crop } from 'react-image-crop';
-import i18n from './i18n';
+import i18n from 'i18next';
 
 export const fileToUrl = (file: File) => window.URL.createObjectURL(file);
 

@@ -2,21 +2,16 @@
 @import "../variables";
 
 .error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-    height: calc(100vh - 200px);
-    margin: 0 auto;
+    width: 80%;
+    margin: 50px auto;
     font-size: 20px;
     line-height: 26px;
     text-align: center;
 
     @include touch {
-        width: 90%;
-        height: 100vh;
+        width: 100%;
         font-size: 16px;
-        line-break: 20px;
+        line-height: 22px;
     }
 
     &__link {
@@ -28,6 +23,10 @@
         &:active {
             text-decoration: underline;
             outline: none;
+        }
+
+        @include touch {
+            display: block;
         }
     }
 }

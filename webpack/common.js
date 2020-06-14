@@ -13,10 +13,7 @@ const scriptName = `[name]${isProduction ? '-[contenthash]' : ''}.js`;
 const styleName = `style${isProduction ? '-[contenthash:hex:20]' : ''}.css`;
 
 module.exports = {
-    entry: {
-        init: './src/init.ts',
-        bundle: './src/index.tsx',
-    },
+    entry: './src/index.tsx',
     output: {
         filename: scriptName,
         path: `${basePath}/build`,
@@ -60,12 +57,7 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin({ filename: styleName }),
         new HtmlWebpackPlugin({
-            inject: false,
-            template: 'src/index.ejs',
-            files: {
-                css: 'style.css',
-                js: ['init.js', 'bundle.js'],
-            },
+            template: 'src/template.ejs'
         }),
         new CleanWebpackPlugin(
             'build',

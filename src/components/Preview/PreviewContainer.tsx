@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { Preview, PreviewProps } from './Preview';
-import { RootModel } from '../../models/root';
+import { ReduxStateModel } from '../../models/reduxState';
 
-const mapStateToProps = (state: RootModel): PreviewProps => ({
+const mapStateToProps = (state: ReduxStateModel): PreviewProps => ({
     preview: getFormValues('main')(state),
 });
 
