@@ -1,7 +1,7 @@
 import { FormStateMap } from 'redux-form';
-import { PreviewModel } from '../models/preview';
+import { PreviewModel } from './preview';
 
-export interface RootModel {
+export interface ReduxStateModel {
     form?: FormStateMap;
     initialValues: PreviewModel;
 }

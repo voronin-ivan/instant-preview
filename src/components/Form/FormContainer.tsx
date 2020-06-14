@@ -3,7 +3,7 @@ import { reduxForm, formValueSelector } from 'redux-form';
 import { Form, FormProps } from './Form';
 import { resetInitialValues } from '../../redux/actions/initialValues';
 import { setData } from '../../utils/idb';
-import { RootModel } from '../../models/root';
+import { ReduxStateModel } from '../../models/reduxState';
 import { PreviewModel } from '../../models/preview';
 
 type MapState = Pick<FormProps, 'initialValues' | 'hideFrame'>;
@@ -12,7 +12,7 @@ type MapDispatch = Pick<FormProps, 'resetInitialValues'>;
 const formName = 'main';
 const selector = formValueSelector(formName);
 
-const mapStateToProps = (state: RootModel): MapState => ({
+const mapStateToProps = (state: ReduxStateModel): MapState => ({
     initialValues: state.initialValues,
     hideFrame: selector(state, 'hideFrame'),
 });
