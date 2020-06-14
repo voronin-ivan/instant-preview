@@ -28,8 +28,8 @@ class ErrorBoundaryView extends React.Component<WithTranslation, ErrorBoundarySt
         }
 
         return (
-            <div className="error">
-                <span>
+            <div className="container">
+                <div className="error">
                     <span>{t('errorMain')}&nbsp;—&nbsp;</span>
                     <a
                         href="mailto:hi@instant-preview.com"
@@ -37,7 +37,7 @@ class ErrorBoundaryView extends React.Component<WithTranslation, ErrorBoundarySt
                     >
                         hi@instant-preview.com
                     </a>
-                </span>
+                </div>
             </div>
         );
     }
