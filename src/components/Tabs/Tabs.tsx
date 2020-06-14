@@ -9,7 +9,7 @@ import { setData } from '../../utils/idb';
 
 import './Tabs.scss';
 
-const languages: string[] = Object.values(LANG);
+const languages: LANG[] = Object.values(LANG);
 
 export const Tabs = () => {
     const { i18n } = useTranslation();
@@ -24,7 +24,7 @@ export const Tabs = () => {
     return (
         <ToolboxTabs
             className="tabs"
-            index={languages.indexOf(i18n.language)}
+            index={languages.indexOf(i18n.language as LANG)}
             onChange={onChange}
             fixed
         >

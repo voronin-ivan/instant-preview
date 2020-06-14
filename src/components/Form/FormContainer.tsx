@@ -1,31 +1,28 @@
 import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
 import { reduxForm, formValueSelector } from 'redux-form';
 import { Form, FormProps } from './Form';
-import { reset } from '../../redux/actions/preview';
+import { resetInitialValues } from '../../redux/actions/initialValues';
 import { setData } from '../../utils/idb';
 import { RootModel } from '../../models/root';
 import { PreviewModel } from '../../models/preview';
 
 type MapState = Pick<FormProps, 'initialValues' | 'hideFrame'>;
-type MapDispatch = Pick<FormProps, 'resetPreview'>;
+type MapDispatch = Pick<FormProps, 'resetInitialValues'>;
 
 const formName = 'main';
 const selector = formValueSelector(formName);
 
 const mapStateToProps = (state: RootModel): MapState => ({
-    initialValues: state.preview,
+    initialValues: state.initialValues,
     hideFrame: selector(state, 'hideFrame'),
 });
 
-const mapDispatchToProps = (dispatch: Dispatch): MapDispatch => (
-    bindActionCreators({
-        resetPreview: reset,
-    }, dispatch)
-);
+const mapDispatchToProps: MapDispatch = {
+    resetInitialValues,
+};
 
-const onChange = (preview: Partial<PreviewModel>) => {
-    setData('preview', preview);
+const onChange = (values: Partial<PreviewModel>) => {
+    setData('initialValues', values);
 };
 
 const ReduxForm = reduxForm({

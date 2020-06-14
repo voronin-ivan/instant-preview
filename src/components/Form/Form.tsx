@@ -5,19 +5,21 @@ import { FormMainFields } from './MainFields/FormMainFields';
 import { FormCheckboxes } from './Checkboxes/FormCheckboxes';
 import { FormFiles } from './Files/FormFiles';
 import { FormButtons } from './Buttons/FormButtons';
-import { reset as actionReset } from '../../redux/actions/preview';
+import { resetInitialValues as resetAction } from '../../redux/actions/initialValues';
+import { setData } from '../../utils/idb';
 
 import './Form.scss';
 
 export interface FormProps extends InjectedFormProps {
-    resetPreview: typeof actionReset;
+    resetInitialValues: typeof resetAction;
     hideFrame: boolean;
 }
 
-export const Form = ({ reset, resetPreview, hideFrame }: FormProps) => {
+export const Form = ({ reset, resetInitialValues, hideFrame }: FormProps) => {
     const clearValues = () => {
         reset();
-        resetPreview();
+        resetInitialValues();
+        setData('initialValues', {});
     };
 
     const { t } = useTranslation();

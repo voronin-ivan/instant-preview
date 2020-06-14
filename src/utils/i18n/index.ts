@@ -4,12 +4,10 @@ import { en } from './en';
 import { ru } from './ru';
 import { LANG } from '../../models/lang';
 
-i18next
+export const initI18n = (lng: LANG) => i18next
     .use(initReactI18next)
     .init({
         fallbackLng: LANG.EN,
-        lng: window.__INIT__.lang,
+        lng,
         resources: { en, ru },
     });
-
-export default i18next;

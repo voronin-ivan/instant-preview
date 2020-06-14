@@ -1,22 +1,16 @@
 import { createStore, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { previewReducer } from './reducers/preview';
-import { RootModel } from '../models/root';
+import { initialValuesReducer } from './reducers/initialValues';
+import { PreviewModel } from '../models/preview';
 
-const reducer = combineReducers({
+const reducers = combineReducers({
     form: formReducer,
-    preview: previewReducer,
+    initialValues: initialValuesReducer,
 });
 
-const initialState: RootModel = {
-    preview: window.__INIT__.preview,
-};
-
-const store = createStore(
-    reducer,
-    initialState,
+export const getStore = (initialValues: PreviewModel) => createStore(
+    reducers,
+    { initialValues },
     composeWithDevTools(),
 );
-
-export default store;
