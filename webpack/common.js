@@ -57,7 +57,7 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin({ filename: styleName }),
         new HtmlWebpackPlugin({
-            template: 'src/template.ejs'
+            template: 'src/template.ejs',
         }),
         new CleanWebpackPlugin(
             'build',

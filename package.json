@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --open --config webpack/dev.js",
     "build": "NODE_ENV=production webpack --config webpack/prod.js",
     "lint": "npm run eslint && npm run stylelint",
-    "eslint": "eslint 'src/**/*.{ts,tsx}'",
+    "eslint": "eslint './**/*.{js,ts,tsx}'",
     "stylelint": "stylelint 'src/**/*.scss'"
   },
   "repository": {
