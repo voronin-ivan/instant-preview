@@ -52,6 +52,7 @@
     "autoprefixer": "9.1.5",
     "babel-loader": "8.0.6",
     "clean-webpack-plugin": "0.1.19",
+    "compression-webpack-plugin": "4.0.0",
     "css-loader": "1.0.0",
     "eslint": "5.6.1",
     "eslint-config-airbnb": "17.1.0",
