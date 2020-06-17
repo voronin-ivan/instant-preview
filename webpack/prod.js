@@ -15,9 +15,6 @@ module.exports = merge(common, {
             use: babelLoader,
         }],
     },
-    performance: {
-        hints: 'warning',
-    },
     optimization: {
         minimizer: [
             new OptimeCssAssetsPlugin(),
