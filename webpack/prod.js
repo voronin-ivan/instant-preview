@@ -24,5 +24,8 @@ module.exports = merge(common, {
                 sourceMap: true,
             }),
         ],
+        splitChunks: {
+            chunks: 'all',
+        },
     },
 });
