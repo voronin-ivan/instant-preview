@@ -18,6 +18,10 @@ module.exports = {
         filename: scriptName,
         path: `${basePath}/build`,
     },
+    stats: 'minimal',
+    performance: {
+        hints: 'warning',
+    },
     resolve: {
         modules: ['node_modules'],
         extensions: ['.ts', '.tsx', '.js'],
@@ -57,7 +61,7 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin({ filename: styleName }),
         new HtmlWebpackPlugin({
-            template: 'src/template.ejs'
+            template: 'src/template.ejs',
         }),
         new CleanWebpackPlugin(
             'build',

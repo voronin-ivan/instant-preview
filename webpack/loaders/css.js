@@ -1,4 +1,4 @@
-module.exports = function(type) {
+module.exports = function cssLoader(type) {
     const loader = {
         loader: 'css-loader',
     };
@@ -18,4 +18,4 @@ module.exports = function(type) {
     }
 
     return loader;
-}
+};
