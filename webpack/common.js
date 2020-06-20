@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const postCssLoader = require('./loaders/postcss');
 const cssLoader = require('./loaders/css');
@@ -11,6 +12,7 @@ const basePath = path.resolve(__dirname, '..');
 const isProduction = process.env.NODE_ENV === 'production';
 const scriptName = `[name]${isProduction ? '-[contenthash]' : ''}.js`;
 const styleName = `style${isProduction ? '-[contenthash:hex:20]' : ''}.css`;
+const maximumFileSizeToCacheInBytes = 10 * 1024 * 1024;
 
 module.exports = {
     entry: './src/index.tsx',
@@ -67,5 +69,12 @@ module.exports = {
             'build',
             { root: basePath },
         ),
+        new WorkboxPlugin.GenerateSW({
+            cleanupOutdatedCaches: true,
+            clientsClaim: true,
+            skipWaiting: true,
+            sourcemap: true,
+            maximumFileSizeToCacheInBytes,
+        }),
     ],
 };
