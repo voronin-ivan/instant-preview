@@ -48,5 +48,7 @@ export const ru: ResourceLanguage = {
         featureInformation: 'Наличие всех составных частей профиля',
         featureCombination: 'Возможность комбинировать посты',
         featurePlatforms: 'Доступность на всех устройствах',
+        offlineVideo: 'Вы не подключены к интернету, видео недоступно',
+        offlineDownloading: 'Вы не подключены к интернету, скачивание недоступно',
     },
 };

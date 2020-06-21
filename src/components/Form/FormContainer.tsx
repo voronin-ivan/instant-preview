@@ -6,7 +6,7 @@ import { setData } from '../../utils/idb';
 import { ReduxStateModel } from '../../models/reduxState';
 import { PreviewModel } from '../../models/preview';
 
-type MapState = Pick<FormProps, 'initialValues' | 'hideFrame'>;
+type MapState = Pick<FormProps, 'initialValues' | 'hideFrame' | 'onlineMode'>;
 type MapDispatch = Pick<FormProps, 'resetInitialValues'>;
 
 const formName = 'main';
@@ -15,6 +15,7 @@ const selector = formValueSelector(formName);
 const mapStateToProps = (state: ReduxStateModel): MapState => ({
     initialValues: state.initialValues,
     hideFrame: selector(state, 'hideFrame'),
+    onlineMode: state.onlineMode,
 });
 
 const mapDispatchToProps: MapDispatch = {

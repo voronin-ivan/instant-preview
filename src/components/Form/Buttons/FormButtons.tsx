@@ -4,12 +4,14 @@ import { withTranslation, WithTranslation } from 'react-i18next';
 import { Field } from 'redux-form';
 import { Button } from '../../Button/Button';
 import { Checkbox } from '../../Checkbox/Checkbox';
+import { Tooltip } from '../../Tooltip/Tooltip';
 import { saveElementToImage } from '../../../utils/helpers';
 import { logError } from '../../../utils/logger';
 
 interface FormButtonsProps extends WithTranslation {
     clearValues: () => void;
     hideFrame?: boolean;
+    onlineMode: boolean;
 }
 
 interface FormButtonsState {
@@ -56,21 +58,45 @@ class FormButtonsView extends React.Component<FormButtonsProps, FormButtonsState
         </div>
     );
 
+    private renderDownloadButton = () => {
+        const { t, onlineMode } = this.props;
+
+        const button = (
+            <Button
+                className="form__buttons-download"
+                theme="purple"
+                onClick={this.download}
+                inProgress={this.state.inProgress}
+                big
+                disabled={!onlineMode}
+            >
+                {t('download')}
+            </Button>
+        );
+
+        if (onlineMode) {
+            return button;
+        }
+
+        return (
+            <Tooltip
+                content={t('offlineDownloading')}
+                direction="down"
+                className="form__buttons-tooltip"
+                tipContentClassName="form__buttons-tooltip-content"
+            >
+                {button}
+            </Tooltip>
+        );
+    }
+
     render() {
         const { t } = this.props;
 
         return (
             <div className="form__buttons">
                 <div className="form__buttons-wrapper">
-                    <Button
-                        className="form__buttons-download"
-                        theme="purple"
-                        onClick={this.download}
-                        inProgress={this.state.inProgress}
-                        big
-                    >
-                        {t('download')}
-                    </Button>
+                    {this.renderDownloadButton()}
                     <Button
                         className="form__buttons-clear"
                         theme="white"

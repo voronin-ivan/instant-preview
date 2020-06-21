@@ -13,9 +13,10 @@ import './Form.scss';
 export interface FormProps extends InjectedFormProps {
     resetInitialValues: typeof resetAction;
     hideFrame: boolean;
+    onlineMode: boolean;
 }
 
-export const Form = ({ reset, resetInitialValues, hideFrame }: FormProps) => {
+export const Form = ({ reset, resetInitialValues, hideFrame, onlineMode }: FormProps) => {
     const clearValues = () => {
         reset();
         resetInitialValues();
@@ -47,7 +48,11 @@ export const Form = ({ reset, resetInitialValues, hideFrame }: FormProps) => {
                     placeholder={t('story')}
                 />
             </div>
-            <FormButtons clearValues={clearValues} hideFrame={hideFrame} />
+            <FormButtons
+                clearValues={clearValues}
+                hideFrame={hideFrame}
+                onlineMode={onlineMode}
+            />
         </form>
     );
 };

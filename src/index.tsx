@@ -11,12 +11,14 @@ import { getStore } from './redux/store';
 import { getInitialData } from './utils/getInitialData';
 import { initLogger } from './utils/logger';
 import { initI18n } from './utils/i18n';
+import { registerSW } from './utils/registerSW';
 
 initLogger();
 
 getInitialData()
     .then(({ lang, initialValues }) => {
         initI18n(lang);
+        registerSW();
 
         ReactDOM.render(
             <Provider store={getStore(initialValues)}>

@@ -59,6 +59,11 @@
         }
     }
 
+    &__video-tooltip {
+        width: 100%;
+        height: 100%;
+    }
+
     &__video-wrapper {
         width: 100%;
         height: 100%;
@@ -66,13 +71,17 @@
         background: url("./assets/instant-preview.svg") center 13px no-repeat, linear-gradient(25deg, #fff 40%, rgba(83, 96, 173, 0.35) 100%);
         background-size: 230px, 100%;
         outline: none;
-        cursor: pointer;
+        cursor: not-allowed;
 
-        &:hover,
-        &:focus {
+        &--online {
+            cursor: pointer;
 
-            path:first-child {
-                fill: #ff3d00;
+            &:hover,
+            &:focus {
+
+                path:first-child {
+                    fill: #ff3d00;
+                }
             }
         }
     }

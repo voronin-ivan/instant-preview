@@ -1,0 +1,18 @@
+@import "../variables";
+
+.tooltip__content {
+
+    .react-tooltip-lite {
+        // stylelint-disable-next-line declaration-no-important
+        padding: 8px !important; // no other way to reassign value
+        background-color: $color-main;
+        color: #fff;
+        font-size: 13px;
+        text-align: center;
+        border-radius: 2px;
+    }
+
+    .react-tooltip-lite-arrow {
+        color: $color-main;
+    }
+}
