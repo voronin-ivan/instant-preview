@@ -105,6 +105,15 @@
         width: 105px;
     }
 
+    &__buttons-tooltip {
+        cursor: not-allowed;
+    }
+
+    &__buttons-tooltip-content .react-tooltip-lite {
+        // stylelint-disable-next-line declaration-no-important
+        max-width: 255px !important; // no other way to reassign value
+    }
+
     &__buttons-clear {
         width: 145px;
     }

@@ -48,5 +48,7 @@ export const en: ResourceLanguage = {
         featureInformation: 'Fill out all\nprofile information',
         featureCombination: 'Combine posts',
         featurePlatforms: 'Use on different\ndevices',
+        offlineVideo: 'You are not connected to the internet, the video isn\'t available',
+        offlineDownloading: 'You are not connected to the internet, downloading isn\'t available',
     },
 };
