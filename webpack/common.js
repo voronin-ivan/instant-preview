@@ -21,9 +21,6 @@ module.exports = {
         path: `${basePath}/build`,
     },
     stats: 'minimal',
-    performance: {
-        hints: 'warning',
-    },
     resolve: {
         modules: ['node_modules'],
         extensions: ['.ts', '.tsx', '.js'],
