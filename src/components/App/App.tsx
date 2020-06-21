@@ -7,6 +7,8 @@ import { PromoContainer } from '../Promo/PromoContainer';
 import { Features } from '../Features/Features';
 import { Editor } from '../Editor/Editor';
 import { setOnlineMode } from '../../redux/actions/onlineMode';
+import { reachOfflineGoal } from '../../utils/helpers';
+import { setData } from '../../utils/idb';
 
 import './App.scss';
 
@@ -18,8 +20,15 @@ export const App = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        window.addEventListener('online', () => dispatch(setOnlineMode(true)));
-        window.addEventListener('offline', () => dispatch(setOnlineMode(false)));
+        window.addEventListener('online', () => {
+            dispatch(setOnlineMode(true));
+            reachOfflineGoal();
+        });
+
+        window.addEventListener('offline', () => {
+            dispatch(setOnlineMode(false));
+            setData('wasOffline', true);
+        });
     }, []);
 
     return (

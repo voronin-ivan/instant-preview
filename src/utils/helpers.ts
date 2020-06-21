@@ -1,6 +1,8 @@
 import html2canvas from 'html2canvas';
 import { Crop } from 'react-image-crop';
 import i18n from 'i18next';
+import ym from 'react-yandex-metrika';
+import { setData } from './idb';
 
 export const fileToUrl = (file: File) => window.URL.createObjectURL(file);
 
@@ -82,4 +84,9 @@ export const getCanvasWithImage = (image: HTMLImageElement, crop: Crop) => {
     );
 
     return canvas;
+};
+
+export const reachOfflineGoal = () => {
+    ym('reachGoal', 'offline');
+    setData('wasOffline', false);
 };

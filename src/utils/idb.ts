@@ -4,8 +4,9 @@ import { LANG } from '../models/lang';
 import { logError } from './logger';
 
 export interface IdbData {
-    lang: LANG;
-    initialValues: PreviewModel;
+    lang?: LANG;
+    initialValues?: PreviewModel;
+    wasOffline?: boolean;
 }
 
 type DataKey = keyof IdbData;
