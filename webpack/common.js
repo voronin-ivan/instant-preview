@@ -6,7 +6,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const postCssLoader = require('./loaders/postcss');
 const cssLoader = require('./loaders/css');
-const fileLoader = require('./loaders/file');
+const imgLoader = require('./loaders/img');
 
 const basePath = path.resolve(__dirname, '..');
 const isProduction = process.env.NODE_ENV === 'production';
@@ -53,7 +53,7 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/,
-                use: fileLoader,
+                use: imgLoader,
             },
         ],
     },
