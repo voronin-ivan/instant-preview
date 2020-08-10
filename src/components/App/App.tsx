@@ -12,10 +12,6 @@ import { setData } from '../../utils/idb';
 
 import './App.scss';
 
-import './assets/favicon_56.png';
-import './assets/favicon_120.png';
-import './assets/og_image.png';
-
 export const App = () => {
     const dispatch = useDispatch();
 

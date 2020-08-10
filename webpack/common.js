@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const postCssLoader = require('./loaders/postcss');
 const cssLoader = require('./loaders/css');
@@ -18,7 +19,7 @@ module.exports = {
     entry: './src/index.tsx',
     output: {
         filename: scriptName,
-        path: `${basePath}/build`,
+        path: path.resolve(basePath, 'build'),
     },
     stats: 'minimal',
     resolve: {
@@ -71,7 +72,15 @@ module.exports = {
             clientsClaim: true,
             skipWaiting: true,
             sourcemap: true,
+            // start_url in manifest === "/?source=pwa"
+            ignoreURLParametersMatching: [/source/],
             maximumFileSizeToCacheInBytes,
+        }),
+        new CopyPlugin({
+            patterns: [{
+                from: path.resolve(basePath, 'src', 'static'),
+                to: path.resolve(basePath, 'build'),
+            }],
         }),
     ],
 };
