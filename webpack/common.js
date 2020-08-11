@@ -74,6 +74,7 @@ module.exports = {
             sourcemap: true,
             // start_url in manifest === "/?source=pwa"
             ignoreURLParametersMatching: [/source/],
+            exclude: [/DS_Store/],
             maximumFileSizeToCacheInBytes,
         }),
         new CopyPlugin({
