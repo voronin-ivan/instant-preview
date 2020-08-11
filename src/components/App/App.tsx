@@ -7,10 +7,16 @@ import { PromoContainer } from '../Promo/PromoContainer';
 import { Features } from '../Features/Features';
 import { Editor } from '../Editor/Editor';
 import { setOnlineMode } from '../../redux/actions/onlineMode';
-import { reachOfflineGoal } from '../../utils/helpers';
+import { reachOfflineGoal, reachAppInstalledGoal, reachInstallPromptGoal } from '../../utils/metrics';
 import { setData } from '../../utils/idb';
 
 import './App.scss';
+
+interface BeforeInstallPromptEvent extends Event {
+    userChoice: Promise<{
+        outcome: string;
+    }>;
+}
 
 export const App = () => {
     const dispatch = useDispatch();
@@ -19,11 +25,22 @@ export const App = () => {
         window.addEventListener('online', () => {
             dispatch(setOnlineMode(true));
             reachOfflineGoal();
+            setData('wasOffline', false);
         });
 
         window.addEventListener('offline', () => {
             dispatch(setOnlineMode(false));
             setData('wasOffline', true);
+        });
+
+        window.addEventListener('appinstalled', () => {
+            reachAppInstalledGoal();
+        });
+
+        window.addEventListener('beforeinstallprompt', (event: BeforeInstallPromptEvent) => {
+            event.userChoice.then(({ outcome }) => {
+                reachInstallPromptGoal(outcome);
+            });
         });
     }, []);
 
