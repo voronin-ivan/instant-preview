@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import { withTranslation, WithTranslation } from 'react-i18next';
-import ym from 'react-yandex-metrika';
 import { Tooltip } from '../Tooltip/Tooltip';
+import { reachVideoGoal } from '../../utils/metrics';
 
 import './Promo.scss';
 
@@ -22,9 +22,9 @@ class PromoView extends React.Component<PromoProps, PromoState> {
     }
 
     private showVideo = () => {
-        if (this.props.onlineMode) {
-            ym('reachGoal', 'video');
+        reachVideoGoal();
 
+        if (this.props.onlineMode) {
             this.setState({
                 visibleVideo: true,
                 visibleSpinner: true,

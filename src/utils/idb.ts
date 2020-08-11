@@ -12,7 +12,13 @@ export interface IdbData {
 type DataKey = keyof IdbData;
 type DataValue = IdbData[DataKey];
 
-const store = new Store('instant-preview');
+let store: Store = null;
+
+try {
+    store = new Store('instant-preview');
+} catch (e) {
+    logError(e);
+}
 
 // eslint-disable-next-line arrow-parens
 export const getData = async <T>(key: DataKey) => {

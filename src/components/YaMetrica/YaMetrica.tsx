@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { YMInitializer } from 'react-yandex-metrika';
 import { getData, setData } from '../../utils/idb';
-import { reachOfflineGoal } from '../../utils/helpers';
+import { reachOfflineGoal } from '../../utils/metrics';
 
 export const YaMetrica = () => {
     useEffect(() => {
@@ -12,6 +12,7 @@ export const YaMetrica = () => {
                 .then((wasOffline) => {
                     if (wasOffline) {
                         reachOfflineGoal();
+                        setData('wasOffline', false);
                     }
                 });
         }

@@ -1,5 +1,4 @@
 import React from 'react';
-import ym from 'react-yandex-metrika';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { Field } from 'redux-form';
 import { Button } from '../../Button/Button';
@@ -7,6 +6,7 @@ import { Checkbox } from '../../Checkbox/Checkbox';
 import { Tooltip } from '../../Tooltip/Tooltip';
 import { saveElementToImage } from '../../../utils/helpers';
 import { logError } from '../../../utils/logger';
+import { reachDownloadGoal } from '../../../utils/metrics';
 
 interface FormButtonsProps extends WithTranslation {
     clearValues: () => void;
@@ -31,7 +31,7 @@ class FormButtonsView extends React.Component<FormButtonsProps, FormButtonsState
             hasError: false,
         });
 
-        ym('reachGoal', 'download');
+        reachDownloadGoal();
 
         const elementId = this.props.hideFrame
             ? 'wrapper'
