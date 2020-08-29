@@ -7,7 +7,7 @@ on:
   pull_request:
 
 env:
-  NODE_VERSION: 10.16.0
+  NODE_VERSION: 10.18.1
 
 jobs:
   build_and_publish:
@@ -24,7 +24,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn
 
       - name: Build and check size
         uses: andresz1/size-limit-action@v1.4.0
@@ -35,7 +35,7 @@ jobs:
 
       - name: Build and check size (manually)
         if: github.ref == 'refs/heads/master'
-        run: npm run size
+        run: yarn size
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
@@ -62,10 +62,10 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn
 
       - name: Linter
-        run: npm run lint
+        run: yarn lint
 
       - name: Unit tests
-        run: npm run unit
+        run: yarn unit
