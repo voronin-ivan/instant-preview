@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Build and check size
+        run: npm run size
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
