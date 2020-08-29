@@ -12,7 +12,8 @@
     "eslint": "eslint './**/*.{js,ts,tsx}'",
     "stylelint": "stylelint 'src/**/*.scss'",
     "test": "npm run lint && npm run unit",
-    "unit": "jest"
+    "unit": "jest",
+    "size": "npm run build && size-limit"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
   "devDependencies": {
     "@babel/core": "7.4.5",
     "@babel/preset-env": "7.4.5",
+    "@size-limit/preset-app": "4.5.7",
     "@types/classnames": "2.2.6",
     "@types/html2canvas": "0.0.35",
     "@types/react": "16.8.19",
@@ -74,6 +76,7 @@
     "postcss-css-variables": "0.13.0",
     "postcss-loader": "3.0.0",
     "sass-loader": "7.1.0",
+    "size-limit": "4.5.7",
     "stylelint": "13.6.1",
     "stylelint-config-standard": "18.2.0",
     "terser-webpack-plugin": "3.0.5",
@@ -100,5 +103,11 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node"
-  }
+  },
+  "size-limit": [
+    {
+      "path": "build/*.js",
+      "limit": "240 KB"
+    }
+  ]
 }
