@@ -1,6 +1,6 @@
 # Instant-Preview
 
-[![Maintainability](https://github.com/voronin-ivan/instant-preview/workflows/CI-CD/badge.svg)](https://codeclimate.com/github/voronin-ivan/instant-preview/maintainability) [![Maintainability](https://api.codeclimate.com/v1/badges/c660873893ed4756ad1d/maintainability)](https://codeclimate.com/github/voronin-ivan/instant-preview/maintainability)
+[![Maintainability](https://github.com/voronin-ivan/instant-preview/workflows/CI-CD/badge.svg)](https://github.com/voronin-ivan/instant-preview/actions) [![Maintainability](https://api.codeclimate.com/v1/badges/c660873893ed4756ad1d/maintainability)](https://codeclimate.com/github/voronin-ivan/instant-preview/maintainability)
 
 This PWA helps to preview instagram-profile with custom parameters (description, count of followers, etc.) in a few clicks.
 
