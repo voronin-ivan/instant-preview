@@ -3,7 +3,7 @@
   "version": "1.4.1",
   "description": "SPA for previewing instagram profile",
   "author": "Ivan Voronin",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "engineStrict": true,
   "engines": {
     "node": "10.18.1"
