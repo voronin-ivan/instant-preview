@@ -4,6 +4,10 @@
   "description": "SPA for previewing instagram profile",
   "author": "Ivan Voronin",
   "license": "Apache-2.0",
+  "engineStrict": true,
+  "engines": {
+    "node": "12.18.3"
+  },
   "scripts": {
     "start": "webpack-dev-server --open --config webpack/dev.js",
     "build": "NODE_ENV=production webpack --config webpack/prod.js",

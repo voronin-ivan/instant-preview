@@ -7,7 +7,7 @@ on:
   pull_request:
 
 env:
-  NODE_VERSION: 10.18.1
+  NODE_VERSION: 12.18.3
 
 jobs:
   build_and_publish:
