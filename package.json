@@ -11,13 +11,13 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack/dev.js",
     "build": "NODE_ENV=production webpack --config webpack/prod.js",
-    "analyzer": "ANALYZER=1 npm run build",
-    "lint": "npm run eslint && npm run stylelint",
+    "analyzer": "ANALYZER=1 yarn build",
+    "lint": "yarn eslint && yarn stylelint",
     "eslint": "eslint './**/*.{js,ts,tsx}'",
     "stylelint": "stylelint 'src/**/*.scss'",
-    "test": "npm run lint && npm run unit",
+    "test": "yarn lint && yarn unit",
     "unit": "jest",
-    "size": "npm run build && size-limit"
+    "size": "yarn build && size-limit"
   },
   "repository": {
     "type": "git",
