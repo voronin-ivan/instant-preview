@@ -15,7 +15,6 @@
     "lint": "yarn eslint && yarn stylelint",
     "eslint": "eslint './**/*.{js,ts,tsx}'",
     "stylelint": "stylelint 'src/**/*.scss'",
-    "test": "yarn lint && yarn unit",
     "unit": "jest",
     "size": "yarn build && size-limit",
     "e2e": "cypress run --headless --browser electron",
@@ -102,7 +101,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "yarn lint && yarn unit"
     }
   },
   "browserslist": [
