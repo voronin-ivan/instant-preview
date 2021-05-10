@@ -42,6 +42,12 @@ yarn build
 yarn unit
 ```
 
+#### Run e2e tests
+
+```sh
+yarn e2e:docker
+```
+
 #### Run size-limit (includes build)
 
 ```sh

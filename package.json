@@ -17,7 +17,9 @@
     "stylelint": "stylelint 'src/**/*.scss'",
     "test": "yarn lint && yarn unit",
     "unit": "jest",
-    "size": "yarn build && size-limit"
+    "size": "yarn build && size-limit",
+    "e2e": "cypress run --headless --browser electron",
+    "e2e:docker": "docker run -it --rm -v $PWD:/e2e -w /e2e instantpreview/cypress cypress"
   },
   "repository": {
     "type": "git",
@@ -48,8 +50,10 @@
   "devDependencies": {
     "@babel/core": "7.4.5",
     "@babel/preset-env": "7.4.5",
+    "@cypress/webpack-preprocessor": "5.7.0",
     "@size-limit/preset-app": "4.5.7",
     "@types/classnames": "2.2.6",
+    "@types/cypress-image-snapshot": "3.1.5",
     "@types/html2canvas": "0.0.35",
     "@types/react": "16.8.19",
     "@types/react-beautiful-dnd": "11.0.2",
@@ -65,6 +69,8 @@
     "compression-webpack-plugin": "4.0.0",
     "copy-webpack-plugin": "6.0.3",
     "css-loader": "1.0.0",
+    "cypress": "7.2.0",
+    "cypress-image-snapshot": "4.0.1",
     "eslint": "5.6.1",
     "eslint-config-airbnb": "17.1.0",
     "eslint-plugin-import": "2.14.0",
