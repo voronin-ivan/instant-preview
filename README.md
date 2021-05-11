@@ -2,7 +2,7 @@
 
 [![Maintainability](https://github.com/voronin-ivan/instant-preview/workflows/CI-CD/badge.svg)](https://github.com/voronin-ivan/instant-preview/actions) [![Maintainability](https://api.codeclimate.com/v1/badges/c660873893ed4756ad1d/maintainability)](https://codeclimate.com/github/voronin-ivan/instant-preview/maintainability)
 
-This PWA helps to preview instagram-profile with custom parameters (description, count of followers, etc.) in a few clicks.
+This PWA helps to preview an Instagram profile with custom parameters (description, count of followers, etc.) in a few clicks.
 
 Just add main information and upload photos. Feel free to swap posts and highlights until achieve the best visual combination. Download the result and present it to your clients or colleagues. Publish materials in the chosen order, update profile settings and draw inspiration from done work.
 <h3 align="center"><a href="https://instant-preview.com">www.instant-preview.com</a></h3>
@@ -42,7 +42,13 @@ yarn build
 yarn unit
 ```
 
-#### Run size-limit (includes build)
+#### Run e2e tests
+
+```sh
+yarn e2e:docker
+```
+
+#### Check size
 
 ```sh
 yarn size

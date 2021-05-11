@@ -4,16 +4,21 @@
   "description": "SPA for previewing instagram profile",
   "author": "Ivan Voronin",
   "license": "Apache-2.0",
+  "engineStrict": true,
+  "engines": {
+    "node": "12.18.3"
+  },
   "scripts": {
     "start": "webpack-dev-server --open --config webpack/dev.js",
     "build": "NODE_ENV=production webpack --config webpack/prod.js",
-    "analyzer": "ANALYZER=1 npm run build",
-    "lint": "npm run eslint && npm run stylelint",
+    "analyzer": "ANALYZER=1 yarn build",
+    "lint": "yarn eslint && yarn stylelint",
     "eslint": "eslint './**/*.{js,ts,tsx}'",
     "stylelint": "stylelint 'src/**/*.scss'",
-    "test": "npm run lint && npm run unit",
     "unit": "jest",
-    "size": "npm run build && size-limit"
+    "size": "size-limit",
+    "e2e": "cypress run --headless --browser electron",
+    "e2e:docker": "docker run -it --rm -v $PWD:/e2e -w /e2e instantpreview/cypress cypress"
   },
   "repository": {
     "type": "git",
@@ -44,8 +49,10 @@
   "devDependencies": {
     "@babel/core": "7.4.5",
     "@babel/preset-env": "7.4.5",
+    "@cypress/webpack-preprocessor": "5.7.0",
     "@size-limit/preset-app": "4.5.7",
     "@types/classnames": "2.2.6",
+    "@types/cypress-image-snapshot": "3.1.5",
     "@types/html2canvas": "0.0.35",
     "@types/react": "16.8.19",
     "@types/react-beautiful-dnd": "11.0.2",
@@ -61,10 +68,14 @@
     "compression-webpack-plugin": "4.0.0",
     "copy-webpack-plugin": "6.0.3",
     "css-loader": "1.0.0",
+    "cypress": "7.2.0",
+    "cypress-image-snapshot": "4.0.1",
     "eslint": "5.6.1",
     "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-cypress": "2.11.3",
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-no-only-tests": "2.6.0",
     "eslint-plugin-react": "7.11.1",
     "extract-text-webpack-plugin": "4.0.0-beta.0",
     "file-loader": "2.0.0",
@@ -92,7 +103,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "yarn lint && yarn unit"
     }
   },
   "browserslist": [
