@@ -48,7 +48,7 @@ yarn unit
 yarn e2e:docker
 ```
 
-#### Run size-limit (includes build)
+#### Check size
 
 ```sh
 yarn size
