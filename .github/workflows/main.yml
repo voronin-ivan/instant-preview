@@ -17,6 +17,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: c-hive/gha-yarn-cache@v1
 
       - name: Setup Node
         uses: actions/setup-node@v1
@@ -53,6 +54,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: c-hive/gha-yarn-cache@v1
 
       - name: Setup Node
         uses: actions/setup-node@v1
@@ -72,6 +74,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: c-hive/gha-yarn-cache@v1
 
       - name: Setup Node
         uses: actions/setup-node@v1
