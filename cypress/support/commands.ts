@@ -35,5 +35,6 @@ export const visitApp = () => {
     cy.visit(url);
 
     // dirty-hack bc of uncontrolled animation in react-toolbox
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy.wait(500);
 };

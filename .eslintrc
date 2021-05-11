@@ -5,7 +5,9 @@
     },
     "parser": "@typescript-eslint/parser",
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "no-only-tests",
+        "cypress"
     ],
     "rules": {
         "no-unused-vars": "off",
@@ -31,6 +33,12 @@
         "@typescript-eslint/no-unused-vars": 2,
         "import/no-extraneous-dependencies": ["error", {
             "devDependencies": ["webpack/**/*.js", "cypress/**/*.ts"]
-        }]
+        }],
+        "no-only-tests/no-only-tests": "error",
+        "cypress/no-assigning-return-values": "error",
+        "cypress/no-unnecessary-waiting": "error",
+        "cypress/assertion-before-screenshot": "error",
+        "cypress/no-force": "error",
+        "cypress/no-async-tests": "error"
     }
 }
