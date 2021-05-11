@@ -42,6 +42,7 @@ jobs:
         with:
           publish-dir: './build'
           production-branch: master
+          production-deploy: ${{ github.ref == 'refs/heads/main' }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           github-deployment-environment: Netlify
           deploy-message: ${{ github.event.pull_request.title }}
