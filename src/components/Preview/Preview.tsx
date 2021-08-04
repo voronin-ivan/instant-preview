@@ -31,6 +31,8 @@ export const Preview = ({ preview }: PreviewProps) => {
         posts,
         hideFrame,
         hideInfo,
+        hasIgtv,
+        hasReels,
         ...info
     } = preview;
 
@@ -62,6 +64,8 @@ export const Preview = ({ preview }: PreviewProps) => {
                     posts={posts}
                     postsCount={Number(postsCount)}
                     hideInfo={hideInfo}
+                    hasIgtv={hasIgtv}
+                    hasReels={hasReels}
                 />
                 <img
                     alt=""

@@ -50,5 +50,7 @@ export const ru: ResourceLanguage = {
         featurePlatforms: 'Доступность на всех устройствах',
         offlineVideo: 'Вы не подключены к интернету, видео недоступно',
         offlineDownloading: 'Вы не подключены к интернету, скачивание недоступно',
+        igtv: 'IGTV',
+        reels: 'Reels',
     },
 };

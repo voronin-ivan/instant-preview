@@ -19,4 +19,6 @@ export interface PreviewModel {
     stories?: UploadedFileModel[];
     hideFrame?: boolean;
     hideInfo?: boolean;
+    hasIgtv?: boolean;
+    hasReels?: boolean;
 }

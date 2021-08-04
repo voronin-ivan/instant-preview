@@ -4,13 +4,18 @@ import { useTranslation } from 'react-i18next';
 import { UploadedFileModel } from '../../../models/file';
 import { fileToUrl } from '../../../utils/helpers';
 
-import '../assets/posts-icons.png';
+import '../assets/posts-icon-photos.png';
+import '../assets/posts-icon-reels.png';
+import '../assets/posts-icon-igtv.png';
+import '../assets/posts-icon-tagged.png';
 import '../assets/posts-empty.png';
 
 interface PreviewPostsProps {
     posts: UploadedFileModel[];
     postsCount: number;
     hideInfo: boolean;
+    hasReels?: boolean;
+    hasIgtv?: boolean;
 }
 
 const renderPostsElements = (posts: UploadedFileModel[]): JSX.Element[] => (
@@ -30,7 +35,46 @@ const renderPostsElements = (posts: UploadedFileModel[]): JSX.Element[] => (
     }, [])
 );
 
-export const PreviewPosts = ({ posts = [], postsCount, hideInfo }: PreviewPostsProps) => {
+const renderIcons = (hasReels?: boolean, hasIgtv?: boolean) => (
+    <div className="preview__posts-icons">
+        <div className="preview__posts-icon preview__posts-icon--active">
+            <img
+                alt=""
+                src="./img/posts-icon-photos.png"
+            />
+        </div>
+        {hasReels && (
+            <div className="preview__posts-icon">
+                <img
+                    alt=""
+                    src="./img/posts-icon-reels.png"
+                />
+            </div>
+        )}
+        {hasIgtv && (
+            <div className="preview__posts-icon">
+                <img
+                    alt=""
+                    src="./img/posts-icon-igtv.png"
+                />
+            </div>
+        )}
+        <div className="preview__posts-icon">
+            <img
+                alt=""
+                src="./img/posts-icon-tagged.png"
+            />
+        </div>
+    </div>
+);
+
+export const PreviewPosts = ({
+    posts = [],
+    postsCount,
+    hideInfo,
+    hasReels,
+    hasIgtv,
+}: PreviewPostsProps) => {
     const postsElements = renderPostsElements(posts);
     const { t } = useTranslation();
 
@@ -67,13 +111,7 @@ export const PreviewPosts = ({ posts = [], postsCount, hideInfo }: PreviewPostsP
                     </div>
                 ) : (
                     <React.Fragment>
-                        {!hideInfo && (
-                            <img
-                                alt=""
-                                src="./img/posts-icons.png"
-                                className="preview__posts-icons"
-                            />
-                        )}
+                        {!hideInfo && renderIcons(hasReels, hasIgtv)}
                         {postsElements}
                     </React.Fragment>
                 )

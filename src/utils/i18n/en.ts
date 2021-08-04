@@ -50,5 +50,7 @@ export const en: ResourceLanguage = {
         featurePlatforms: 'Use on different\ndevices',
         offlineVideo: 'You are not connected to the internet, the video isn\'t available',
         offlineDownloading: 'You are not connected to the internet, downloading isn\'t available',
+        igtv: 'IGTV',
+        reels: 'Reels',
     },
 };

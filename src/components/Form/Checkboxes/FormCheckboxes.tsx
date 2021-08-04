@@ -36,6 +36,20 @@ export const FormCheckboxes = () => {
                     label={t('showPhone')}
                 />
             </div>
+            <div className="form__checkbox">
+                <Field
+                    name="hasReels"
+                    component={Checkbox}
+                    label={t('reels')}
+                />
+            </div>
+            <div className="form__checkbox">
+                <Field
+                    name="hasIgtv"
+                    component={Checkbox}
+                    label={t('igtv')}
+                />
+            </div>
         </div>
     );
 };
