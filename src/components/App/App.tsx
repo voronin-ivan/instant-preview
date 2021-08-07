@@ -8,7 +8,7 @@ import { Features } from '../Features/Features';
 import { Editor } from '../Editor/Editor';
 import { setOnlineMode } from '../../redux/actions/onlineMode';
 import { reachOfflineGoal, reachAppInstalledGoal, reachInstallPromptGoal } from '../../utils/metrics';
-import { setData } from '../../utils/idb';
+import { setData, getData } from '../../utils/idb';
 
 import './App.scss';
 
@@ -42,6 +42,18 @@ export const App = () => {
                 reachInstallPromptGoal(outcome);
             });
         });
+
+        if (navigator.onLine) {
+            getData<boolean>('wasOffline')
+                .then((wasOffline) => {
+                    if (wasOffline) {
+                        reachOfflineGoal();
+                        setData('wasOffline', false);
+                    }
+                });
+        } else {
+            setData('wasOffline', true);
+        }
     }, []);
 
     return (
