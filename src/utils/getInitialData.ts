@@ -4,7 +4,7 @@ import { LANG } from '../models/lang';
 import { PreviewModel } from '../models/preview';
 
 const initialData: IdbData = {
-    lang: LANG.EN,
+    lang: navigator.language === 'ru' ? LANG.RU : LANG.EN,
     initialValues: {},
 };
 
